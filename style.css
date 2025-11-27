@@ -27,8 +27,33 @@ header {
     transform: scale(1.05);
 }
 
-h1 {
+header h1 {
     margin: 0 0 10px;
+    background: linear-gradient(135deg, #ff74a4, #ff4d88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.dark header h1 {
+    background: linear-gradient(135deg, #ff007a, #b3005a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Name, College, Year gradient */
+.gradient-text {
+    background: linear-gradient(135deg, #ff74a4, #ff4d88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin: 5px 0;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.dark .gradient-text {
+    background: linear-gradient(135deg, #ff007a, #b3005a);
 }
 
 h2 {
@@ -70,6 +95,8 @@ button {
 
 button:hover {
     transform: scale(1.05);
+    background: linear-gradient(135deg, #ff4d88, #ff74a4);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .achievement-img, .project-img {
@@ -85,6 +112,7 @@ button:hover {
     transform: scale(1.05);
 }
 
+
 body.dark {
     background: linear-gradient(135deg, #2b0013, #4b0021, #6f0033);
     color: #ffe3ec;
@@ -96,28 +124,6 @@ body.dark section {
 
 body.dark button {
     background: linear-gradient(135deg, #b3005a, #ff007a);
-}
-
-.gradient-text {
-    background: linear-gradient(135deg, #ff74a4, #ff4d88);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    transition: background 0.5s ease, color 0.5s ease;
-}
-
-body.dark .gradient-text {
-    background: linear-gradient(135deg, #ff007a, #b3005a);
-}
-
-header h1 {
-    background: linear-gradient(135deg, #ff74a4, #ff4d88);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-body.dark header h1 {
-    background: linear-gradient(135deg, #ff007a, #b3005a);
 }
 
 
