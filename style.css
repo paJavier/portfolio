@@ -338,6 +338,13 @@ body.dark .achievement-img {
     box-shadow: 0 0 15px rgba(255,77,136,0.7), 0 4px 10px rgba(0,0,0,0.2);
 }
 
+.project-gallery.jupiter img {
+    width: auto;
+    height: 200px;   
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 #projects li {
     background: rgba(255, 255, 255, 0.25);
     padding: 20px;
