@@ -272,6 +272,12 @@ body.dark .social-links .social-btn:hover {
     list-style: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
 }
 
 #achievements li:hover {
@@ -295,14 +301,10 @@ body.dark #achievements li:hover {
 
 #achievements .achievement-img {
     width: 100%;
-    max-width: 500px;        
+    max-width: 600px;
     height: auto;
-    display: block;
-    margin: 15px auto 0;
-    border-radius: 10px;
-    object-fit: contain;     
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: contain;
+    border-radius: 0;   
 }
 
 #achievements .achievement-img:hover {
