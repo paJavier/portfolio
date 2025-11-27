@@ -29,31 +29,33 @@ header {
 
 header h1 {
     margin: 0 0 10px;
-    background: linear-gradient(135deg, #ff74a4, #ff4d88);
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff74a4, #ff4d88); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: bold;
     transition: background 0.5s ease, color 0.5s ease;
 }
 
+/* Dark mode header title */
 body.dark header h1 {
-    background: linear-gradient(135deg, #ff007a, #b3005a);
+    background: linear-gradient(135deg, #ff007a, #b3005a); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Name, College, Year gradient */
 .gradient-text {
-    background: linear-gradient(135deg, #ff74a4, #ff4d88);
+    margin: 5px 0;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff74a4, #ff4d88); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    margin: 5px 0;
     transition: background 0.5s ease, color 0.5s ease;
 }
 
 body.dark .gradient-text {
     background: linear-gradient(135deg, #ff007a, #b3005a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 h2 {
@@ -112,7 +114,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-
 .project-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -133,20 +134,11 @@ button:hover {
     transform: scale(1.05);
 }
 
-
 #projects li p {
     max-width: 700px;
     margin: 10px auto 15px;
     color: #4a2c33;
     line-height: 1.5;
-}
-
-body.dark .project-gallery .project-img {
-    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
-}
-
-body.dark #projects li p {
-    color: #ffe3ec;
 }
 
 
@@ -161,6 +153,14 @@ body.dark section {
 
 body.dark button {
     background: linear-gradient(135deg, #b3005a, #ff007a);
+}
+
+body.dark .project-gallery .project-img {
+    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+}
+
+body.dark #projects li p {
+    color: #ffe3ec;
 }
 
 
