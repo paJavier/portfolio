@@ -10,50 +10,52 @@ body {
 }
 
 
+/* Navbar */
 .navbar {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 0 auto 25px;
     padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: background 0.3s ease;
 }
 
 .navbar ul {
     list-style: none;
-    display: flex;
-    gap: 25px;
+    display: flex;    
+    justify-content: center; 
     margin: 0;
     padding: 0;
+    gap: 25px; 
 }
 
-.navbar li a {
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
     text-decoration: none;
     color: #4a2c33;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.navbar li a:hover {
+.navbar a:hover {
     color: #ff4d88;
 }
 
-
+/* Dark mode */
 body.dark .navbar {
-    background: rgba(0,0,0,0.5);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-body.dark .navbar li a {
+body.dark .navbar a {
     color: #ffe3ec;
 }
 
-body.dark .navbar li a:hover {
-    color: #ff007a;
+body.dark .navbar a:hover {
+    color: #ff74a4;
 }
-
 
 header {
     text-align: center;
