@@ -9,7 +9,10 @@ body {
     scroll-behavior: smooth; 
 }
 
-
+body.dark {
+    background: linear-gradient(135deg, #2b0013, #4b0021, #6f0033);
+    color: #ffe3ec;
+}
 
 .navbar {
     background: rgba(255, 255, 255, 0.35);
@@ -18,6 +21,7 @@ body {
     max-width: 700px;
     margin: 0 auto 25px;
     padding: 10px 20px;
+    transition: background 0.5s ease;
 }
 
 .navbar ul {
@@ -27,10 +31,6 @@ body {
     margin: 0;
     padding: 0;
     gap: 25px; 
-}
-
-.navbar li {
-    margin: 0;
 }
 
 .navbar a {
@@ -44,7 +44,6 @@ body {
     color: #ff4d88;
 }
 
-/* Dark mode */
 body.dark .navbar {
     background: rgba(255, 255, 255, 0.12);
 }
@@ -69,11 +68,12 @@ header {
     object-fit: cover;     
     margin: 0 auto 15px;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #profile-img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,77,136,0.7);
 }
 
 header h1 {
@@ -82,16 +82,12 @@ header h1 {
     background: linear-gradient(135deg, #ff74a4, #ff4d88); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: background 0.5s ease, color 0.5s ease;
+    transition: background 0.5s ease;
 }
-
 
 body.dark header h1 {
     background: linear-gradient(135deg, #ff007a, #b3005a); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
-
 
 .gradient-text {
     margin: 5px 0;
@@ -99,19 +95,11 @@ body.dark header h1 {
     background: linear-gradient(135deg, #ff74a4, #ff4d88); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: background 0.5s ease, color 0.5s ease;
+    transition: background 0.5s ease;
 }
 
 body.dark .gradient-text {
     background: linear-gradient(135deg, #ff007a, #b3005a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-h2 {
-    margin: 0 0 20px;
-    font-weight: normal;
-    color: #7a4a55;
 }
 
 section {
@@ -121,7 +109,17 @@ section {
     background: rgba(255, 255, 255, 0.35);
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: background 0.5s ease, color 0.5s ease;
+    transition: background 0.5s ease, color 0.5s ease, transform 0.3s ease;
+}
+
+body.dark section {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-weight: normal;
+    color: #7a4a55;
 }
 
 ul {
@@ -151,44 +149,8 @@ button:hover {
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-.achievement-img, .project-img {
-    width: 100%;
-    max-width: 320px;
-    border-radius: 10px;
-    margin: 15px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-.achievement-img:hover, .project-img:hover {
-    transform: scale(1.05);
-}
-
-.project-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-}
-
-.project-gallery .project-img {
-    max-width: 250px;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-.project-gallery .project-img:hover {
-    transform: scale(1.05);
-}
-
-#projects li p {
-    max-width: 700px;
-    margin: 10px auto 15px;
-    color: #4a2c33;
-    line-height: 1.5;
+body.dark button {
+    background: linear-gradient(135deg, #b3005a, #ff007a);
 }
 
 .about-container {
@@ -205,11 +167,12 @@ button:hover {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-container .about-img img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,77,136,0.7);
 }
 
 .about-container .about-text {
@@ -241,12 +204,13 @@ body.dark .about-container .about-text {
     border-radius: 50%;
     font-size: 1.5rem;
     text-decoration: none;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-links .social-btn:hover {
     transform: scale(1.1);
     background: linear-gradient(135deg, #ff4d88, #ff74a4);
+    box-shadow: 0 0 12px rgba(255,77,136,0.7);
 }
 
 body.dark .social-links .social-btn {
@@ -255,27 +219,66 @@ body.dark .social-links .social-btn {
 
 body.dark .social-links .social-btn:hover {
     background: linear-gradient(135deg, #ff007a, #b3005a);
+    box-shadow: 0 0 12px rgba(255,0,122,0.7);
 }
 
-body.dark .project-gallery .project-img {
-    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+.achievement-img, .project-img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 10px;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-img:hover, .project-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,77,136,0.7), 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.project-gallery .project-img {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+}
+
+#projects li {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+#projects li:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px 4px rgba(255,77,136,0.7), 0 12px 20px rgba(0,0,0,0.25);
+}
+
+body.dark #projects li {
+    background: rgba(255,255,255,0.08);
+}
+
+body.dark #projects li:hover {
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 20px 4px rgba(255,0,122,0.7), 0 12px 20px rgba(255,255,255,0.15);
+}
+
+#projects li p {
+    max-width: 700px;
+    margin: 10px auto 15px;
+    color: #4a2c33;
 }
 
 body.dark #projects li p {
     color: #ffe3ec;
-}
-
-body.dark {
-    background: linear-gradient(135deg, #2b0013, #4b0021, #6f0033);
-    color: #ffe3ec;
-}
-
-body.dark section {
-    background: rgba(255, 255, 255, 0.12);
-}
-
-body.dark button {
-    background: linear-gradient(135deg, #b3005a, #ff007a);
 }
 
 @media (max-width: 768px) {
@@ -287,21 +290,9 @@ body.dark button {
     .about-container { flex-direction: column; text-align: center; }
     .about-container .about-img img { width: 150px; height: 150px; }
 
-    .navbar ul {
-        flex-direction: column; 
-        gap: 10px;
-        align-items: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    .social-links .social-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
-    }    
+    .navbar ul { flex-direction: column; gap: 10px; align-items: center; }
+    .social-links { justify-content: center; }
+    .social-links .social-btn { width: 45px; height: 45px; font-size: 1.3rem; }    
 }
 
 @media (max-width: 480px) {
@@ -310,9 +301,5 @@ body.dark button {
     button { width: 90%; font-size: 0.9rem; padding: 8px 10px; margin-top: 15px; }
     section { padding: 15px; margin: 15px auto; }
     .about-container .about-img img { width: 120px; height: 120px; }
-    .social-links .social-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }    
+    .social-links .social-btn { width: 40px; height: 40px; font-size: 1.1rem; }    
 }
