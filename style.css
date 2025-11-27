@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe3ec, #ffc2d4, #ff9ebe);
+    color: #4a2c33;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#profile-img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(135deg, #ff74a4, #ff4d88);
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+body.dark {
+    background: linear-gradient(135deg, #2b0013, #4b0021, #6f0033);
+    color: #ffe3ec;
+}
+
+body.dark button {
+    background: linear-gradient(135deg, #b3005a, #ff007a);
+    color: white;
+}
+
