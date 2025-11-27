@@ -7,48 +7,77 @@
       <link rel="stylesheet" href="style.css">
    </head>
    <body>
-       <header>
-           <h1>Student Profile</h1>
-           <img src="profile.JPG" alt="Profile Picture" id="profile-img">
-            <p class="gradient-text">Psyryll Andre Javier</p>
-            <p class="gradient-text">Mapua Malayan Colleges Mindanao</p>
-            <p class="gradient-text">Computer Science - Year 2</p>
-           <button id="theme-toggle">Switch Theme</button>
-       </header>
-         
-      <section id="achievements">
-       <h2>Achievements/Certifications</h2>
-       <ul>
-           <li>
-               ITS Certified
-               <br>
-               <img src="certificate.jpg" alt="ITS Certificate" class="achievement-img">
-           </li>
-       </ul>
-      </section>
-      
-      <section id="projects">
-          <h2>Previous Projects</h2>
-          <ul>
-              <li>
-                  BuzzLock – A secure password management system
-                  <div class="project-gallery">
-                      <img src="project.png" alt="BuzzLock Project" class="project-img">
-                      <img src="project1.png" alt="BuzzLock Project" class="project-img"> 
-                  </div>
-              </li>
-             
-              <li>
-                  URL Tokenizer – Parses and validates URLs
-                  <p>Reads user input and breaks URLs into protocol, domain (subdomain, hostname, TLD, country code), path, query, and fragment. Validates each token using regex and prints the classification. Shows an error if invalid, otherwise confirms URL is valid.</p>
-                  <div class="project-gallery">
-                      <img src="urltokenizer1.png" alt="URL Tokenizer Screenshot 1" class="project-img">
-                      <img src="urltokenizer2.png" alt="URL Tokenizer Screenshot 2" class="project-img">
-                  </div>
-              </li>
-          </ul>
-      </section>
-      
-      <script src="script.js"></script>
+
+       <nav class="navbar">
+           <ul>
+               <li><a href="#home">Home</a></li>
+               <li><a href="#about">About Me</a></li>
+               <li><a href="#achievements">Achievements</a></li>
+               <li><a href="#projects">Projects</a></li>
+           </ul>
+       </nav>
+
+  
+       <section id="home">
+           <header>
+               <h1>Student Profile</h1>
+               <img src="profile.JPG" alt="Profile Picture" id="profile-img">
+               <p class="gradient-text">Psyryll Andre Javier</p>
+               <p class="gradient-text">Mapua Malayan Colleges Mindanao</p>
+               <p class="gradient-text">Computer Science - Year 2</p>
+               <button id="theme-toggle">Switch Theme</button>
+           </header>
+       </section>
+
+ 
+       <section id="about">
+           <h2>About Me</h2>
+           <div class="about-container">
+               <div class="about-img">
+                   <img src="profile.JPG" alt="Profile Picture">
+               </div>
+               <div class="about-text">
+                   <p>Hello! I'm Psyryll Andre Javier, a passionate Computer Science student at Mapua Malayan Colleges Mindanao. I love exploring programming, building projects, and learning new technologies. This portfolio showcases my achievements and projects so far.</p>
+                   <p>I am focused on web development, software engineering, and problem-solving through creative programming solutions. I enjoy working on real-world projects and continuously expanding my skills.</p>
+               </div>
+           </div>
+       </section>
+
+
+       <section id="achievements">
+           <h2>Achievements/Certifications</h2>
+           <ul>
+               <li>
+                   ITS Certified
+                   <br>
+                   <img src="certificate.jpg" alt="ITS Certificate" class="achievement-img">
+               </li>
+           </ul>
+       </section>
+
+   
+       <section id="projects">
+           <h2>Previous Projects</h2>
+           <ul>
+               <li>
+                   BuzzLock – A secure password management system
+                   <div class="project-gallery">
+                       <img src="project.png" alt="BuzzLock Project" class="project-img">
+                       <img src="project1.png" alt="BuzzLock Project" class="project-img"> 
+                   </div>
+               </li>
+
+               <li>
+                   URL Tokenizer – Parses and validates URLs
+                   <p>Reads user input and breaks URLs into protocol, domain (subdomain, hostname, TLD, country code), path, query, and fragment. Validates each token using regex and prints the classification. Shows an error if invalid, otherwise confirms URL is valid.</p>
+                   <div class="project-gallery">
+                       <img src="urltokenizer1.png" alt="URL Tokenizer Screenshot 1" class="project-img">
+                       <img src="urltokenizer2.png" alt="URL Tokenizer Screenshot 2" class="project-img">
+                   </div>
+               </li>
+           </ul>
+       </section>
+
+       <script src="script.js"></script>
    </body>
 </html>
