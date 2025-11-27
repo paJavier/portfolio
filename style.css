@@ -13,12 +13,18 @@ header {
 }
 
 #profile-img {
-	width: 150px;
-	border-radius: 50%;
+    width: 120px;           
+    height: 120px;          
+    border-radius: 50%;
+    object-fit: cover;     
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
 
 #profile-img:hover {
     transform: scale(1.05);
 }
+
 
 h1, h2 {
     margin: 10px 0;
@@ -112,23 +118,20 @@ body.dark header h1 {
 
 
 
+
 @media (max-width: 768px) {
     header h1 {
-        font-size: 1.8rem;
-    }
-
-    #course-year {
-        font-size: 1rem;
+        font-size: 1.6rem; 
     }
 
     #profile-img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;  
     }
 
     button {
         width: 80%;
-        padding: 12px;
+        padding: 10px 15px;
         font-size: 1rem;
     }
 
@@ -141,18 +144,25 @@ body.dark header h1 {
     }
 }
 
+
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem; 
     }
 
     #profile-img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 
     button {
+        width: 90%;
         font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    section {
         padding: 10px;
     }
 }
+
