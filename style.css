@@ -92,6 +92,19 @@ body.dark button {
     color: white;
 }
 
+.gradient-text {
+    background: linear-gradient(135deg, #ff74a4, #ff4d88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.dark .gradient-text {
+    background: linear-gradient(135deg, #ff007a, #b3005a);
+}
+
+
 
 @media (max-width: 768px) {
     header h1 {
