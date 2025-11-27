@@ -10,14 +10,14 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 35px; 
+    margin-bottom: 35px;
 }
 
 #profile-img {
-    width: 110px;
-    height: 110px;
+    width: 110px;           
+    height: 110px;          
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: cover;     
     margin: 0 auto 15px;
     display: block;
     transition: transform 0.3s ease;
@@ -84,7 +84,6 @@ button:hover {
 .achievement-img:hover, .project-img:hover {
     transform: scale(1.05);
 }
-
 
 body.dark {
     background: linear-gradient(135deg, #2b0013, #4b0021, #6f0033);
