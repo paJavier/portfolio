@@ -4,6 +4,7 @@ body {
     color: #4a2c33;
     margin: 0;
     padding: 20px;
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
 header {
@@ -13,7 +14,38 @@ header {
 
 #profile-img {
     width: 150px;
+    height: 150px;
     border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+#profile-img:hover {
+    transform: scale(1.05);
+}
+
+h1, h2 {
+    margin: 10px 0;
+}
+
+section {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+li {
+    margin: 10px 0;
 }
 
 button {
@@ -25,16 +57,34 @@ button {
     color: white;
     border-radius: 25px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 button:hover {
     transform: scale(1.05);
 }
 
+.achievement-img, .project-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.achievement-img:hover, .project-img:hover {
+    transform: scale(1.05);
+}
+
+
 body.dark {
     background: linear-gradient(135deg, #2b0013, #4b0021, #6f0033);
     color: #ffe3ec;
+}
+
+body.dark section {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 body.dark button {
@@ -42,3 +92,48 @@ body.dark button {
     color: white;
 }
 
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #course-year {
+        font-size: 1rem;
+    }
+
+    #profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    button {
+        width: 80%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .achievement-img, .project-img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    #profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
