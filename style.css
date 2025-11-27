@@ -257,6 +257,34 @@ body.dark .social-links .social-btn:hover {
     box-shadow: 0 0 15px rgba(255,0,122,0.8);
 }
 
+#achievements li {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, 
+                box-shadow 0.3s ease, 
+                background 0.3s ease;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+#achievements li:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px 4px rgba(255,77,136,0.7),
+                0 12px 20px rgba(0,0,0,0.25);
+}
+
+body.dark #achievements li {
+    background: rgba(255,255,255,0.08);
+}
+
+body.dark #achievements li:hover {
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 20px 4px rgba(255,0,122,0.7),
+                0 12px 20px rgba(255,255,255,0.15);
+}
+
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
