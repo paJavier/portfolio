@@ -84,8 +84,8 @@ header {
 }
 
 #profile-img {
-    width: 140px;           
-    height: 140px;          
+    width: 160px;           
+    height: 160px;          
     border-radius: 50%;
     object-fit: cover;     
     margin: 0 auto 15px;
@@ -319,19 +319,17 @@ body.dark .achievement-img {
 }
 
 .project-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
 }
 
 .project-gallery .project-img {
+    max-width: 400px;
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    object-fit: cover;
 }
 
 .project-gallery .project-img:hover {
