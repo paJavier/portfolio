@@ -200,8 +200,8 @@ button:hover {
 }
 
 .about-container .about-img img {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -252,7 +252,12 @@ body.dark button {
     .achievement-img, .project-img { max-width: 100%; }
     .about-container { flex-direction: column; text-align: center; }
     .about-container .about-img img { width: 150px; height: 150px; }
-    .navbar ul { flex-direction: column; gap: 10px; align-items: center; }
+
+    .navbar ul {
+        flex-direction: column; 
+        gap: 10px;
+        align-items: center;
+    }
 }
 
 @media (max-width: 480px) {
