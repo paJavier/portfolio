@@ -6,7 +6,54 @@ body {
     padding: 20px;
     line-height: 1.6; 
     transition: background 0.5s ease, color 0.5s ease;
+    scroll-behavior: smooth; 
 }
+
+
+.navbar {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #4a2c33;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar li a:hover {
+    color: #ff4d88;
+}
+
+
+body.dark .navbar {
+    background: rgba(0,0,0,0.5);
+}
+
+body.dark .navbar li a {
+    color: #ffe3ec;
+}
+
+body.dark .navbar li a:hover {
+    color: #ff007a;
+}
+
 
 header {
     text-align: center;
@@ -36,12 +83,13 @@ header h1 {
     transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Dark mode header title */
+
 body.dark header h1 {
     background: linear-gradient(135deg, #ff007a, #b3005a); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 .gradient-text {
     margin: 5px 0;
@@ -141,6 +189,45 @@ button:hover {
     line-height: 1.5;
 }
 
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-container .about-img img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.about-container .about-img img:hover {
+    transform: scale(1.05);
+}
+
+.about-container .about-text {
+    max-width: 500px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4a2c33;
+}
+
+body.dark .about-container .about-text {
+    color: #ffe3ec;
+}
+
+body.dark .project-gallery .project-img {
+    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+}
+
+body.dark #projects li p {
+    color: #ffe3ec;
+}
 
 body.dark {
     background: linear-gradient(135deg, #2b0013, #4b0021, #6f0033);
@@ -155,21 +242,15 @@ body.dark button {
     background: linear-gradient(135deg, #b3005a, #ff007a);
 }
 
-body.dark .project-gallery .project-img {
-    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
-}
-
-body.dark #projects li p {
-    color: #ffe3ec;
-}
-
-
 @media (max-width: 768px) {
     header h1 { font-size: 1.6rem; }
     #profile-img { width: 90px; height: 90px; }
     button { width: 80%; padding: 10px 15px; font-size: 1rem; }
     section { padding: 20px; margin: 20px auto; }
     .achievement-img, .project-img { max-width: 100%; }
+    .about-container { flex-direction: column; text-align: center; }
+    .about-container .about-img img { width: 150px; height: 150px; }
+    .navbar ul { flex-direction: column; gap: 10px; align-items: center; }
 }
 
 @media (max-width: 480px) {
@@ -177,4 +258,5 @@ body.dark #projects li p {
     #profile-img { width: 70px; height: 70px; }
     button { width: 90%; font-size: 0.9rem; padding: 8px 10px; margin-top: 15px; }
     section { padding: 15px; margin: 15px auto; }
+    .about-container .about-img img { width: 120px; height: 120px; }
 }
