@@ -338,9 +338,9 @@ body.dark .achievement-img {
 }
 
 .project-gallery.jupiter img {
-    width: auto;
-    height: 200px;   
-    object-fit: cover;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     border-radius: 10px;
 }
 
