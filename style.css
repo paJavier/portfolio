@@ -13,11 +13,42 @@ body {
     background: #ffffff;
     color: #333;
     transition: all 0.4s ease;
+    position: relative;
+    z-index: 0;
 }
 
 /* Headers */
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
+}
+
+/* ===================== TECH CIRCUIT BACKGROUND ===================== */
+.circuit-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: #fff;
+}
+
+.circuit-bg::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background-image: repeating-linear-gradient(90deg, #fa61f0 0 1px, transparent 1px 20px),
+                      repeating-linear-gradient(0deg, #fa61f0 0 1px, transparent 1px 20px);
+    opacity: 0.05;
+    animation: circuitMove 20s linear infinite;
+}
+
+@keyframes circuitMove {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-50%, -50%); }
 }
 
 /* ===================== NAVBAR ===================== */
@@ -32,7 +63,7 @@ h1, h2, h3 {
     background: rgba(247, 169, 182, 0.35);
     backdrop-filter: blur(12px);
     border-radius: 0 0 25px 25px;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .nav-left { display: flex; }
@@ -52,11 +83,10 @@ h1, h2, h3 {
     font-weight: 700;
     font-size: 1.25rem;
     transition: 0.3s;
+    z-index: 11;
 }
 
-.nav-links a:hover {
-    color: #943474;
-}
+.nav-links a:hover { color: #943474; }
 
 /* ===================== HAMBURGER ===================== */
 .hamburger {
@@ -64,7 +94,7 @@ h1, h2, h3 {
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-    z-index: 1100;
+    z-index: 11;
 }
 
 .hamburger span {
@@ -78,9 +108,7 @@ h1, h2, h3 {
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(8px, 8px);
 }
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
+.hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(8px, -8px);
 }
@@ -95,11 +123,10 @@ h1, h2, h3 {
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 11;
 }
 
-#theme-toggle:hover {
-    transform: scale(1.05);
-}
+#theme-toggle:hover { transform: scale(1.05); }
 
 /* ===================== DARK MODE ===================== */
 body.dark-mode {
@@ -107,53 +134,26 @@ body.dark-mode {
     color: #ffd6e9;
 }
 
-body.dark-mode .navbar {
-    background: rgba(90, 0, 70, 0.45);
-}
-
-body.dark-mode .nav-links a {
-    color: #ffc5ef;
-}
-body.dark-mode .nav-links a:hover {
-    color: #ff78d1;
-}
-
-body.dark-mode #theme-toggle {
-    background: #ff78d1;
-}
-
-body.dark-mode .container {
-    background: rgba(120, 0, 95, 0.40);
-}
-
-body.dark-mode .cert-card,
-body.dark-mode .project-card {
+body.dark-mode .navbar { background: rgba(90, 0, 70, 0.45); }
+body.dark-mode .nav-links a { color: #ffc5ef; }
+body.dark-mode .nav-links a:hover { color: #ff78d1; }
+body.dark-mode #theme-toggle { background: #ff78d1; }
+body.dark-mode .container { background: rgba(120, 0, 95, 0.40); }
+body.dark-mode .cert-card, body.dark-mode .project-card {
     background: rgba(120, 0, 95, 0.45);
     border-color: #ff78d1;
 }
-
 body.dark-mode .skill-list span {
     background: rgba(255,120,209,0.35);
     color: #ffd6e9;
 }
-
 body.dark-mode .skill-list span:hover {
     background: #ff78d1;
     color: #fff;
 }
 
-body.dark-mode .nav-center.active {
-    background: rgba(120, 0, 95, 0.95);
-}
-
 /* ===================== SECTIONS ===================== */
-section {
-    min-height: 100vh;
-    padding: 90px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+section { min-height: 100vh; padding: 90px 20px; display: flex; justify-content: center; align-items: center; }
 
 /* ===================== CONTAINER ===================== */
 .container {
@@ -165,9 +165,11 @@ section {
     backdrop-filter: blur(14px);
     text-align: center;
     transition: 0.4s;
+    position: relative;
+    z-index: 1;
 }
 
-/* ===================== HEADERS ===================== */
+/* ===================== HEADINGS ===================== */
 h1.header-title {
     font-size: 3rem;
     font-weight: 900;
@@ -178,6 +180,11 @@ h1.header-title {
     margin-bottom: 20px;
 }
 
+@keyframes gradientShift {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
 section h2 {
     font-size: 3rem;
     margin-bottom: 40px;
@@ -186,11 +193,6 @@ section h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 5s linear infinite;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0%; }
-    100% { background-position: 200%; }
 }
 
 /* ===================== PROFILE TEXT ===================== */
@@ -209,25 +211,11 @@ section h2 {
 }
 
 /* ===================== PROFILE IMAGE ===================== */
-#profile-img {
-    width: 250px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    transition: 0.4s ease;
-}
-#profile-img:hover {
-    transform: scale(1.15);
-}
+#profile-img { width: 250px; border-radius: 50%; margin-bottom: 20px; transition: 0.4s ease; }
+#profile-img:hover { transform: scale(1.15); }
 
 /* ===================== SKILLS BUBBLES ===================== */
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
+.skill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
 .skill-list span {
     display: inline-block;
     padding: 10px 20px;
@@ -239,13 +227,11 @@ section h2 {
     transition: 0.3s;
     animation: bubbleGlow 3s infinite alternate;
 }
-
 .skill-list span:hover {
     background: #fa61f0;
     color: #fff;
     transform: scale(1.1);
 }
-
 @keyframes bubbleGlow {
     0% { box-shadow: 0 0 10px rgba(250,97,240,0.3); }
     50% { box-shadow: 0 0 25px rgba(250,97,240,0.5); }
@@ -254,11 +240,7 @@ section h2 {
 
 /* ===================== GRID LAYOUT ===================== */
 .cert-grid,
-.project-grid {
-    display: grid;
-    gap: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-}
+.project-grid { display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
 
 /* ===================== CARDS ===================== */
 .cert-card,
@@ -270,47 +252,19 @@ section h2 {
     transition: 0.4s;
     box-shadow: 0 8px 25px rgba(250,97,240,0.3);
 }
-
 .cert-card img,
-.project-card img {
-    width: 100%;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
+.project-card img { width: 100%; border-radius: 20px; margin-bottom: 20px; }
 .cert-card:hover,
-.project-card:hover {
-    transform: scale(1.05);
-}
+.project-card:hover { transform: scale(1.05); }
 
 /* ===================== CONTACT ===================== */
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-.contact-links a {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #fa61f0;
-    text-decoration: none;
-}
-.contact-links a:hover {
-    color: #943474;
-}
-
-/* ===================== ABOUT IMAGE RESPONSIVE ===================== */
-.about-img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-}
+.contact-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.contact-links a { font-size: 1.3rem; font-weight: bold; color: #fa61f0; text-decoration: none; }
+.contact-links a:hover { color: #943474; }
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 992px) {
-    .hamburger { display: flex; z-index: 1100; }
-
+    .hamburger { display: flex; }
     .nav-center {
         position: fixed;
         top: 0;
@@ -318,29 +272,14 @@ section h2 {
         width: 260px;
         height: 100vh;
         background: rgba(247,169,182,0.95);
-        display: block;
-        transition: left 0.35s ease;
-        z-index: 9999;
-        overflow-y: auto;
-    }
-
-    .nav-center.active {
-        left: 0;
-    }
-
-    .nav-links {
         display: flex;
-        flex-direction: column;
-        gap: 35px;
-        align-items: flex-start;
-        padding: 100px 20px;
-        height: 100%;
-        overflow-y: auto;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.35s ease;
+        z-index: 10;
     }
-
-    .nav-links a {
-        font-size: 1.5rem;
-    }
+    .nav-center.active { left: 0; }
+    .nav-links { flex-direction: column; gap: 35px; }
 }
 
 @media (max-width: 768px) {
@@ -348,9 +287,4 @@ section h2 {
     h1.header-title { font-size: 2.2rem; }
     #profile-img { width: 180px; }
     .container { padding: 35px 20px; }
-
-    .about-img img {
-        max-width: 90%;
-        margin: 0 auto;
-    }
 }
