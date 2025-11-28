@@ -1,121 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Student Portfolio</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      <link rel="stylesheet" href="style.css">
-   </head>
-   <body>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Psyryll Javier | Portfolio</title>
 
-       <nav class="navbar">
-           <ul>
-               <li><a href="#home">Home</a></li>
-               <li><a href="#about">About Me</a></li>
-               <li><a href="#achievements">Achievements</a></li>
-               <li><a href="#projects">Projects</a></li>
-           </ul>
-       </nav>
+   <!-- Icons -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  
-       <section id="home">
-           <header>
-               <h1>Student Profile</h1>
-               <img src="profile.JPG" alt="Profile Picture" id="profile-img">
-               <p class="gradient-text">Psyryll Andre Javier</p>
-               <p class="gradient-text">Mapua Malayan Colleges Mindanao</p>
-               <p class="gradient-text">Computer Science - Year 2</p>
-               <button id="theme-toggle">Switch Theme</button>
-           </header>
-       </section>
+   <!-- CSS -->
+   <link rel="stylesheet" href="style.css">
+</head>
 
- 
-      <section id="about">
-          <h2>About Me</h2>
-          <div class="about-container">
-              <div class="about-img">
-                  <img src="profile1.gif" alt="Profile GIF">
-              </div>
-              <div class="about-text">
-                  <p>Hello! I'm Psyryll Andre Javier, a passionate Computer Science student at Mapua Malayan Colleges Mindanao. I love exploring programming, building projects, and learning new technologies. This portfolio showcases my achievements and projects so far.</p>
-                  <p>I am focused on web development, software engineering, and problem-solving through creative programming solutions. I enjoy working on real-world projects and continuously expanding my skills.</p>
-                  <p>Outside academics, I enjoy collaborating with others, experimenting with UI/UX design, and constantly upgrading my skills by exploring new tools, frameworks, and modern development practices.</p>
+<body>
 
-      
-                  <!-- Social icon buttons -->
-                  <div class="social-links">
-                      <a href="https://github.com/paJavier" target="_blank" class="social-btn">
-                          <i class="fab fa-github"></i>
-                      </a>
-                      <a href="https://www.linkedin.com/in/psyryll-andre-javier-77111a381/" target="_blank" class="social-btn">
-                          <i class="fab fa-linkedin"></i>
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </section>
+<!-- NAVBAR -->
+<nav class="navbar">
+   <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+   </ul>
+</nav>
 
-       <section id="achievements">
-           <h2>Achievements/Certifications</h2>
-           <ul>
-               <li>
-                   ITS Certified
-                   <br>
-                   <img src="certificate.jpg" alt="ITS Certificate" class="achievement-img">
-               </li>
-           </ul>
-       </section>
+<!-- HOME SECTION -->
+<section id="home">
+   <header>
+      <h1>Student Portfolio</h1>
+      <img src="profile.JPG" alt="Profile Picture" id="profile-img">
+      <p class="gradient-text name">Psyryll Andre Javier</p>
+      <p class="gradient-text">Mapúa Malayan Colleges Mindanao</p>
+      <p class="gradient-text">Computer Science - Year 2</p>
+      <button id="theme-toggle">Switch Theme</button>
+   </header>
+</section>
 
-   
+<!-- ABOUT ME -->
+<section id="about" class="fade-in">
+   <h2>About Me</h2>
+
+   <div class="about-container">
+      <div class="about-img">
+         <img src="profile1.gif" alt="Profile GIF">
+      </div>
+
+      <div class="about-text">
+         <p>Hi! I'm Psyryll Andre Javier, a Computer Science student at Mapúa Malayan Colleges Mindanao with a passion for building clean, efficient, and user-friendly software. I love exploring modern tech, solving problems creatively, and turning ideas into usable projects.</p>
+
+         <p>My interests include software engineering, full-stack development, and UI/UX design. I continuously sharpen my skills through hands-on coding, personal experiments, and new frameworks.</p>
+
+         <p>Outside academics, I enjoy collaborating, designing polished UI, and exploring tools that make development easier and more fun.</p>
+
+         <!-- Skills -->
+         <div class="skills">
+            <h3>Skills & Tools</h3>
+            <div class="skill-list">
+               <span>HTML</span>
+               <span>CSS</span>
+               <span>JavaScript</span>
+               <span>C#</span>
+               <span>Java</span>
+               <span>Python</span>
+               <span>Git & GitHub</span>
+               <span>UI/UX Design</span>
+            </div>
+         </div>
+
+         <!-- Interests -->
+         <div class="interests">
+            <h3>Interests</h3>
+            <p>Software engineering, UI design, cybersecurity basics, personal coding projects, and modern development tools.</p>
+         </div>
+
+         <!-- Social Icons -->
+         <div class="social-links">
+            <a href="https://github.com/paJavier" target="_blank" class="social-btn">
+               <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/psyryll-andre-javier-77111a381/" target="_blank" class="social-btn">
+               <i class="fab fa-linkedin"></i>
+            </a>
+         </div>
+      </div>
+   </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+   <h2>Achievements / Certifications</h2>
+   <ul>
+      <li>
+         ITS Certified <br>
+         <img src="certificate.jpg" alt="ITS Certificate" class="achievement-img">
+      </li>
+   </ul>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects">
-    <h2>Previous Projects</h2>
-    <ul>
-        <!-- Project 1 -->
-        <li>
-            <h3>BuzzLock – Secure Password Management System</h3>
-            <p>A system designed to safely store and manage passwords for users. Maintains security by using encryption and validation techniques.</p>
-            <div class="project-gallery">
-                <img src="project.png" alt="BuzzLock Project Screenshot 1" class="project-img">
-                <img src="project1.png" alt="BuzzLock Project Screenshot 2" class="project-img">
-            </div>
-        </li>
+   <h2>Previous Projects</h2>
+   <ul>
 
-        <!-- Project 2 -->
-        <li>
-            <h3>URL Tokenizer – Parses and Validates URLs</h3>
-            <p>Reads user input and breaks URLs into protocol, domain (subdomain, hostname, TLD, country code), path, query, and fragment. Validates each token using regex and prints the classification. Shows an error if invalid, otherwise confirms URL is valid.</p>
-            <div class="project-gallery">
-                <img src="urltokenizer1.png" alt="URL Tokenizer Screenshot 1" class="project-img">
-                <img src="urltokenizer2.png" alt="URL Tokenizer Screenshot 2" class="project-img">
-            </div>
-        </li>
+      <li>
+         <h3>BuzzLock – Secure Password Management System</h3>
+         <p>A system that securely stores and manages user passwords with encryption and validation.</p>
+         <div class="project-gallery">
+            <img src="project.png" class="project-img">
+            <img src="project1.png" class="project-img">
+         </div>
+      </li>
 
-        <!-- Project 3 -->
-        <li>
-            <h3>Jupiter Rehab – Healthcare Tracking System</h3>
-            <p>A non-web based application for medical billing, tracking, and managing payments in Nursing and Rehabilitation Facilities. Helps companies increase collections and efficiently monitor payments.</p>
-            <div class="project-gallery jupiter">
-                <img src="jupiter1.JPG" alt="Jupiter Rehab Screenshot 1" class="project-img">
-                <img src="jupiter2.JPG" alt="Jupiter Rehab Screenshot 2" class="project-img">
-            </div>
-        </li>
-    </ul>
+      <li>
+         <h3>URL Tokenizer – URL Parsing & Validation</h3>
+         <p>Parses and validates URLs by extracting protocol, subdomain, domain, path, query, and more.</p>
+         <div class="project-gallery">
+            <img src="urltokenizer1.png" class="project-img">
+            <img src="urltokenizer2.png" class="project-img">
+         </div>
+      </li>
+
+      <li>
+         <h3>Jupiter Rehab – Healthcare Tracking System</h3>
+         <p>A desktop system for medical billing and payment tracking in nursing and rehabilitation facilities.</p>
+         <div class="project-gallery jupiter">
+            <img src="jupiter1.JPG" class="project-img">
+            <img src="jupiter2.JPG" class="project-img">
+         </div>
+      </li>
+
+   </ul>
 </section>
 
 <section id="contact">
    <div class="container contact-box">
       <h2>Contact Me</h2>
-      <p>Feel free to reach out or follow me on social media:</p>
+      <p>Feel free to reach out or connect with me:</p>
 
       <div class="contact-links">
-         <a href="mailto:your@email.com">Email</a>
-         <a href="https://facebook.com" target="_blank">Facebook</a>
-         <a href="https://github.com" target="_blank">GitHub</a>
+         <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+         <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+         <a href="https://github.com/paJavier" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
       </div>
    </div>
-</section>      
+</section>
 
-       <script src="script.js"></script>
-   </body>
+<script src="script.js"></script>
+</body>
 </html>
