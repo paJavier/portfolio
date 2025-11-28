@@ -52,11 +52,6 @@ body.dark-mode .circuit-bg::before {
     opacity: 0.05;
 }
 
-body.dark-mode {
-    background: #1a001f; /* dark purple/black */
-    color: #ffd6e9;
-}
-
 @keyframes circuitMove {
     0% { transform: translate(0,0); }
     100% { transform: translate(-50%, -50%); }
@@ -140,6 +135,11 @@ body.dark-mode {
 #theme-toggle:hover { transform: scale(1.05); }
 
 /* ===================== DARK MODE ===================== */
+body.dark-mode {
+    background: #1a001f;
+    color: #ffd6e9;
+}
+
 body.dark-mode .navbar { background: rgba(90, 0, 70, 0.45); }
 body.dark-mode .nav-links a { color: #ffc5ef; }
 body.dark-mode .nav-links a:hover { color: #ff78d1; }
@@ -156,6 +156,9 @@ body.dark-mode .skill-list span {
 body.dark-mode .skill-list span:hover {
     background: #ff78d1;
     color: #fff;
+}
+body.dark-mode .home-text h1 {
+    -webkit-text-fill-color: #ff78d1;
 }
 
 /* ===================== SECTIONS ===================== */
@@ -201,14 +204,16 @@ section h2 {
     animation: gradientShift 5s linear infinite;
 }
 
-/* ===================== PROFILE SECTION (HOME) ===================== */
+/* ===================== HOME SECTION ===================== */
 .home-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 30px;
     text-align: left;
+    position: relative;
+    z-index: 1;
 }
 
 .home-text {
@@ -218,7 +223,7 @@ section h2 {
 
 .home-text h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     background: linear-gradient(90deg,#fa61f0,#943474,#f7a9b6,#fa61f0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -227,9 +232,10 @@ section h2 {
 .home-text p {
     font-size: 1.2rem;
     color: #740d69;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
+/* ===================== PROFILE IMAGE + CLOUD ===================== */
 .home-img {
     flex: 1;
     display: flex;
@@ -242,16 +248,16 @@ section h2 {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 320px;
-    height: 160px;
+    width: 350px;
+    height: 180px;
     background: #fff;
     border-radius: 50%;
-    filter: blur(60px);
+    filter: blur(70px);
     transform: translate(-50%, -50%);
     z-index: 0;
 }
 
-.home-img #profile-img {
+#profile-img {
     position: relative;
     z-index: 1;
     width: 250px;
@@ -328,8 +334,7 @@ section h2 {
     }
     .nav-center.active { left: 0; }
     .nav-links { flex-direction: column; gap: 35px; }
-    .home-container { flex-direction: column; text-align: center; }
-    .home-img::before { width: 250px; height: 120px; }
+    .home-container { flex-wrap: wrap; text-align: left; }
 }
 
 @media (max-width: 768px) {
@@ -337,4 +342,6 @@ section h2 {
     h1.header-title { font-size: 2.2rem; }
     #profile-img { width: 180px; }
     .container { padding: 35px 20px; }
+    .home-container { flex-direction: column; text-align: center; }
+    .home-img::before { width: 250px; height: 120px; }
 }
