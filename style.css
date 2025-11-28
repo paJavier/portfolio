@@ -131,6 +131,16 @@ body.dark-mode .project-card {
     border-color: #ff78d1;
 }
 
+body.dark-mode .skill-list span {
+    background: rgba(255,120,209,0.35);
+    color: #ffd6e9;
+}
+
+body.dark-mode .skill-list span:hover {
+    background: #ff78d1;
+    color: #fff;
+}
+
 body.dark-mode .nav-center.active {
     background: rgba(120, 0, 95, 0.95);
 }
@@ -157,6 +167,21 @@ section {
 }
 
 /* ===================== HEADINGS ===================== */
+h1.header-title {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(90deg,#fa61f0,#943474,#f7a9b6,#fa61f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 5s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
 section h2 {
     font-size: 3rem;
     margin-bottom: 40px;
@@ -167,9 +192,19 @@ section h2 {
     animation: gradientShift 5s linear infinite;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0%; }
-    100% { background-position: 200%; }
+/* ===================== PROFILE TEXT ===================== */
+.gradient-text.name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #740d69;
+}
+
+.gradient-text.school {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #943474;
 }
 
 /* ===================== PROFILE IMAGE ===================== */
@@ -181,6 +216,40 @@ section h2 {
 }
 #profile-img:hover {
     transform: scale(1.15);
+}
+
+/* ===================== SKILLS BUBBLES ===================== */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skill-list span {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(250,97,240,0.3);
+    border-radius: 50px;
+    font-weight: 600;
+    color: #740d69;
+    font-size: 1rem;
+    transition: 0.3s;
+    animation: bubbleGlow 3s infinite alternate;
+}
+
+.skill-list span:hover {
+    background: #fa61f0;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Glow animation for skill bubbles */
+@keyframes bubbleGlow {
+    0% { box-shadow: 0 0 10px rgba(250,97,240,0.3); }
+    50% { box-shadow: 0 0 25px rgba(250,97,240,0.5); }
+    100% { box-shadow: 0 0 15px rgba(250,97,240,0.4); }
 }
 
 /* ===================== GRID LAYOUT ===================== */
@@ -233,13 +302,8 @@ section h2 {
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 992px) {
+    .hamburger { display: flex; }
 
-    /* Hamburger */
-    .hamburger {
-        display: flex;
-    }
-
-    /* Mobile nav */
     .nav-center {
         position: fixed;
         top: 0;
@@ -257,20 +321,12 @@ section h2 {
         left: 0;
     }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 35px;
-    }
+    .nav-links { flex-direction: column; gap: 35px; }
 }
 
 @media (max-width: 768px) {
-    section h2 {
-        font-size: 2.4rem;
-    }
-    #profile-img {
-        width: 180px;
-    }
-    .container {
-        padding: 35px 20px;
-    }
+    section h2 { font-size: 2.4rem; }
+    h1.header-title { font-size: 2.2rem; }
+    #profile-img { width: 180px; }
+    .container { padding: 35px 20px; }
 }
