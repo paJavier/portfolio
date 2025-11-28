@@ -64,6 +64,7 @@ h1, h2, h3 {
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
+    z-index: 1100;
 }
 
 .hamburger span {
@@ -218,6 +219,13 @@ section h2 {
     transform: scale(1.15);
 }
 
+/* GIF / IMAGE RESPONSIVE */
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
 /* ===================== SKILLS BUBBLES ===================== */
 .skill-list {
     display: flex;
@@ -314,7 +322,9 @@ section h2 {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         transition: left 0.35s ease;
+        z-index: 1050;
     }
 
     .nav-center.active {
