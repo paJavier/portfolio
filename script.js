@@ -1,20 +1,16 @@
-// Hamburger menu toggle (mobile)
-const hamburger = document.querySelector(".hamburger");
+<script>
+const toggle = document.getElementById("theme-toggle");
 const navLinks = document.querySelector(".nav-links");
+const hamburger = document.querySelector(".hamburger");
 
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
-});
-
-// Dark mode toggle
-const themeBtn = document.getElementById("theme-toggle");
-
-themeBtn.addEventListener("click", () => {
+/* Dark Mode Toggle */
+toggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-    if (document.body.classList.contains("dark-mode")) {
-        themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
-    } else {
-        themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
-    }
 });
+
+/* Mobile Menu Toggle */
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+});
+</script>
