@@ -167,7 +167,7 @@ section {
     transition: 0.4s;
 }
 
-/* ===================== HEADINGS ===================== */
+/* ===================== HEADERS ===================== */
 h1.header-title {
     font-size: 3rem;
     font-weight: 900;
@@ -178,11 +178,6 @@ h1.header-title {
     margin-bottom: 20px;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0%; }
-    100% { background-position: 200%; }
-}
-
 section h2 {
     font-size: 3rem;
     margin-bottom: 40px;
@@ -191,6 +186,11 @@ section h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 5s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
 }
 
 /* ===================== PROFILE TEXT ===================== */
@@ -217,13 +217,6 @@ section h2 {
 }
 #profile-img:hover {
     transform: scale(1.15);
-}
-
-/* GIF / IMAGE RESPONSIVE */
-.about-img img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
 }
 
 /* ===================== SKILLS BUBBLES ===================== */
@@ -253,7 +246,6 @@ section h2 {
     transform: scale(1.1);
 }
 
-/* Glow animation for skill bubbles */
 @keyframes bubbleGlow {
     0% { box-shadow: 0 0 10px rgba(250,97,240,0.3); }
     50% { box-shadow: 0 0 25px rgba(250,97,240,0.5); }
@@ -308,9 +300,16 @@ section h2 {
     color: #943474;
 }
 
+/* ===================== ABOUT IMAGE RESPONSIVE ===================== */
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 992px) {
-    .hamburger { display: flex; }
+    .hamburger { display: flex; z-index: 1100; }
 
     .nav-center {
         position: fixed;
@@ -319,19 +318,29 @@ section h2 {
         width: 260px;
         height: 100vh;
         background: rgba(247,169,182,0.95);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        display: block;
         transition: left 0.35s ease;
-        z-index: 1050;
+        z-index: 9999;
+        overflow-y: auto;
     }
 
     .nav-center.active {
         left: 0;
     }
 
-    .nav-links { flex-direction: column; gap: 35px; }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        align-items: flex-start;
+        padding: 100px 20px;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -339,4 +348,9 @@ section h2 {
     h1.header-title { font-size: 2.2rem; }
     #profile-img { width: 180px; }
     .container { padding: 35px 20px; }
+
+    .about-img img {
+        max-width: 90%;
+        margin: 0 auto;
+    }
 }
