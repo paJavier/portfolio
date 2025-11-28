@@ -46,6 +46,16 @@ h1, h2, h3 {
     animation: circuitMove 20s linear infinite;
 }
 
+/* Dark mode circuit adjustments */
+body.dark-mode #tech-circuit {
+    background: #1a001f; /* dark purple/black */
+}
+
+body.dark-mode .tech-line {
+    stroke: #ff78d1; /* brighter pink for visibility */
+    stroke-opacity: 0.12;
+}
+
 @keyframes circuitMove {
     0% { transform: translate(0,0); }
     100% { transform: translate(-50%, -50%); }
