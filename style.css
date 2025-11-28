@@ -14,26 +14,6 @@ body {
     transition: all 0.5s ease;
 }
 
-/* ===================== FULL-PAGE SECTIONS ===================== */
-section {
-    min-height: 100vh; /* each section fills the viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* vertically center content */
-    align-items: center;     /* horizontally center content */
-    padding: 40px 20px;      /* space inside sections */
-}
-
-/* Optional: smooth scrolling and section snap */
-html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-}
-
-body > section {
-    scroll-snap-align: start;
-}
-
 /* ===================== DARK MODE ===================== */
 body.dark-mode {
     background: #740d69;
@@ -93,10 +73,22 @@ body.dark-mode .navbar ul li a { color: #de99ad; }
     background: #f7a9b6;
 }
 
+/* ===================== SECTIONS ===================== */
+section {
+    min-height: 100vh;       /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center;     /* Center horizontally */
+    padding: 20px 0;
+    transition: background 0.5s, color 0.5s;
+}
+
 /* ===================== CONTAINERS ===================== */
 .container {
     max-width: 850px;
-    margin: 40px auto;
+    width: 90%;
+    margin: 20px auto;
     padding: 30px 25px;
     border-radius: 15px;
     background: rgba(247,169,182,0.2);
@@ -149,10 +141,10 @@ h1, h2, h3 { font-weight: bold; }
     margin-bottom: 20px;
 }
 
-/* ===================== ABOUT ME PARAGRAPHS ===================== */
-.about-container p {
-    margin-bottom: 20px; /* adds more spacing between paragraphs */
-    line-height: 1.6;    /* improves readability */
+/* ===================== ABOUT TEXT ===================== */
+.about-text p {
+    margin-bottom: 15px;   /* Increased space between paragraphs */
+    line-height: 1.7;      /* Easier to read */
 }
 
 /* ===================== SKILLS ===================== */
@@ -160,7 +152,7 @@ h1, h2, h3 { font-weight: bold; }
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: 20px;
+    margin-top: 15px;     /* Extra space above skills */
     justify-content: center;
 }
 
@@ -210,11 +202,7 @@ h1, h2, h3 { font-weight: bold; }
 
 /* ===================== ACHIEVEMENTS & PROJECTS ===================== */
 
-/* === Achievements Grid === */
-.achievements.container {
-    margin-top: 40px;
-}
-
+/* Achievements Grid */
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -251,18 +239,13 @@ h1, h2, h3 { font-weight: bold; }
     box-shadow: 0 6px 25px rgba(250,97,240,0.4);
 }
 
-/* Dark Mode Achievements */
 body.dark-mode .cert-card {
     background: rgba(148,52,116,0.4);
     border: 2px solid #740d69;
     color: #f7a9b6;
 }
 
-/* === Projects Grid === */
-.projects.container {
-    margin-top: 40px;
-}
-
+/* Projects Grid */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -303,14 +286,13 @@ body.dark-mode .cert-card {
     box-shadow: 0 6px 25px rgba(250,97,240,0.4);
 }
 
-/* Dark Mode Projects */
 body.dark-mode .project-card {
     background: rgba(148,52,116,0.4);
     border: 2px solid #740d69;
     color: #f7a9b6;
 }
 
-/* === Optional Project Gallery inside Projects === */
+/* Project Gallery */
 .project-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -327,10 +309,9 @@ body.dark-mode .project-card {
 
 body.dark-mode .project-gallery img {
     border: 2px solid #740d69;
-    border-radius: 12px;
 }
 
-/* Hamburger menu - hidden on desktop */
+/* ===================== HAMBURGER MENU ===================== */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -347,7 +328,6 @@ body.dark-mode .project-gallery img {
     transition: all 0.3s ease;
 }
 
-/* Mobile view */
 @media (max-width:768px){
     .nav-links {
         position: fixed;
@@ -380,7 +360,7 @@ body.dark-mode .project-gallery img {
     }
 }
 
-/* Animate hamburger to X when active */
+/* Hamburger animation */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
