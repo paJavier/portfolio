@@ -212,6 +212,35 @@ h1, h2, h3 { font-weight: bold; }
     transform: scale(1.03);
 }
 
+/* ITEMS (Achievements & Projects) */
+.section-container .item {
+    flex: 1 1 280px;
+    max-width: 300px;
+    background: rgba(247,169,182,0.2);
+    border: 2px solid #fa61f0;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, border 0.3s, background 0.3s;
+}
+
+.section-container .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.section-container .item:hover {
+    transform: scale(1.03);
+}
+
+/* DARK MODE ITEM STYLING */
+body.dark-mode .section-container .item {
+    background: rgba(148,52,116,0.4); 
+    border: 2px solid #740d69;       
+}
+
 /* PROJECT GALLERY */
 .project-gallery {
     display: flex;
