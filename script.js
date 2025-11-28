@@ -1,28 +1,28 @@
-<script>
-
-const hamburger = document.querySelector(".hamburger");
-const navPanel = document.querySelector(".nav-panel");
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
 const themeBtn = document.getElementById("theme-toggle");
 
-hamburger?.addEventListener("click", () => {
+// Hamburger toggle
+hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
-    navPanel?.classList.toggle("active");
+    navLinks.classList.toggle("active");
 });
 
-themeBtn?.addEventListener("click", () => {
+// Close menu on link click
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+    });
+});
+
+// Dark mode toggle
+themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 
     if (document.body.classList.contains("dark-mode")) {
-        themeBtn.innerText = "Light Mode";
+        themeBtn.textContent = "☀️ Light Mode";
     } else {
-        themeBtn.innerText = "Dark Mode";
+        themeBtn.textContent = "🌙 Dark Mode";
     }
 });
-
-document.addEventListener("click", (e) => {
-    if (e.target.matches(".nav-panel a")) {
-        navPanel.classList.remove("active");
-        hamburger.classList.remove("active");
-    }
-});
-</script>
