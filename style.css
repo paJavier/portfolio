@@ -1,4 +1,4 @@
-/* GLOBAL RESET */
+/* ===================== GLOBAL RESET ===================== */
 * {
     margin: 0;
     padding: 0;
@@ -14,13 +14,13 @@ body {
     transition: all 0.5s ease;
 }
 
-/* DARK MODE */
+/* ===================== DARK MODE ===================== */
 body.dark-mode {
     background: #740d69;
     color: #f7a9b6;
 }
 
-/* NAVBAR */
+/* ===================== NAVBAR ===================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -53,7 +53,7 @@ body.dark-mode {
 .navbar ul li a:hover { color: #f7a9b6; }
 body.dark-mode .navbar ul li a { color: #de99ad; }
 
-/* THEME TOGGLE BUTTON */
+/* ===================== THEME TOGGLE BUTTON ===================== */
 #theme-toggle {
     position: absolute;
     right: 20px;
@@ -73,7 +73,7 @@ body.dark-mode .navbar ul li a { color: #de99ad; }
     background: #f7a9b6;
 }
 
-/* CONTAINERS */
+/* ===================== CONTAINERS ===================== */
 .container {
     max-width: 850px;
     margin: 40px auto;
@@ -90,14 +90,14 @@ body.dark-mode .container {
     background: rgba(116,13,105,0.4);
 }
 
-/* GLOW PULSE ANIMATION */
+/* ===================== GLOW PULSE ANIMATION ===================== */
 @keyframes glowPulse {
     0% { box-shadow: 0 0 10px rgba(250,97,240,0.4); }
     50% { box-shadow: 0 0 25px rgba(247,169,182,0.6); }
     100% { box-shadow: 0 0 15px rgba(250,97,240,0.5); }
 }
 
-/* HEADINGS */
+/* ===================== HEADINGS ===================== */
 h1, h2, h3 { font-weight: bold; }
 
 .gradient-text {
@@ -106,7 +106,7 @@ h1, h2, h3 { font-weight: bold; }
     color: transparent;
 }
 
-/* PROFILE IMAGE */
+/* ===================== PROFILE IMAGE ===================== */
 #profile-img {
     border-radius: 50%;
     max-width: 200px;
@@ -122,14 +122,14 @@ h1, h2, h3 { font-weight: bold; }
     box-shadow: 0 0 25px rgba(250,97,240,0.7);
 }
 
-/* ABOUT IMAGE */
+/* ===================== ABOUT IMAGE ===================== */
 .about-img img {
     max-width: 250px;
     border-radius: 12px;
     margin-bottom: 20px;
 }
 
-/* SKILLS */
+/* ===================== SKILLS ===================== */
 .skill-list {
     display: flex;
     flex-wrap: wrap;
@@ -152,7 +152,7 @@ h1, h2, h3 { font-weight: bold; }
     color: white;
 }
 
-/* SOCIAL ICONS */
+/* ===================== SOCIAL ICONS ===================== */
 .social-btn {
     font-size: 1.8rem;
     margin-right: 15px;
@@ -165,7 +165,7 @@ h1, h2, h3 { font-weight: bold; }
     color: #f7a9b6;
 }
 
-/* CONTACT LINKS */
+/* ===================== CONTACT LINKS ===================== */
 .contact-links a {
     display: inline-flex;
     align-items: center;
@@ -182,7 +182,7 @@ h1, h2, h3 { font-weight: bold; }
     color: #f7a9b6;
 }
 
-/* CERTIFICATES / PROJECTS */
+/* ===================== SECTION CONTAINERS ===================== */
 .section-container {
     display: flex;
     flex-wrap: wrap;
@@ -191,37 +191,14 @@ h1, h2, h3 { font-weight: bold; }
     padding: 20px 0;
 }
 
+/* ===================== ITEMS (Achievements & Projects) ===================== */
 .section-container .item {
-    flex: 1 1 280px;
-    max-width: 300px;
-    background: rgba(247,169,182,0.2);
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.section-container .item img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin-top: 10px;
-}
-
-.section-container .item:hover {
-    transform: scale(1.03);
-}
-
-/* ITEMS (Achievements & Projects) */
-.section-container .item {
-    flex: 1 1 280px;
-    max-width: 300px;
-    background: rgba(247,169,182,0.2);
-    border: 2px solid #fa61f0;
     border-radius: 12px;
     padding: 15px;
     text-align: center;
     transition: transform 0.3s, border 0.3s, background 0.3s;
+    border: 2px solid #fa61f0;
+    background: rgba(247,169,182,0.2);
 }
 
 .section-container .item img {
@@ -241,7 +218,23 @@ body.dark-mode .section-container .item {
     border: 2px solid #740d69;       
 }
 
-/* PROJECT GALLERY */
+/* ===================== ACHIEVEMENTS SPECIFIC ===================== */
+.achievements-container .achievement-item {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* ===================== PROJECTS SPECIFIC ===================== */
+.projects-container .project-card {
+    margin-bottom: 30px;
+}
+
+.projects-container .project-item {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===================== PROJECT GALLERY ===================== */
 .project-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -255,7 +248,12 @@ body.dark-mode .section-container .item {
     border-radius: 12px;
 }
 
-/* RESPONSIVE */
+body.dark-mode .project-gallery img {
+    border: 2px solid #740d69;
+    border-radius: 12px;
+}
+
+/* ===================== RESPONSIVE ===================== */
 @media (max-width:768px){
     .about-container { flex-direction: column; }
     #profile-img { width:150px; max-width:50%; height:auto; }
