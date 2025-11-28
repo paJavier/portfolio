@@ -1,3 +1,4 @@
+/* GLOBAL RESET */
 * {
     margin: 0;
     padding: 0;
@@ -15,8 +16,8 @@ body {
 
 /* DARK MODE */
 body.dark-mode {
-    background: #740d69; /* Dark purple */
-    color: #de99ad; /* Soft text */
+    background: #740d69;
+    color: #f7a9b6;
 }
 
 /* NAVBAR */
@@ -32,7 +33,7 @@ body.dark-mode {
     padding: 15px 20px;
     z-index: 1000;
     backdrop-filter: blur(8px);
-    background: rgba(247,169,182,0.2); /* pastel pink */
+    background: rgba(247,169,182,0.2);
     border-radius: 0 0 20px 20px;
 }
 
@@ -43,21 +44,25 @@ body.dark-mode {
 }
 
 .navbar ul li a {
-    color: #fa61f0; /* bright pink */
+    color: #fa61f0;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.navbar ul li a:hover { color: #f7a9b6; }
+.navbar ul li a:hover {
+    color: #f7a9b6;
+}
 
-body.dark-mode .navbar ul li a { color: #de99ad; }
+body.dark-mode .navbar ul li a {
+    color: #de99ad;
+}
 
 /* THEME TOGGLE BUTTON */
 #theme-toggle {
     position: absolute;
     right: 20px;
-    top: 8px; /* moved higher */
+    top: 8px; /* slightly higher so it fits */
     padding: 8px 12px;
     border: none;
     border-radius: 8px;
@@ -73,127 +78,21 @@ body.dark-mode .navbar ul li a { color: #de99ad; }
     background: #f7a9b6;
 }
 
-/* SECTION CONTAINER */
-.section-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    padding: 40px 20px;
-    max-width: 900px;
+/* CONTAINERS */
+.container {
+    max-width: 850px;
     margin: 40px auto;
-    background: rgba(247,169,182,0.2); /* #f7a9b6 */
-    border-radius: 20px;
+    padding: 30px 25px;
+    border-radius: 15px;
+    background: rgba(247,169,182,0.2);
     backdrop-filter: blur(10px);
     text-align: center;
     transition: all 0.3s ease;
     animation: glowPulse 3s infinite alternate;
 }
 
-body.dark-mode .section-container {
-    background: rgba(116,13,105,0.4); /* #740d69 */
-}
-
-/* ITEM CONTAINER (Projects / Certificates) */
-.item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 25px 20px;
-    margin: 15px 0;
-    background: rgba(222,153,173,0.3); /* #de99ad */
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(250,97,240,0.4); /* #fa61f0 */
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.item-container:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(250,97,240,0.6); /* #fa61f0 */
-}
-
-.item-container img {
-    max-width: 350px;
-    border-radius: 10px;
-}
-
-/* PROJECT GALLERY */
-.project-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-.project-gallery img {
-    max-width: 200px;
-    border-radius: 10px;
-}
-
-/* HOME SECTION */
-.home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 30px 20px;
-}
-
-.gradient-text {
-    background: linear-gradient(90deg,#fa61f0,#943474);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-weight: bold;
-}
-
-/* ABOUT SECTION */
-.about-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-img img {
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.about-img img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(250,97,240,0.7);
-}
-
-/* SKILLS */
-.skill-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; justify-content:center; }
-.skill-list span {
-    background: #f7a9b6;
-    color: #740d69;
-    padding: 8px 15px;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-.skill-list span:hover { transform: scale(1.05); background: #fa61f0; color: white; }
-
-/* SOCIAL ICONS */
-.social-btn { font-size: 1.8rem; margin-right: 15px; color:#fa61f0; transition:0.3s; }
-.social-btn:hover { transform: scale(1.1); color: #f7a9b6; }
-
-/* CONTACT LINKS */
-.contact-links a { display:inline-flex; align-items:center; gap:8px; margin:10px 15px; font-size:1.2rem; color:#fa61f0; text-decoration:none; transition:0.3s; }
-.contact-links a:hover { transform: scale(1.05); color:#f7a9b6; }
-
-/* IMAGES (GENERAL) */
-#profile-img, .project-img {
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-#profile-img:hover, .project-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(250,97,240,0.7);
+body.dark-mode .container {
+    background: rgba(116,13,105,0.4);
 }
 
 /* GLOW PULSE ANIMATION */
@@ -203,11 +102,86 @@ body.dark-mode .section-container {
     100% { box-shadow: 0 0 15px rgba(250,97,240,0.5); }
 }
 
+/* HEADINGS */
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg,#fa61f0,#943474);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+/* IMAGES */
+#profile-img, .about-img img, .project-img {
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#profile-img:hover, .about-img img:hover, .project-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(250,97,240,0.7);
+}
+
+/* SKILLS */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.skill-list span {
+    background: #f7a9b6;
+    color: #740d69;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.skill-list span:hover {
+    transform: scale(1.05);
+    background: #fa61f0;
+    color: white;
+}
+
+/* SOCIAL ICONS */
+.social-btn {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: #fa61f0;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    color: #f7a9b6;
+}
+
+/* CONTACT LINKS */
+.contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 15px;
+    font-size: 1.2rem;
+    color: #fa61f0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    transform: scale(1.05);
+    color: #f7a9b6;
+}
+
 /* RESPONSIVE */
 @media (max-width:768px){
     .about-container { flex-direction: column; }
     #profile-img { width:150px; height:150px; }
     .project-img { width:100%; }
     #theme-toggle { top:6px; right:10px; }
-    .project-gallery { flex-direction: column; }
 }
