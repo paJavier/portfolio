@@ -304,6 +304,68 @@ body.dark-mode .project-gallery img {
     border-radius: 12px;
 }
 
+/* Hamburger menu - hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fa61f0;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile view */
+@media (max-width:768px){
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 200px;
+        background: rgba(247,169,182,0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem;
+    }
+
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 70px;
+        top: 12px;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+}
+
+/* Animate hamburger to X when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
 /* ===================== RESPONSIVE ===================== */
 @media (max-width:768px){
     .about-container { flex-direction: column; }
