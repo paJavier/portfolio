@@ -50,19 +50,14 @@ body.dark-mode {
     transition: 0.3s;
 }
 
-.navbar ul li a:hover {
-    color: #f7a9b6;
-}
-
-body.dark-mode .navbar ul li a {
-    color: #de99ad;
-}
+.navbar ul li a:hover { color: #f7a9b6; }
+body.dark-mode .navbar ul li a { color: #de99ad; }
 
 /* THEME TOGGLE BUTTON */
 #theme-toggle {
     position: absolute;
     right: 20px;
-    top: 8px; /* slightly higher so it fits */
+    top: 8px;
     padding: 8px 12px;
     border: none;
     border-radius: 8px;
@@ -103,26 +98,35 @@ body.dark-mode .container {
 }
 
 /* HEADINGS */
-h1, h2, h3 {
-    font-weight: bold;
-}
+h1, h2, h3 { font-weight: bold; }
 
 .gradient-text {
     background: linear-gradient(90deg,#fa61f0,#943474);
     -webkit-background-clip: text;
     color: transparent;
-    font-weight: bold;
 }
 
-/* IMAGES */
-#profile-img, .about-img img, .project-img {
-    border-radius: 12px;
+/* PROFILE IMAGE */
+#profile-img {
+    border-radius: 50%;
+    max-width: 200px;
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#profile-img:hover, .about-img img:hover, .project-img:hover {
+#profile-img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(250,97,240,0.7);
+}
+
+/* ABOUT IMAGE */
+.about-img img {
+    max-width: 250px;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
 /* SKILLS */
@@ -178,10 +182,54 @@ h1, h2, h3 {
     color: #f7a9b6;
 }
 
+/* CERTIFICATES / PROJECTS */
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.section-container .item {
+    flex: 1 1 280px;
+    max-width: 300px;
+    background: rgba(247,169,182,0.2);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.section-container .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.section-container .item:hover {
+    transform: scale(1.03);
+}
+
+/* PROJECT GALLERY */
+.project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.project-gallery img {
+    flex: 1 1 120px;
+    max-width: 150px;
+    border-radius: 12px;
+}
+
 /* RESPONSIVE */
 @media (max-width:768px){
     .about-container { flex-direction: column; }
-    #profile-img { width:150px; height:150px; }
-    .project-img { width:100%; }
-    #theme-toggle { top:6px; right:10px; }
+    #profile-img { width:150px; max-width:50%; height:auto; }
+    .section-container { flex-direction: column; gap: 20px; }
+    .project-gallery { flex-direction: column; }
 }
