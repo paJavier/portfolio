@@ -11,41 +11,46 @@
    <!-- CSS -->
    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- NAVBAR -->
 <nav class="navbar">
-   <ul class="nav-links">
+   <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
    </ul>
-   <button id="theme-toggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
+   <button id="theme-toggle"><i class="fa-solid fa-moon"></i></button>
 </nav>
 
 <!-- HOME SECTION -->
 <section id="home">
-   <header>
-      <h1 class="gradient-text">Student Portfolio</h1>
-      <img src="profile.JPG" alt="Profile Picture" id="profile-img">
-      <p class="gradient-text name">Psyryll Andre Javier</p>
-      <p class="gradient-text">Mapúa Malayan Colleges Mindanao</p>
-      <p class="gradient-text">Computer Science - Year 2</p>
-   </header>
+   <div class="container home-container">
+      <header>
+         <h1>Student Portfolio</h1>
+         <img src="profile.JPG" alt="Profile Picture" id="profile-img">
+         <p class="gradient-text name">Psyryll Andre Javier</p>
+         <p class="gradient-text">Mapúa Malayan Colleges Mindanao</p>
+         <p class="gradient-text">Computer Science - Year 2</p>
+      </header>
+   </div>
 </section>
 
 <!-- ABOUT ME -->
-<section id="about">
-   <h2>About Me</h2>
-   <div class="about-container">
+<section id="about" class="fade-in">
+   <div class="container about-container">
       <div class="about-img">
          <img src="profile1.gif" alt="Profile GIF">
       </div>
       <div class="about-text">
-         <p>Hi! I'm Psyryll Andre Javier, a Computer Science student passionate about building clean, efficient, and user-friendly software. I love exploring modern tech, solving problems creatively, and turning ideas into usable projects.</p>
+         <h2>About Me</h2>
+         <p>Hi! I'm Psyryll Andre Javier, a Computer Science student with a passion for building clean, efficient, and user-friendly software. I love exploring modern tech, solving problems creatively, and turning ideas into usable projects.</p>
+
          <p>My interests include software engineering, full-stack development, and UI/UX design. I continuously sharpen my skills through hands-on coding, personal experiments, and new frameworks.</p>
+
          <p>Outside academics, I enjoy collaborating, designing polished UI, and exploring tools that make development easier and more fun.</p>
 
          <!-- Skills -->
@@ -62,60 +67,83 @@
                <span>UI/UX Design</span>
             </div>
          </div>
+
+         <!-- Interests -->
+         <div class="interests">
+            <h3>Interests</h3>
+            <p>Software engineering, UI design, cybersecurity basics, personal coding projects, and modern development tools.</p>
+         </div>
+
+         <!-- Social Icons -->
+         <div class="social-links">
+            <a href="https://github.com/paJavier" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/psyryll-andre-javier-77111a381/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i></a>
+         </div>
       </div>
    </div>
 </section>
 
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
-   <h2>Achievements / Certifications</h2>
-   <ul>
-      <li>
-         ITS Certified <br>
-         <img src="certificate.jpg" alt="ITS Certificate" class="achievement-img">
-      </li>
-   </ul>
+   <div class="container">
+      <h2>Achievements / Certifications</h2>
+      <ul>
+         <li>
+            ITS Certified <br>
+            <img src="certificate.jpg" alt="ITS Certificate" class="achievement-img">
+         </li>
+         
+         <li>
+            Introduction to C# <br>
+            <img src="certificate1.jpg" alt="ITS Certificate" class="achievement-img">
+         </li>
+      </ul>
+   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-   <h2>Previous Projects</h2>
-   <ul>
-      <li>
-         <h3>BuzzLock – Secure Password Management System</h3>
-         <p>A system that securely stores and manages user passwords with encryption and validation.</p>
-         <div class="project-gallery">
-            <img src="project.png" class="project-img">
-            <img src="project1.png" class="project-img">
-         </div>
-      </li>
-      <li>
-         <h3>URL Tokenizer – URL Parsing & Validation</h3>
-         <p>Parses and validates URLs by extracting protocol, subdomain, domain, path, query, and more.</p>
-         <div class="project-gallery">
-            <img src="urltokenizer1.png" class="project-img">
-            <img src="urltokenizer2.png" class="project-img">
-         </div>
-      </li>
-      <li>
-         <h3>Jupiter Rehab – Healthcare Tracking System</h3>
-         <p>A desktop system for medical billing and payment tracking in nursing and rehabilitation facilities.</p>
-         <div class="project-gallery">
-            <img src="jupiter1.JPG" class="project-img">
-            <img src="jupiter2.JPG" class="project-img">
-         </div>
-      </li>
-   </ul>
+   <div class="container">
+      <h2>Previous Projects</h2>
+      <ul>
+         <li>
+            <h3>BuzzLock – Secure Password Management System</h3>
+            <p>A system that securely stores and manages user passwords with encryption and validation.</p>
+            <div class="project-gallery">
+               <img src="project.png" class="project-img">
+               <img src="project1.png" class="project-img">
+            </div>
+         </li>
+         <li>
+            <h3>URL Tokenizer – URL Parsing & Validation</h3>
+            <p>Parses and validates URLs by extracting protocol, subdomain, domain, path, query, and more.</p>
+            <div class="project-gallery">
+               <img src="urltokenizer1.png" class="project-img">
+               <img src="urltokenizer2.png" class="project-img">
+            </div>
+         </li>
+         <li>
+            <h3>Jupiter Rehab – Healthcare Tracking System</h3>
+            <p>A desktop system for medical billing and payment tracking in nursing and rehabilitation facilities.</p>
+            <div class="project-gallery jupiter">
+               <img src="jupiter1.JPG" class="project-img">
+               <img src="jupiter2.JPG" class="project-img">
+            </div>
+         </li>
+      </ul>
+   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-   <h2>Contact Me</h2>
-   <p>Feel free to reach out or connect with me:</p>
-   <div class="contact-links">
-      <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-      <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-      <a href="https://github.com/paJavier" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+   <div class="container contact-box">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out or connect with me:</p>
+      <div class="contact-links">
+         <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+         <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+         <a href="https://github.com/paJavier" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
    </div>
 </section>
 
