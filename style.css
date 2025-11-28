@@ -1,99 +1,61 @@
-/* ===================== FONTS ===================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@500;700&display=swap');
+
+/* ===================== GLOBAL ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #333;
+    transition: all 0.4s ease;
 }
 
-/* Fancy headers */
+/* Headers */
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-    letter-spacing: 1px;
 }
 
 /* ===================== NAVBAR ===================== */
 .navbar {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     padding: 18px 35px;
-
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-
     background: rgba(247, 169, 182, 0.35);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border-radius: 0 0 25px 25px;
     z-index: 1000;
 }
 
-.nav-left {
-    display: flex;
-    justify-content: flex-start;
-}
+.nav-left { display: flex; }
+.nav-center { display: flex; justify-content: center; }
+.nav-right { display: flex; justify-content: flex-end; }
 
-.nav-center {
-    display: flex;
-    justify-content: center;
-}
-
-.nav-right {
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* Centered nav links */
 .nav-links {
     display: flex;
     gap: 40px;
     list-style: none;
+    align-items: center;
 }
 
 .nav-links a {
-    font-size: 1.3rem;
-    font-weight: 700;
     text-decoration: none;
     color: #fa61f0;
-    transition: 0.3s ease;
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
     color: #943474;
-}
-
-/* ===================== DARK MODE ===================== */
-body.dark-mode {
-    background: #2b0030;
-    color: #ffd6e9;
-}
-
-body.dark-mode .navbar {
-    background: rgba(70, 0, 60, 0.45);
-}
-
-body.dark-mode .nav-links a {
-    color: #ffb6e8;
-}
-
-body.dark-mode .nav-links a:hover {
-    color: #ff78d1;
-}
-
-body.dark-mode #theme-toggle {
-    background: #ff78d1;
-}
-
-#theme-toggle {
-    padding: 10px 18px;
-    border: none;
-    border-radius: 10px;
-    background: #fa61f0;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
 /* ===================== HAMBURGER ===================== */
@@ -122,19 +84,169 @@ body.dark-mode #theme-toggle {
     transform: rotate(-45deg) translate(8px, -8px);
 }
 
-/* ===================== MOBILE NAV ===================== */
+/* ===================== THEME BUTTON ===================== */
+#theme-toggle {
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #fa61f0;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* ===================== DARK MODE ===================== */
+body.dark-mode {
+    background: #2b0030;
+    color: #ffd6e9;
+}
+
+body.dark-mode .navbar {
+    background: rgba(90, 0, 70, 0.45);
+}
+
+body.dark-mode .nav-links a {
+    color: #ffc5ef;
+}
+body.dark-mode .nav-links a:hover {
+    color: #ff78d1;
+}
+
+body.dark-mode #theme-toggle {
+    background: #ff78d1;
+}
+
+body.dark-mode .container {
+    background: rgba(120, 0, 95, 0.40);
+}
+
+body.dark-mode .cert-card,
+body.dark-mode .project-card {
+    background: rgba(120, 0, 95, 0.45);
+    border-color: #ff78d1;
+}
+
+body.dark-mode .nav-center.active {
+    background: rgba(120, 0, 95, 0.95);
+}
+
+/* ===================== SECTIONS ===================== */
+section {
+    min-height: 100vh;
+    padding: 90px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===================== CONTAINER ===================== */
+.container {
+    width: 95%;
+    max-width: 1300px;
+    background: rgba(247, 169, 182, 0.25);
+    padding: 60px 50px;
+    border-radius: 30px;
+    backdrop-filter: blur(14px);
+    text-align: center;
+    transition: 0.4s;
+}
+
+/* ===================== HEADINGS ===================== */
+section h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    font-weight: 900;
+    background: linear-gradient(90deg,#fa61f0,#943474,#f7a9b6,#fa61f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 5s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
+}
+
+/* ===================== PROFILE IMAGE ===================== */
+#profile-img {
+    width: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: 0.4s ease;
+}
+#profile-img:hover {
+    transform: scale(1.15);
+}
+
+/* ===================== GRID LAYOUT ===================== */
+.cert-grid,
+.project-grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* ===================== CARDS ===================== */
+.cert-card,
+.project-card {
+    background: rgba(247,169,182,0.35);
+    border: 2px solid #fa61f0;
+    border-radius: 25px;
+    padding: 40px;
+    transition: 0.4s;
+    box-shadow: 0 8px 25px rgba(250,97,240,0.3);
+}
+
+.cert-card img,
+.project-card img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.cert-card:hover,
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* ===================== CONTACT ===================== */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.contact-links a {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fa61f0;
+    text-decoration: none;
+}
+.contact-links a:hover {
+    color: #943474;
+}
+
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 992px) {
+
+    /* Hamburger */
     .hamburger {
         display: flex;
     }
 
+    /* Mobile nav */
     .nav-center {
         position: fixed;
         top: 0;
         left: -100%;
         width: 260px;
         height: 100vh;
-        background: rgba(247,169,182,0.96);
+        background: rgba(247,169,182,0.95);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -149,8 +261,16 @@ body.dark-mode #theme-toggle {
         flex-direction: column;
         gap: 35px;
     }
+}
 
-    .nav-right {
-        justify-content: flex-end;
+@media (max-width: 768px) {
+    section h2 {
+        font-size: 2.4rem;
+    }
+    #profile-img {
+        width: 180px;
+    }
+    .container {
+        padding: 35px 20px;
     }
 }
