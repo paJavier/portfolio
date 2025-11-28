@@ -1,12 +1,12 @@
-const toggleButton = document.getElementById('theme-toggle');
-const body = document.body;
+const toggleBtn = document.getElementById("theme-toggle");
 
-//a smooth transition
-body.style.transition = "background 0.5s ease, color 0.5s ease";
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
 
-const button = document.getElementById('theme-toggle');
-button.style.transition = "background 0.5s ease, color 0.5s ease";
-
-toggleButton.addEventListener('click', () => {
-    body.classList.toggle('dark');
+    const icon = toggleBtn.querySelector("i");
+    if (document.body.classList.contains("dark-mode")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+    }
 });
