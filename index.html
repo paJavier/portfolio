@@ -16,20 +16,28 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">Portfolio</div>
+  <div class="hamburger"><span></span><span></span><span></span></div>
 
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#achievements">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-    </ul>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Certifications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 
-    <button id="theme-toggle">Light/Dark Mode</button>
+  <button id="theme-toggle">Dark Mode</button>
 
-    <div class="hamburger">
-        <span></span><span></span><span></span>
-    </div>
+  <!-- slide-in panel for mobile (same links duplicated for accessibility) -->
+  <div class="nav-panel" aria-hidden="true">
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <!-- HOME SECTION -->
