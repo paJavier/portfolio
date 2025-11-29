@@ -1,11 +1,11 @@
-// ELEMENTS
+// ===================== NAVBAR =====================
 const hamburger = document.getElementById('hamburger');
 const navCenter = document.getElementById('nav-center');
 const navLinks = document.querySelectorAll('.nav-links a');
 const themeBtn = document.getElementById('theme-toggle');
 const body = document.body;
 
-// HAMBURGER (open/close + aria)
+// Hamburger toggle
 hamburger.addEventListener('click', (e) => {
   const expanded = hamburger.getAttribute('aria-expanded') === 'true';
   hamburger.setAttribute('aria-expanded', String(!expanded));
@@ -15,7 +15,7 @@ hamburger.addEventListener('click', (e) => {
   e.stopPropagation();
 });
 
-// close nav when clicking a nav link (mobile)
+// Close nav on link click
 navLinks.forEach(a => a.addEventListener('click', () => {
   if (navCenter.classList.contains('active')) {
     navCenter.classList.remove('active');
@@ -25,11 +25,10 @@ navLinks.forEach(a => a.addEventListener('click', () => {
   }
 }));
 
-// close mobile nav clicking outside
+// Close nav when clicking outside
 document.addEventListener('click', (e) => {
   if (!navCenter.classList.contains('active')) return;
-  const clickInside = navCenter.contains(e.target) || hamburger.contains(e.target);
-  if (!clickInside) {
+  if (!navCenter.contains(e.target) && !hamburger.contains(e.target)) {
     navCenter.classList.remove('active');
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
@@ -37,14 +36,14 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// DARK MODE (affects whole page)
+// ===================== DARK MODE =====================
 themeBtn.addEventListener('click', () => {
   const isDark = body.classList.toggle('dark-mode');
   themeBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
   themeBtn.setAttribute('aria-pressed', String(isDark));
 });
 
-// TYPING LOOP (for elements with .typing)
+// ===================== TYPING ANIMATION =====================
 function typeLoop(el, text, speed = 28, pause = 1400) {
   let i = 0, forward = true;
   function step() {
@@ -61,22 +60,23 @@ function typeLoop(el, text, speed = 28, pause = 1400) {
   }
   step();
 }
+
 document.addEventListener('DOMContentLoaded', () => {
   const typingEls = document.querySelectorAll('.typing');
   typingEls.forEach((el, idx) => {
     const txt = el.getAttribute('data-text') || el.textContent;
     setTimeout(() => typeLoop(el, txt, 28, 1100), 400 + idx * 250);
   });
-  // set glitch text attributes (for CSS pseudo elements)
-  document.querySelectorAll('.nav-links a').forEach(a => a.setAttribute('data-text', a.textContent.trim()));
 });
 
-// CYBER CIRCUIT CANVAS (background lines)
+// ===================== CYBERPUNK BACKGROUND =====================
 const canvas = document.getElementById('tech-circuit');
 const ctx = canvas.getContext('2d');
 let W = canvas.width = window.innerWidth;
 let H = canvas.height = window.innerHeight;
+
 function rand(min, max){ return Math.random()*(max-min)+min }
+
 let lines = [];
 function initLines(){
   lines = [];
@@ -90,8 +90,14 @@ function initLines(){
   }
 }
 initLines();
-function resizeCanvas(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; initLines(); }
+
+function resizeCanvas(){ 
+  W = canvas.width = window.innerWidth; 
+  H = canvas.height = window.innerHeight; 
+  initLines(); 
+}
 window.addEventListener('resize', resizeCanvas);
+
 function drawLines(){
   ctx.clearRect(0,0,W,H);
   const dark = body.classList.contains('dark-mode');
@@ -100,7 +106,7 @@ function drawLines(){
     const x2 = L.x + Math.cos(L.angle)*L.len;
     const y2 = L.y + Math.sin(L.angle)*L.len;
     const g = ctx.createLinearGradient(L.x,L.y,x2,y2);
-    if (dark){
+    if(dark){
       g.addColorStop(0, `rgba(255,120,209,${baseAlpha})`);
       g.addColorStop(1, `rgba(148,52,116,${baseAlpha*0.6})`);
     } else {
@@ -109,19 +115,23 @@ function drawLines(){
     }
     ctx.strokeStyle = g; ctx.lineWidth = 1.1;
     ctx.beginPath(); ctx.moveTo(L.x,L.y); ctx.lineTo(x2,y2); ctx.stroke();
-    L.x += Math.cos(L.angle)*L.speed; L.y += Math.sin(L.angle)*L.speed;
+    L.x += Math.cos(L.angle)*L.speed; 
+    L.y += Math.sin(L.angle)*L.speed;
     L.angle += Math.sin((performance.now()+L.x)/6000)*0.003;
-    if (L.x < -80 || L.x > W+80 || L.y < -80 || L.y > H+80){ L.x = rand(0,W); L.y = rand(0,H); }
+    if(L.x<-80 || L.x>W+80 || L.y<-80 || L.y>H+80){
+      L.x = rand(0,W); L.y = rand(0,H);
+    }
   });
   requestAnimationFrame(drawLines);
 }
 drawLines();
 
-// PROFILE PARTICLES (neon sparkles over profile)
+// ===================== PROFILE PARTICLES (HOLOGRAM) =====================
 const pCanvas = document.getElementById('profile-particles');
-const pCtx = pCanvas && pCanvas.getContext ? pCanvas.getContext('2d') : null;
+const pCtx = pCanvas?.getContext('2d');
+
 function resizeProfileCanvas(){
-  if (!pCanvas) return;
+  if(!pCanvas) return;
   const wrapper = document.querySelector('.profile-wrapper');
   const rect = wrapper.getBoundingClientRect();
   pCanvas.width = Math.round(rect.width);
@@ -131,48 +141,52 @@ function resizeProfileCanvas(){
 }
 resizeProfileCanvas();
 window.addEventListener('resize', resizeProfileCanvas);
+
 let particles = [];
 function spawnParticle(w,h){
   return {
-    x: Math.random()*w, y: Math.random()*h,
-    vx:(Math.random()-0.5)*0.3, vy:-Math.random()*0.5-0.2,
-    life:Math.random()*60+40, size:Math.random()*2.4+0.6, hue:310+Math.random()*30
+    x: Math.random()*w,
+    y: Math.random()*h,
+    vx:(Math.random()-0.5)*0.3,
+    vy:-Math.random()*0.5-0.2,
+    life:Math.random()*60+40,
+    size:Math.random()*2.4+0.6,
+    hue:310+Math.random()*30
   };
 }
+
 function updateParticles(){
-  if (!pCtx) return;
+  if(!pCtx) return;
   const w=pCanvas.width,h=pCanvas.height;
   pCtx.clearRect(0,0,w,h);
-  if (particles.length<40){
-    for (let i=0;i<2;i++) particles.push(spawnParticle(w,h));
+  if(particles.length<40){
+    for(let i=0;i<2;i++) particles.push(spawnParticle(w,h));
   }
   particles.forEach((p,i)=>{
-    p.x += p.vx; p.y += p.vy; p.life -= 1;
-    const alpha = Math.max(0, p.life/120);
+    p.x += p.vx; p.y += p.vy; p.life -=1;
+    const alpha = Math.max(0,p.life/120);
     pCtx.beginPath();
     const grd = pCtx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size*6);
     grd.addColorStop(0, `rgba(255,180,230,${alpha})`);
     grd.addColorStop(1, `rgba(210,80,170,0)`);
     pCtx.fillStyle = grd;
     pCtx.fillRect(p.x - p.size*3, p.y - p.size*3, p.size*6, p.size*6);
-    if (p.life <=0 || p.y < -20) particles.splice(i,1);
+    if(p.life<=0 || p.y<-20) particles.splice(i,1);
   });
   requestAnimationFrame(updateParticles);
 }
 updateParticles();
-const profileImg = document.getElementById('profile-img');
-if (profileImg) profileImg.addEventListener('load', resizeProfileCanvas);
 
-// subtle neon flicker loop for wrapper
+// subtle flicker loop for profile wrapper
 (function flickerLoop(){
   const wrapper = document.querySelector('.profile-wrapper');
-  if (!wrapper) return;
+  if(!wrapper) return;
   const intensity = 0.06 + Math.random()*0.14;
   wrapper.style.boxShadow = `0 18px 60px rgba(255,120,209,${intensity})`;
   setTimeout(flickerLoop, 800 + Math.random()*900);
 })();
 
-// LIGHTBOX (grid -> swipe modal)
+// ===================== LIGHTBOX / SWIPE GALLERY =====================
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.querySelector('.lb-img');
 const lbCaption = document.querySelector('.lb-caption');
@@ -180,78 +194,75 @@ const lbClose = document.querySelector('.lb-close');
 const lbPrev = document.querySelector('.lb-prev');
 const lbNext = document.querySelector('.lb-next');
 
-// build galleries from thumbnails
 const thumbs = Array.from(document.querySelectorAll('.thumb-card img'));
-const galleries = {}; // galleryName -> [{src,caption}]
+const galleries = {};
+
 thumbs.forEach(img=>{
-  const gallery = img.getAttribute('data-gallery') || 'default';
-  const idx = Number(img.getAttribute('data-index')||0);
-  galleries[gallery] = galleries[gallery] || [];
-  galleries[gallery][idx] = { src: img.src, caption: img.alt || '' };
+  const gallery = img.dataset.gallery||'default';
+  const idx = Number(img.dataset.index||0);
+  galleries[gallery] = galleries[gallery]||[];
+  galleries[gallery][idx] = { src: img.src, caption: img.alt||'' };
 });
 
-// state
 let currentGallery = null;
 let currentIndex = 0;
 
 function openLightbox(gallery, index){
   currentGallery = gallery; currentIndex = index;
   const item = galleries[gallery][index];
-  if (!item) return;
+  if(!item) return;
   lbImg.src = item.src;
-  lbCaption.textContent = item.caption || '';
-  lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden','false');
-}
-function closeLightbox(){
-  lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden','true');
-}
-function showPrev(){
-  const arr = galleries[currentGallery];
-  if (!arr) return;
-  currentIndex = (currentIndex - 1 + arr.length) % arr.length;
-  lbImg.src = arr[currentIndex].src; lbCaption.textContent = arr[currentIndex].caption || '';
-}
-function showNext(){
-  const arr = galleries[currentGallery];
-  if (!arr) return;
-  currentIndex = (currentIndex + 1) % arr.length;
-  lbImg.src = arr[currentIndex].src; lbCaption.textContent = arr[currentIndex].caption || '';
+  lbCaption.textContent = item.caption;
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden','false');
 }
 
-// bind thumbs
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden','true');
+}
+
+function showPrev(){
+  const arr = galleries[currentGallery]; if(!arr) return;
+  currentIndex = (currentIndex -1 + arr.length)%arr.length;
+  lbImg.src = arr[currentIndex].src; lbCaption.textContent = arr[currentIndex].caption;
+}
+
+function showNext(){
+  const arr = galleries[currentGallery]; if(!arr) return;
+  currentIndex = (currentIndex +1)%arr.length;
+  lbImg.src = arr[currentIndex].src; lbCaption.textContent = arr[currentIndex].caption;
+}
+
 thumbs.forEach(img=>{
   img.addEventListener('click', ()=> {
-    const gallery = img.getAttribute('data-gallery') || 'default';
-    const idx = Number(img.getAttribute('data-index')||0);
-    openLightbox(gallery, idx);
+    openLightbox(img.dataset.gallery, Number(img.dataset.index));
   });
 });
 
-// close/controls
 lbClose.addEventListener('click', closeLightbox);
 lbPrev.addEventListener('click', showPrev);
 lbNext.addEventListener('click', showNext);
-lightbox.addEventListener('click', (e)=> { if (e.target === lightbox) closeLightbox(); });
 
-// keyboard nav
+lightbox.addEventListener('click', (e)=> { if(e.target===lightbox) closeLightbox(); });
+
+// Keyboard nav
 document.addEventListener('keydown', (e)=>{
-  if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft') showPrev();
-  if (e.key === 'ArrowRight') showNext();
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') showPrev();
+  if(e.key==='ArrowRight') showNext();
 });
 
-// touch swipe support for modal
+// Touch swipe
 let startX = 0;
 lightbox.addEventListener('touchstart', e=> { startX = e.changedTouches[0].clientX; }, {passive:true});
 lightbox.addEventListener('touchend', e=> {
   const dx = e.changedTouches[0].clientX - startX;
-  if (dx > 40) showPrev();
-  else if (dx < -40) showNext();
+  if(dx>40) showPrev();
+  else if(dx<-40) showNext();
 }, {passive:true});
 
-// accessibility: prefers-reduced-motion
+// ===================== REDUCE MOTION =====================
 const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (media.matches) {
-  document.querySelectorAll('*').forEach(el => { el.style.animation = 'none'; });
-}
+if(media.matches) document.querySelectorAll('*').forEach(el => el.style.animation='none');
