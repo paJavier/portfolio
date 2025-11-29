@@ -24,16 +24,18 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
     <div class="nav-center" id="nav-center" aria-hidden="true">
       <ul class="nav-links" role="menubar">
-        <li><a href="#home" class="glitch" data-text="Home">Home</a></li>
-        <li><a href="#about" class="glitch" data-text="About Me">About Me</a></li>
-        <li><a href="#skills" class="glitch" data-text="Skills & Experience">Skills & Experience</a></li>
-        <li><a href="#achievements" class="glitch" data-text="Certifications">Certifications</a></li>
-        <li><a href="#projects" class="glitch" data-text="Projects">Projects</a></li>
-        <li><a href="#contact" class="glitch" data-text="Contact">Contact</a></li>
+        <li role="none"><a role="menuitem" href="#home" class="glitch" data-text="Home">Home</a></li>
+        <li role="none"><a role="menuitem" href="#about" class="glitch" data-text="About Me">About Me</a></li>
+        <li role="none"><a role="menuitem" href="#skills" class="glitch" data-text="Skills & Experience">Skills & Experience</a></li>
+        <li role="none"><a role="menuitem" href="#achievements" class="glitch" data-text="Certifications">Certifications</a></li>
+        <li role="none"><a role="menuitem" href="#projects" class="glitch" data-text="Projects">Projects</a></li>
+        <li role="none"><a role="menuitem" href="#contact" class="glitch" data-text="Contact">Contact</a></li>
       </ul>
     </div>
+
     <div class="nav-right">
       <button id="theme-toggle" aria-pressed="false">🌙 Dark Mode</button>
     </div>
@@ -46,23 +48,30 @@
         <h1 class="header-title">Hi, I'm Psy!<br><span class="header-subline">Aspiring Web Developer</span></h1>
         <p class="lead typing" data-text="I craft clean interfaces & thoughtful UX.">I craft clean interfaces & thoughtful UX.</p>
         <p class="sub typing" data-text="Year 2 • Mapúa Malayan Colleges Mindanao">Year 2 • Mapúa Malayan Colleges Mindanao</p>
+
         <ul class="home-features">
           <li>Full-stack learning (front-end focus)</li>
           <li>UI/UX polish & accessibility-minded</li>
           <li>Secure & maintainable code</li>
         </ul>
+
         <div class="home-ctas">
           <a class="btn-primary" href="#projects">View Projects</a>
           <a class="btn-outline" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
         </div>
+
         <div class="socials">
           <a href="https://github.com/paJavier" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
           <a href="https://www.linkedin.com" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
           <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
+
       <div class="home-img">
-        <div class="profile-wrapper" aria-hidden="false">
+        <div class="cloud" aria-hidden="true"></div>
+
+        <!-- profile wrapper with hologram overlay -->
+        <div class="profile-wrapper">
           <img id="profile-img" src="mainprofile.png" alt="Psyryll Javier profile">
           <div class="holo-overlay" aria-hidden="true"></div>
           <canvas id="profile-particles" aria-hidden="true"></canvas>
@@ -81,16 +90,16 @@
           <img src="profile1.gif" alt="About gif 2" class="about-gif">
         </div>
         <div class="about-text">
-          <p><strong>Hi! I'm Psyryll Andre Javier.</strong> I enjoy turning ideas into pixel-perfect interfaces and reliable code. Started with robotics in high school and moved into web dev — love logic + visual polish.</p>
-          <p>Focus: accessible front-end work, clean components, delightful micro-interactions.</p>
+          <p><strong>Hi! I'm Psyryll Andre Javier.</strong> I enjoy turning ideas into pixel-perfect interfaces and reliable code. I got started with robotics in high school and later moved into web development — I love both logic and visual polish.</p>
+          <p>I focus on accessible front-end work, clean components, and creating delightful micro-interactions.</p>
         </div>
         <div class="about-media">
           <img src="aboutme.gif" alt="About gif 3" class="about-gif">
           <img src="aboutme1.gif" alt="About gif 4" class="about-gif">
         </div>
         <div class="about-text">
-          <p>Working student balancing academics + freelance projects — delivering practical solutions.</p>
-          <p>Always learning modern JS tooling, React patterns, and accessible design systems.</p>
+          <p>I am a working student balancing academics and freelance work — I bring real-world constraints to projects and ship pragmatic solutions.</p>
+          <p>Always learning: right now exploring modern JS tooling, React patterns, and accessible design systems.</p>
         </div>
       </div>
     </div>
@@ -138,8 +147,13 @@
       <h2 class="gradient-title">Previous Projects</h2>
       <div class="thumb-grid project-grid">
         <div class="thumb-card"><img src="project.png" alt="BuzzLock" data-gallery="buzz" data-index="0"><p>BuzzLock – Secure Password Management System</p></div>
-        <div class="thumb-card"><img src="urltokenizer1.png" alt="URL Tokenizer" data-gallery="urltoken" data-index="0"><p>URL Tokenizer</p></div>
-        <div class="thumb-card"><img src="jupiter1.JPG" alt="Jupiter Rehab" data-gallery="jupiter" data-index="0"><p>Jupiter Rehab – Healthcare Tracking</p></div>
+        <div class="thumb-card"><img src="project1.png" alt="BuzzLock Dashboard" data-gallery="buzz" data-index="1"></div>
+
+        <div class="thumb-card"><img src="urltokenizer1.png" alt="URL Tokenizer 1" data-gallery="urltoken" data-index="0"><p>URL Tokenizer</p></div>
+        <div class="thumb-card"><img src="urltokenizer2.png" alt="URL Tokenizer 2" data-gallery="urltoken" data-index="1"></div>
+
+        <div class="thumb-card"><img src="jupiter1.JPG" alt="Jupiter Rehab 1" data-gallery="jupiter" data-index="0"><p>Jupiter Rehab – Healthcare Tracking</p></div>
+        <div class="thumb-card"><img src="jupiter2.JPG" alt="Jupiter Rehab 2" data-gallery="jupiter" data-index="1"></div>
       </div>
     </div>
   </section>
@@ -157,12 +171,15 @@
     </div>
   </section>
 
-  <!-- Lightbox modal -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
-    <button class="lb-close" aria-label="Close">✕</button>
-    <button class="lb-prev" aria-label="Previous">‹</button>
-    <div class="lb-stage"><img class="lb-img" src="" alt=""><p class="lb-caption"></p></div>
-    <button class="lb-next" aria-label="Next">›</button>
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lb-close">✕</button>
+    <button class="lb-prev">‹</button>
+    <div class="lb-stage">
+      <img class="lb-img" src="" alt="">
+      <p class="lb-caption"></p>
+    </div>
+    <button class="lb-next">›</button>
   </div>
 
   <script src="script.js"></script>
