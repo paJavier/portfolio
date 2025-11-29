@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Psyryll Javier | Portfolio</title>
 
   <!-- Google Fonts -->
@@ -16,75 +16,75 @@
 </head>
 <body>
   <!-- Circuit Background -->
-  <canvas id="tech-circuit" aria-hidden="true"></canvas>
+  <canvas id="tech-circuit"></canvas>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
+  <!-- Navbar -->
+  <nav class="navbar">
     <div class="nav-left">
-      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
-      </button>
+      </div>
     </div>
 
-    <!-- Slide-in menu (mobile), centered on desktop -->
-    <div class="nav-center" id="nav-center" role="menu">
+    <div class="nav-center">
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#skills-experience">Skills & Experience</a></li>
-        <li><a href="#achievements">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" class="glitch">Home</a></li>
+        <li><a href="#about" class="glitch">About Me</a></li>
+        <li><a href="#skills" class="glitch">Skills & Experience</a></li>
+        <li><a href="#achievements" class="glitch">Certifications</a></li>
+        <li><a href="#projects" class="glitch">Projects</a></li>
+        <li><a href="#contact" class="glitch">Contact</a></li>
       </ul>
     </div>
 
     <div class="nav-right">
-      <button id="theme-toggle" aria-pressed="false">🌙 Dark Mode</button>
+      <button id="theme-toggle">🌙 Dark Mode</button>
     </div>
   </nav>
 
-  <!-- HOME -->
+  <!-- Home Section -->
   <section id="home">
     <div class="container home-container">
       <div class="home-text">
         <h1 class="header-title">Hi, I'm Psy!</h1>
-        <p class="lead">Your Aspiring Web Developer</p>
-        <p class="sub">Year 2 - Mapúa Malayan Colleges Mindanao</p>
+        <p class="lead typing">Your Aspiring Web Developer</p>
+        <p class="sub typing">Year 2 - Mapúa Malayan Colleges Mindanao</p>
       </div>
 
       <div class="home-img">
         <div class="cloud" aria-hidden="true"></div>
-        <div class="profile-shape" aria-hidden="false">
+        <div class="profile-shape">
           <img src="mainprofile.png" alt="Psyryll Javier profile picture" id="profile-img">
+          <div class="shine"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- About Me Section -->
   <section id="about">
     <div class="container about-container">
-      <div class="about-img">
-        <img src="profile1.gif" alt="Animated profile GIF" class="about-gif">
-        <img src="profile.JPG" alt="Psyryll Javier profile picture" id="profile-img">
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>Hi! I'm Psyryll Andre Javier, a Computer Science student with a passion for building clean, efficient, and user-friendly software.</p>
-        <p>My interests include software engineering, full-stack development, and UI/UX design.</p>
-        <p>Outside academics, I enjoy collaborating, designing polished UI, and exploring tools that make development easier and more fun.</p>
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-imgs">
+          <img src="profile1.jpg" alt="Profile Picture 1">
+          <img src="profile2.jpg" alt="Profile Picture 2">
+        </div>
+        <div class="about-text">
+          <p>Hi! I'm Psyryll Andre Javier, a Computer Science student passionate about building clean, efficient, and user-friendly software.</p>
+          <p>Interests: cyber security, software engineering, full-stack development, UI/UX design, and exploring tools that make development easier.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS & EXPERIENCE -->
-  <section id="skills-experience">
+  <!-- Skills & Experience -->
+  <section id="skills">
     <div class="container">
       <h2>Skills & Experience</h2>
-
       <div class="skills-experience-grid">
         <div class="skills-card">
-          <h3>Skills</h3>
+          <h3>Technical Skills</h3>
           <div class="skill-list">
             <span>HTML</span>
             <span>CSS</span>
@@ -96,24 +96,20 @@
             <span>UI/UX Design</span>
           </div>
         </div>
-
         <div class="experience-card">
-          <h3>Experience</h3>
+          <h3>Other Work Experience</h3>
           <ul>
-            <li><strong>Working Student | Part-time Tutor</strong><br><small>2024 — Present</small><br>Provide tutoring in programming fundamentals and web development.</li>
-            <li><strong>Freelance Web Dev</strong><br><small>2023 — Present</small><br>Built small websites and portfolios for classmates and local clients.</li>
-            <li><strong>Intern — IT Support</strong><br><small>2022 — 2023</small><br>Assisted with troubleshooting and internal tooling at a local company.</li>
+            <li>Working student at Mapúa Malayan Colleges Mindanao</li>
+            <li>Freelance Web Design & Development</li>
+            <li>Volunteered in student tech projects</li>
           </ul>
-
-          <a class="btn-download" href="resume.pdf" download="Psyryll_Javier_Resume.pdf" aria-label="Download resume">
-            <i class="fa-solid fa-download"></i> Download CV
-          </a>
+          <a href="resume.pdf" class="btn-download" target="_blank">Download CV</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ACHIEVEMENTS -->
+  <!-- Certifications -->
   <section id="achievements">
     <div class="container">
       <h2>Certifications</h2>
@@ -130,7 +126,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- Projects -->
   <section id="projects">
     <div class="container">
       <h2>Previous Projects</h2>
@@ -149,27 +145,28 @@
         </div>
         <div class="project-card">
           <h3>Jupiter Rehab – Healthcare Tracking</h3>
-          <p>Desktop system for medical billing and tracking in rehab facilities.</p>
-          <img src="jupiter1.JPG" alt="Jupiter Rehab Project">
-          <img src="jupiter2.JPG" alt="Jupiter Rehab Project">          
+          <p>A Desktop system for medical billing and tracking in rehab facilities.</p>
+          <img src="jupiter1.JPG" alt="Jupiter Project Screenshot">
+          <img src="jupiter2.JPG" alt="Jupiter Project Screenshot">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- Contact -->
   <section id="contact">
     <div class="container contact-box">
       <h2>Contact Me</h2>
       <p>Feel free to reach out or connect with me:</p>
       <div class="contact-links">
         <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/paJavier" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/paJavier" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
       </div>
     </div>
   </section>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
