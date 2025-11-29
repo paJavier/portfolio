@@ -1,160 +1,201 @@
-/* GOOGLE FONTS IMPORT */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Psyryll Javier | Portfolio</title>
 
-/* RESET & GLOBAL */
-*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-html,body{height:100%}
-body{
-  font-family:'Poppins',sans-serif;
-  background: linear-gradient(180deg,#fff7fb 0%, #fff1f8 45%, #fff0fb 100%);
-  color:#2a0630;
-  transition:background .35s ease,color .35s ease;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-h1,h2,h3{font-family:'Playfair Display',serif}
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* CANVAS BG */
-#tech-circuit{position:fixed;inset:0;width:100%;height:100%;z-index:-4;pointer-events:none}
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Cyberpunk circuit background canvas -->
+  <canvas id="tech-circuit" aria-hidden="true"></canvas>
 
-/* NAVBAR */
-.navbar{
-  position:fixed;top:0;left:0;right:0;padding:14px 22px;
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
-  box-shadow:0 6px 30px rgba(255,120,209,0.06);
-  border-radius:0 0 14px 14px;z-index:60;
-}
-.nav-left,.nav-center,.nav-right{display:flex;align-items:center}
-.nav-center{justify-content:center}
-.nav-right{justify-content:flex-end}
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-left">
+      <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
-/* nav links */
-.nav-links{display:flex;gap:24px;list-style:none}
-.nav-links a{position:relative;text-decoration:none;color:#c8277a;font-weight:700;font-size:1rem}
-.nav-links a:hover{color:#ff5fb3}
+    <div class="nav-center" id="nav-center" aria-hidden="true">
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a role="menuitem" href="#home" class="glitch" data-text="Home">Home</a></li>
+        <li role="none"><a role="menuitem" href="#about" class="glitch" data-text="About Me">About Me</a></li>
+        <li role="none"><a role="menuitem" href="#skills" class="glitch" data-text="Skills & Experience">Skills & Experience</a></li>
+        <li role="none"><a role="menuitem" href="#achievements" class="glitch" data-text="Certifications">Certifications</a></li>
+        <li role="none"><a role="menuitem" href="#projects" class="glitch" data-text="Projects">Projects</a></li>
+        <li role="none"><a role="menuitem" href="#contact" class="glitch" data-text="Contact">Contact</a></li>
+      </ul>
+    </div>
 
-/* subtle glitch pseudo elements */
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;opacity:.6}
-.glitch::before{color:rgba(255,120,209,0.85);transform:translateX(-1px);mix-blend-mode:screen}
-.glitch::after{color:rgba(148,52,116,0.6);transform:translateX(1px);mix-blend-mode:screen}
+    <div class="nav-right">
+      <button id="theme-toggle" aria-pressed="false">🌙 Dark Mode</button>
+    </div>
+  </nav>
 
-/* hamburger */
-.hamburger{display:none;background:transparent;border:none;cursor:pointer;padding:6px}
-.hamburger span{display:block;height:3.6px;width:30px;background:#ff78d1;margin:5px 0;border-radius:3px;transition:all .22s}
-.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
-.hamburger.active span:nth-child(2){opacity:0;transform:translateX(-10px)}
-.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+  <!-- HOME -->
+  <section id="home" class="section-home">
+    <div class="container home-container">
+      <div class="home-text">
+        <h1 class="header-title">Hi, I'm Psy!<br><span class="header-subline">Aspiring Web Developer</span></h1>
 
-/* theme toggle */
-#theme-toggle{
-  padding:8px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,#ff78d1,#ff61c7);color:white;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(255,120,209,0.12)
-}
-#theme-toggle:hover{transform:translateY(-2px)}
+        <!-- typing lines -->
+        <p class="lead typing" data-text="I craft clean interfaces & thoughtful UX.">I craft clean interfaces & thoughtful UX.</p>
+        <p class="sub typing" data-text="Year 2 • Mapúa Malayan Colleges Mindanao">Year 2 • Mapúa Malayan Colleges Mindanao</p>
 
-/* SECTIONS & CONTAINERS */
-section{min-height:100vh;padding:100px 18px 60px;display:flex;align-items:center;justify-content:center}
-.container{
-  width:95%;max-width:1200px;padding:34px;border-radius:12px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,250,252,0.95));
-  box-shadow:0 18px 60px rgba(255,120,209,0.06);position:relative;z-index:10;transition:background .25s,box-shadow .25s
-}
+        <ul class="home-features">
+          <li>Full-stack learning (front-end focus)</li>
+          <li>UI/UX polish & accessibility-minded</li>
+          <li>Secure & maintainable code</li>
+        </ul>
 
-/* subtle neon glow for container edges */
-.container::after{content:"";position:absolute;inset:auto 12px 12px 12px;border-radius:10px;pointer-events:none;box-shadow:0 0 38px 8px rgba(255,120,209,0.03)}
+        <div class="home-ctas">
+          <a class="btn-primary" href="#projects">View Projects</a>
+          <a class="btn-outline" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
 
-/* gradient titles */
-.gradient-title,.header-title{
-  font-size:2.6rem;font-weight:900;
-  background:linear-gradient(90deg,#ff78d1,#ff61c7,#d85b9e,#ffd3ec);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientShift 6s linear infinite;margin-bottom:12px
-}
-@keyframes gradientShift{0%{background-position:0%}100%{background-position:200%}}
+        <div class="socials">
+          <a href="https://github.com/paJavier" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
 
-/* HOME layout */
-.home-container{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.home-text{flex:1 1 520px;max-width:640px}
-.home-img{flex:0 0 340px;display:flex;align-items:center;justify-content:center;position:relative}
+      <div class="home-img">
+        <div class="cloud" aria-hidden="true"></div>
 
-/* header two-line style */
-.header-title{line-height:1.02}
-.header-subline{display:block;font-weight:600;opacity:0.95;font-size:1.3rem;margin-top:6px}
+        <!-- profile wrapper: no polygon; natural image + hologram overlays -->
+        <div class="profile-wrapper" aria-hidden="false">
+          <img id="profile-img" src="mainprofile.png" alt="Psyryll Javier profile">
+          <div class="holo-overlay" aria-hidden="true"></div>
+          <canvas id="profile-particles" aria-hidden="true"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* typing lines */
-.typing{display:inline-block;color:#6e0e4a;position:relative}
-.typing::after{content:'';width:2px;height:1.05em;background:#6e0e4a;position:absolute;right:-8px;top:0;animation:blink 1s steps(2) infinite}
-@keyframes blink{50%{opacity:0}}
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-container">
+      <h2 class="gradient-title">About Me</h2>
 
-/* home features & CTAs */
-.home-features{list-style:decimal;margin:14px 0 10px 20px;color:#6b0f48}
-.home-ctas{display:flex;gap:12px;margin-top:10px}
-.btn-primary{background:linear-gradient(90deg,#ff61c7,#ff95e8);padding:10px 16px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 10px 30px rgba(255,120,209,0.12)}
-.btn-outline{padding:10px 16px;border-radius:10px;color:#c81f6f;border:2px solid rgba(200,31,111,0.12);text-decoration:none;font-weight:800;background:transparent}
-.socials{margin-top:12px;display:flex;gap:12px}
-.socials a{color:#ad0e6d;font-size:1.1rem}
+      <div class="about-grid">
+        <div class="about-media">
+          <img src="aboutme2.gif" alt="About gif 1" class="about-gif">
+          <img src="profile1.gif" alt="About gif 2" class="about-gif">
+        </div>
 
-/* cloud behind pic */
-.cloud{position:absolute;width:380px;height:160px;background:#fff;border-radius:50%;filter:blur(64px);z-index:8;opacity:.9}
+        <div class="about-text">
+          <p><strong>Hi! I'm Psyryll Andre Javier.</strong> I enjoy turning ideas into pixel-perfect interfaces and reliable code. I got started with robotics in high school and later moved into web development — I love both logic and visual polish.</p>
+          <p>I focus on accessible front-end work, clean components, and creating delightful micro-interactions.</p>
+        </div>
 
-/* PROFILE: natural image + holo overlay + particle canvas */
-.profile-wrapper{position:relative;width:320px;border-radius:12px;padding:6px;margin:auto}
-#profile-img{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 12px 40px rgba(255,120,209,0.08);transform:translateX(-6%);opacity:0;animation:profileSlideIn .9s cubic-bezier(.2,.9,.2,1) forwards}
-@keyframes profileSlideIn{0%{transform:translateX(-120%);opacity:0}60%{transform:translateX(8%);opacity:1}100%{transform:translateX(0);opacity:1}}
-.holo-overlay{position:absolute;inset:8px;border-radius:10px;pointer-events:none;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 0 40px 6px rgba(255,120,209,0.10);mix-blend-mode:screen;animation:holoPulse 3.6s ease-in-out infinite}
-@keyframes holoPulse{0%{box-shadow:0 0 22px 4px rgba(255,120,209,0.06)}50%{box-shadow:0 0 70px 14px rgba(255,120,209,0.16)}100%{box-shadow:0 0 22px 4px rgba(255,120,209,0.06)}}
-#profile-particles{position:absolute;inset:8px;border-radius:10px;pointer-events:none}
+        <div class="about-media">
+          <img src="aboutme.gif" alt="About gif 3" class="about-gif">
+          <img src="aboutme1.gif" alt="About gif 4" class="about-gif">
+        </div>
 
-/* ABOUT: GIF sizing, grid */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
-.about-media{display:flex;flex-direction:column;gap:10px;align-items:center}
-.about-gif{width:100%;max-width:220px;height:auto;border-radius:10px;object-fit:cover;box-shadow:0 12px 36px rgba(0,0,0,0.08);border:2px solid rgba(255,120,209,0.06)}
-.about-text{color:#4f163f;line-height:1.5;padding:6px 10px}
+        <div class="about-text">
+          <p>I am a working student balancing academics and freelance work — I bring real-world constraints to projects and ship pragmatic solutions.</p>
+          <p>Always learning: right now exploring modern JS tooling, React patterns, and accessible design systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* thumbnail grids for projects/certs */
-.thumb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;align-items:start}
-.thumb-card{background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,250,252,0.96));border-radius:12px;padding:12px;text-align:center;box-shadow:0 12px 34px rgba(255,120,209,0.04);border:1px solid rgba(255,120,209,0.06)}
-.thumb-card img{width:100%;height:auto;border-radius:8px;border:2px solid rgba(255,120,209,0.09);box-shadow:0 12px 40px rgba(255,120,209,0.06);transition:transform .28s,box-shadow .28s}
-.thumb-card img:hover{transform:scale(1.04);box-shadow:0 20px 60px rgba(255,120,209,0.12)}
-.thumb-card p{margin-top:10px;color:#5b163f;font-weight:700;font-size:0.95rem}
+  <!-- SKILLS & EXPERIENCE -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="gradient-title">Skills & Experience</h2>
 
-/* modal lightbox */
-.lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(5,2,8,0.6);backdrop-filter:blur(8px);z-index:120;opacity:0;pointer-events:none;transition:opacity .2s}
-.lightbox.open{opacity:1;pointer-events:auto}
-.lb-stage{max-width:88vw;max-height:78vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px}
-.lb-img{max-width:100%;max-height:78vh;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,0.6);border:3px solid rgba(255,120,209,0.06)}
-.lb-caption{color:#ffd6e9;margin-top:8px}
-.lb-close,.lb-prev,.lb-next{position:fixed;background:transparent;border:none;color:#fff;font-size:22px;padding:12px;cursor:pointer;z-index:130}
-.lb-close{top:18px;right:20px}
-.lb-prev{left:12px;top:50%;transform:translateY(-50%);font-size:36px}
-.lb-next{right:12px;top:50%;transform:translateY(-50%);font-size:36px}
+      <div class="skills-experience-grid">
+        <div class="skills-card">
+          <h3>Technical Skills</h3>
+          <div class="skill-list">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>C#</span>
+            <span>Java</span><span>Python</span><span>Git</span><span>UI/UX</span>
+          </div>
+        </div>
 
-/* CTA & buttons */
-.btn-download{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,#ff61c7,#ff95e8);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(255,120,209,0.12)}
+        <div class="experience-card">
+          <h3>Other Work</h3>
+          <ul>
+            <li>Working student at Mapúa Malayan Colleges Mindanao</li>
+            <li>Freelance Web Design & Development</li>
+            <li>Quality Analyst & Customer Support</li>
+          </ul>
+          <a href="resume.pdf" class="btn-download" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* DARK MODE */
-body.dark-mode{background: linear-gradient(180deg,#0a0014 0%, #05000a 60%);color:#ffd6e9}
-body.dark-mode .container{background:linear-gradient(180deg, rgba(12,4,10,0.32), rgba(6,1,8,0.22));box-shadow:0 18px 60px rgba(148,52,116,0.06)}
-body.dark-mode .nav-links a{color:#ffcfe8}
-body.dark-mode .about-text{color:#ffd6e9}
-body.dark-mode .thumb-card p{color:#ffd6e9}
-body.dark-mode .lb-caption{color:#ffd6e9}
+  <!-- CERTIFICATIONS -->
+  <section id="achievements">
+    <div class="container">
+      <h2 class="gradient-title">Certifications</h2>
+      <div class="thumb-grid cert-grid">
+        <!-- thumbnails open modal -->
+        <div class="thumb-card"><img src="certificate.jpg" alt="Information Technology Specialist" data-gallery="cert" data-index="0"><p>Information Technology Specialist</p></div>
+        <div class="thumb-card"><img src="certificate1.png" alt="C# Certificate" data-gallery="cert" data-index="1"><p>C# Certificate</p></div>
+      </div>
+    </div>
+  </section>
 
-/* responsive */
-@media (max-width:992px){
-  .hamburger{display:inline-flex}
-  .nav-center{position:fixed;top:0;left:-100%;width:280px;height:100vh;background:linear-gradient(180deg,#fff7fb,#fff1f7);flex-direction:column;justify-content:center;align-items:center;transition:left .32s;z-index:80;padding-top:72px}
-  .nav-center.active{left:0}
-  .nav-links{flex-direction:column;gap:16px}
-  #theme-toggle{position:fixed;right:14px;top:12px;z-index:90}
-  .home-container{flex-direction:column-reverse;text-align:center}
-  .home-img{width:260px}
-  .about-grid{grid-template-columns:1fr;gap:18px}
-  .thumb-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-  .cloud{width:300px;height:140px;filter:blur(56px)}
-}
-@media (max-width:600px){
-  .header-title{font-size:1.9rem}
-  .home-img{width:220px}
-  .about-gif{max-width:180px}
-  .container{padding:18px}
-}
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="gradient-title">Previous Projects</h2>
+      <div class="thumb-grid project-grid">
+        <div class="thumb-card">
+          <img src="project.png" alt="BuzzLock" data-gallery="buzz" data-index="0">
+          <p>BuzzLock – Secure Password Management System</p>
+        </div>
+
+        <div class="thumb-card">
+          <img src="urltokenizer1.png" alt="URL Tokenizer 1" data-gallery="urltoken" data-index="0">
+          <p>URL Tokenizer</p>
+        </div>
+
+        <div class="thumb-card">
+          <img src="jupiter1.JPG" alt="Jupiter Rehab 1" data-gallery="jupiter" data-index="0">
+          <p>Jupiter Rehab – Healthcare Tracking</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact-box">
+      <h2 class="gradient-title">Contact Me</h2>
+      <p>Let's connect — email or check my GitHub / LinkedIn.</p>
+      <div class="contact-links">
+        <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/paJavier" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL (grid -> swipe modal) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lb-close" aria-label="Close">✕</button>
+    <button class="lb-prev" aria-label="Previous">‹</button>
+    <div class="lb-stage">
+      <img class="lb-img" src="" alt="">
+      <p class="lb-caption"></p>
+    </div>
+    <button class="lb-next" aria-label="Next">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
