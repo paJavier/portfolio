@@ -8,14 +8,15 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Cyberpunk Circuit Background -->
+
+  <!-- Animated Cyberpunk Background -->
   <canvas id="tech-circuit"></canvas>
 
   <!-- Navbar -->
@@ -42,7 +43,7 @@
     </div>
   </nav>
 
-  <!-- Home Section -->
+  <!-- HOME -->
   <section id="home">
     <div class="container home-container">
       <div class="home-text">
@@ -52,59 +53,63 @@
       </div>
 
       <div class="home-img">
-        <div class="cloud" aria-hidden="true"></div>
-        <div class="profile-shape">
-          <img src="mainprofile.png" alt="Psyryll Javier profile picture" id="profile-img">
-          <div class="shine"></div>
+        <div class="cloud"></div>
+        <div class="profile-wrapper">
+          <img src="mainprofile.png" id="profile-img" alt="Profile Picture">
+          <div class="holo-glow"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Me Section -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="container about-container">
       <h2 class="gradient-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-imgs">
-          <img src="aboutme2.gif" alt="Profile Picture 1">
-          <img src="profile1.gif" alt="Profile Picture 2">
+
+      <div class="about-flex">
+
+        <div class="about-media fade-in">
+          <img src="aboutme2.gif">
+          <img src="profile1.gif">
         </div>
-        <div class="about-text">
+
+        <div class="about-text fade-in">
           <p>Hi! I'm Psyryll Andre Javier, a Computer Science student passionate about building clean, efficient, and user-friendly software.</p>
-          <p>I've been fascinated by computers and coding since having robotics as electives in high school and enjoy creating projects that solve real-world problems. Outside of coding, I love gaming, exploring new tech gadgets, and experimenting with digital art.</p>
+          <p>I love creating projects that solve problems while looking visually appealing. I'm also into gaming, digital art, and exploring new technologies that expand my creativity.</p>
         </div>
-        <div class="about-imgs">
-          <img src="aboutme.gif" alt="Profile Picture 3">
-          <img src="aboutme1.gif" alt="Profile Picture 4">
+
+        <div class="about-media fade-in">
+          <img src="aboutme.gif">
+          <img src="aboutme1.gif">
         </div>
-        <div class="about-text">
-          <p>I'm always learning new languages, frameworks, and tools to improve my coding and design skills. I thrive in collaborative environments and adapt quickly to new technologies and challenges.</p>
-          <p>My interests include software engineering, full-stack development, and UI/UX design. I also enjoy collaborating, designing polished UI, and exploring tools that make development easier and more fun.</p>
+
+        <div class="about-text fade-in">
+          <p>I constantly learn new frameworks and languages to grow as a developer. My interests include UI/UX, full-stack development, and software engineering.</p>
+          <p>I enjoy designing polished UI, collaborating with others, and building solutions that make life easier and more efficient.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Skills & Experience -->
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <h2 class="gradient-title">Skills & Experience</h2>
+
       <div class="skills-experience-grid">
-        <div class="skills-card">
+
+        <div class="skills-card fade-in">
           <h3>Technical Skills</h3>
           <div class="skill-list">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>C#</span>
-            <span>Java</span>
-            <span>Python</span>
-            <span>Git & GitHub</span>
-            <span>UI/UX Design</span>
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            <span>C#</span><span>Java</span><span>Python</span>
+            <span>Git & GitHub</span><span>UI/UX Design</span>
           </div>
         </div>
-        <div class="experience-card">
+
+        <div class="experience-card fade-in">
           <h3>Other Work Experience</h3>
           <ul>
             <li>Working student at Mapúa Malayan Colleges Mindanao</li>
@@ -113,59 +118,68 @@
           </ul>
           <a href="resume.pdf" class="btn-download" target="_blank">Download CV</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Certifications -->
+  <!-- CERTIFICATIONS -->
   <section id="achievements">
     <div class="container">
       <h2 class="gradient-title">Certifications</h2>
+
       <div class="cert-grid">
-        <div class="cert-card">
-          <img src="certificate.jpg" alt="Information Technology Specialist Certificate">
+        <div class="cert-card fade-in">
+          <img src="certificate.jpg">
           <p>Information Technology Specialist</p>
         </div>
-        <div class="cert-card">
-          <img src="certificate1.png" alt="C# Certificate">
+
+        <div class="cert-card fade-in">
+          <img src="certificate1.png">
           <p>C# Certificate</p>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
       <h2 class="gradient-title">Previous Projects</h2>
+
       <div class="project-grid">
-        <div class="project-card">
+
+        <div class="project-card fade-in">
           <h3>BuzzLock – Secure Password Management System</h3>
-          <p>Stores and manages user passwords securely using encryption.</p>
-          <img src="project.png" alt="BuzzLock Project">
-          <img src="project1.png" alt="BuzzLock Project">
+          <p>Stores and manages encrypted user passwords.</p>
+          <img src="project.png">
+          <img src="project1.png">
         </div>
-        <div class="project-card">
+
+        <div class="project-card fade-in">
           <h3>URL Tokenizer</h3>
-          <p>Parses and validates URLs efficiently by extracting all components.</p>
-          <img src="urltokenizer1.png" alt="URL Tokenizer Project">
-          <img src="urltokenizer2.png" alt="URL Tokenizer Project">
+          <p>Parses URLs and extracts components efficiently.</p>
+          <img src="urltokenizer1.png">
+          <img src="urltokenizer2.png">
         </div>
-        <div class="project-card">
+
+        <div class="project-card fade-in">
           <h3>Jupiter Rehab – Healthcare Tracking</h3>
-          <p>A Desktop system for medical billing and tracking in rehab facilities.</p>
-          <img src="jupiter1.JPG" alt="Jupiter Project Screenshot">
-          <img src="jupiter2.JPG" alt="Jupiter Project Screenshot">
+          <p>A desktop system for managing medical billing and rehab facility tracking.</p>
+          <img src="jupiter1.JPG">
+          <img src="jupiter2.JPG">
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact">
-    <div class="container contact-box">
+    <div class="container contact-box fade-in">
       <h2 class="gradient-title">Contact Me</h2>
-      <p>Feel free to reach out or connect with me:</p>
+      <p>Let's connect!</p>
       <div class="contact-links">
         <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
         <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
