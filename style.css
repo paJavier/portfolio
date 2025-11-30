@@ -277,7 +277,7 @@ header {
 
 .cert-card img {
   width: 100%;       /* fill container */
-  max-width: 450px;  /* increased from 380px */
+  max-width: 420px;  /* increased from 380px */
   height: auto;
   border-radius: 10px;
 }
