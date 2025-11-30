@@ -6,27 +6,37 @@ const navPanel = document.getElementById('nav-panel');
 const navLinksDesktop = document.querySelectorAll('.nav-links a');
 const navPanelLinks = document.querySelectorAll('.nav-panel a');
 
-function closeNavPanel(){ navPanel.classList.remove('open'); navPanel.setAttribute('aria-hidden','true'); }
-function openNavPanel(){ navPanel.classList.add('open'); navPanel.setAttribute('aria-hidden','false'); }
+function closeNavPanel() {
+  navPanel.classList.remove('open');
+  navPanel.setAttribute('aria-hidden','true');
+}
+function openNavPanel() {
+  navPanel.classList.add('open');
+  navPanel.setAttribute('aria-hidden','false');
+}
 
 burger.addEventListener('click', (e) => {
   e.stopPropagation();
-  if(navPanel.classList.contains('open')) closeNavPanel(); else openNavPanel();
+  if(navPanel.classList.contains('open')) closeNavPanel(); 
+  else openNavPanel();
 });
 
+// Close panel if clicking outside
 document.addEventListener('click', (e) => {
   if(navPanel.classList.contains('open') && !navPanel.contains(e.target) && !burger.contains(e.target)){
     closeNavPanel();
   }
 });
 
-navPanelLinks.forEach(a=>a.addEventListener('click', closeNavPanel));
-navLinksDesktop.forEach(a=>a.addEventListener('click', ()=>{}));
+// Close when a link is clicked
+navPanelLinks.forEach(a => a.addEventListener('click', closeNavPanel));
+navLinksDesktop.forEach(a => a.addEventListener('click', ()=>{}));
 
+// Burger animation (X)
 const burgerSpans = burger.querySelectorAll('span');
-new MutationObserver(()=> {
+new MutationObserver(() => {
   const open = navPanel.classList.contains('open');
-  burgerSpans.forEach((s,i)=>{
+  burgerSpans.forEach((s, i) => {
     if(open){
       s.style.transform = i===1 ? 'scaleX(0)' : (i===0 ? 'translateY(8px) rotate(45deg)' : 'translateY(-8px) rotate(-45deg)');
       s.style.background = 'linear-gradient(90deg,var(--pink),var(--vio))';
@@ -35,14 +45,15 @@ new MutationObserver(()=> {
       s.style.background = 'var(--pink)';
     }
   });
-}).observe(navPanel, {attributes:true,attributeFilter:['class']});
+}).observe(navPanel, {attributes:true, attributeFilter:['class']});
+
 
 /* =====================
    THEME TOGGLE
 ===================== */
 const themeBtn = document.getElementById('theme-btn');
 let darkMode = false; 
-function updateThemeBtn(){
+function updateThemeBtn() {
   themeBtn.innerHTML = darkMode ? '<i class="fa-solid fa-sun"></i><span>Light Mode</span>' : '<i class="fa-solid fa-moon"></i><span>Dark Mode</span>';
 }
 updateThemeBtn();
@@ -53,7 +64,10 @@ themeBtn.addEventListener('click', () => {
   updateThemeBtn();
 });
 
-/* TYPEWRITER EFFECT */
+
+/* =====================
+   TYPEWRITER EFFECT
+===================== */
 const typer = document.querySelector('.typing');
 if(typer){
   const text = typer.dataset.text || '';
@@ -66,7 +80,10 @@ if(typer){
   type();
 }
 
-/* PARTICLE BACKGROUND */
+
+/* =====================
+   PARTICLE BACKGROUND
+===================== */
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext && canvas.getContext('2d');
 let particles = [];
@@ -105,41 +122,20 @@ if(ctx){
   draw();
 }
 
-/* PROJECT SLIDER + MODAL */
+
+/* =====================
+   PROJECT SLIDER (ONE AT A TIME)
+===================== */
 const projectContainer = document.querySelector('.project-container');
 const projects = document.querySelectorAll('.project');
 const nextBtn = document.getElementById('nextProject');
 const prevBtn = document.getElementById('prevProject');
-const dotsContainer = document.querySelector('.slider-dots');
 const modal = document.getElementById('modal');
 
 let current = 0;
 
-// build dots
-projects.forEach((_,i)=>{
-  const dot = document.createElement('button');
-  dot.type='button';
-  dot.className = i===0 ? 'dot active' : 'dot';
-  dot.style.border = 'none'; dot.style.background='transparent'; dot.style.cursor='pointer';
-  dot.addEventListener('click', ()=>{ current = i; updateSlider(); });
-  const dotInner = document.createElement('span');
-  dotInner.style.display='inline-block';
-  dotInner.style.width='12px'; dotInner.style.height='12px';
-  dotInner.style.borderRadius='50%';
-  dotInner.style.background = i===0 ? 'linear-gradient(90deg,var(--pink),var(--vio))' : 'rgba(255,255,255,.28)';
-  dotInner.dataset.index = i;
-  dot.appendChild(dotInner);
-  dotsContainer.appendChild(dot);
-});
-
-function refreshDots(){
-  const spans = dotsContainer.querySelectorAll('span');
-  spans.forEach((s,i)=> s.style.background = i===current ? 'linear-gradient(90deg,var(--pink),var(--vio))' : 'rgba(255,255,255,.28)');
-}
-
 function updateSlider(){
   projectContainer.style.transform = `translateX(-${current * 100}%)`;
-  refreshDots();
 }
 
 nextBtn.addEventListener('click', ()=>{ current = (current + 1) % projects.length; updateSlider(); });
@@ -156,19 +152,35 @@ projectContainer.addEventListener('touchend', (e)=>{
 
 // modal
 document.querySelectorAll('.project-images img').forEach(img=>{
-  img.addEventListener('click', ()=>{ modal.innerHTML = `<img src="${img.src}" alt="">`; modal.classList.add('active'); });
+  img.addEventListener('click', ()=>{
+    modal.innerHTML = `<img src="${img.src}" alt="">`;
+    modal.classList.add('active');
+  });
 });
 modal.addEventListener('click', ()=> modal.classList.remove('active'));
 
-// equal card heights
+
+/* =====================
+   EQUALIZE CARD HEIGHTS
+===================== */
 function equalizeCards(selector){
   const els = document.querySelectorAll(selector);
   let maxH = 0;
   els.forEach(el => { el.style.minHeight=''; const h = el.getBoundingClientRect().height; if(h>maxH) maxH = h; });
   els.forEach(el => el.style.minHeight = maxH + 'px');
 }
-window.addEventListener('load', ()=>{ equalizeCards('.skill-card'); equalizeCards('.cert-card'); setTimeout(()=>equalizeCards('.skill-card'),300) });
-window.addEventListener('resize', ()=>{ equalizeCards('.skill-card'); equalizeCards('.cert-card') });
+window.addEventListener('load', ()=>{
+  equalizeCards('.skill-card'); 
+  equalizeCards('.cert-card'); 
+  setTimeout(()=>equalizeCards('.skill-card'),300)
+});
+window.addEventListener('resize', ()=>{ equalizeCards('.skill-card'); equalizeCards('.cert-card'); });
+
 
 // escape to close modal/panel
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ modal.classList.remove('active'); closeNavPanel(); }});
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape'){ 
+    modal.classList.remove('active'); 
+    closeNavPanel(); 
+  }
+});
