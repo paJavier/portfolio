@@ -96,23 +96,25 @@ header {
   text-shadow: 0 0 10px #ff63d8;
 }
 
-/* Mobile burger menu */
-.burger {
-  display: none;
+/* BURGER ICON */
+#burger {
+  display: none; /* hidden on desktop */
   flex-direction: column;
   gap: 4px;
   cursor: pointer;
+  z-index: 1000;
 }
-.burger span {
+#burger span {
   width: 25px;
   height: 3px;
-  background: #fff;
+  background: var(--pink, #ff63d8);
   border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-/* Mobile nav panel */
-.nav-panel {
-  display: none;
+/* MOBILE NAV PANEL */
+#nav-panel {
+  display: flex;
   flex-direction: column;
   position: fixed;
   left: -100%;
@@ -122,42 +124,24 @@ header {
   background: #1a001a;
   padding-top: 70px;
   gap: 20px;
-  transition: 0.4s;
+  transition: left 0.4s;
+  z-index: 900;
 }
-.nav-panel.active {
+#nav-panel.open {
   left: 0;
 }
-.nav-panel a {
+#nav-panel a {
   font-size: 1.25rem;
   color: #ff63d8;
-  text-shadow: 0 0 10px rgba(255,99,216,.15);
+  text-decoration: none;
   padding: 10px 20px;
   display: block;
 }
 
-/* Theme toggle */
-#theme-btn {
-  display:flex; 
-  align-items:center; 
-  gap:8px; 
-  padding:8px 12px;
-  border-radius:20px;
-  background:linear-gradient(90deg,#ff63d8,#a855f7);
-  color:#fff;
-  font-family:'Audiowide';
-  cursor:pointer;
-  box-shadow:0 6px 20px rgba(168,72,234,.12);
-  font-size: 1.15rem;
-}
-
-/* =====================
-   MOBILE HEADER
-===================== */
-@media (max-width:768px){
-  .nav-panel { display: flex; } /* only mobile */
-  .nav-links { display: none; } /* hide desktop links */
-}
-
+/* MEDIA QUERY FOR MOBILE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }  /* hide desktop links */
+  #burger { display: flex; }     /* show burger */
 
 /* =====================
    HOME / HERO
