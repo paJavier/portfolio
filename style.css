@@ -104,6 +104,28 @@ header {
     font-family: Orbitron;
     align-items: center;
 }
+/* =====================
+   HEADER / LOGO
+===================== */
+header h1#logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #ff29ff, #a855f7, #ff63d8);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    animation: gradientMove 3s linear infinite;
+}
+
+/* Gradient animation for logo */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+header h1#logo {
+    background-size: 200% 200%;
+}
 
 /* =====================
    HOME SECTION
@@ -113,15 +135,27 @@ header {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* centers content horizontally */
+    text-align: center; /* ensures text is centered on smaller screens */
 }
 
 .home-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    width: 100%;
+    justify-content: center; /* center horizontally */
+    gap: 60px; /* space between text and image */
+    max-width: 1200px; /* optional: limits width */
+}
+
+@media (max-width: 1024px) {
+    .home-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .home-img img {
+        width: 250px; /* slightly bigger than mobile size */
+    }
 }
 
 .home-text h1 {
@@ -163,11 +197,6 @@ header {
     border: 4px solid #ff63d8;
     box-shadow: 0 0 20px #ff63d8;
     animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateX(0px) translateY(0px); }
-    50% { transform: translateX(10px) translateY(-15px); }
 }
 
 /* =====================
