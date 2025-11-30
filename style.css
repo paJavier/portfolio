@@ -12,6 +12,7 @@ body {
     background: #0a0a0a;
     color: #fff;
     overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
 }
 
 /* Futuristic font */
@@ -31,12 +32,9 @@ body {
 .section-title {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-family: "Orbitron";
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #ff29ff, #a855f7, #ff63d8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 /* Canvas Background */
@@ -56,13 +54,10 @@ header {
     z-index: 9999;
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(10px);
-}
-
-.navbar {
-    padding: 15px 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
 }
 
 .nav-links {
@@ -76,10 +71,11 @@ header {
     text-decoration: none;
     font-size: 1rem;
     font-family: Orbitron;
+    transition: 0.3s;
 }
-
-.nav-links.active {
-    right: 0;
+.nav-links li a:hover {
+    color: #ff63d8;
+    text-shadow: 0 0 10px #ff63d8;
 }
 
 /* Burger */
@@ -97,15 +93,16 @@ header {
 }
 
 /* Theme Toggle */
-.toggle-theme {
+#theme-btn {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     padding: 8px 15px;
     border-radius: 20px;
     background: linear-gradient(90deg, #ff63d8, #a855f7);
     cursor: pointer;
     color: #fff;
     font-family: Orbitron;
+    align-items: center;
 }
 
 /* =====================
@@ -116,6 +113,7 @@ header {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .home-container {
@@ -130,15 +128,11 @@ header {
     font-size: 3rem;
 }
 
-/* Typewriter */
 .typing {
     margin-top: 10px;
     font-size: 1.4rem;
     font-family: Orbitron;
     min-height: 32px;
-}
-.typing span {
-    display: inline-block;
 }
 
 /* Buttons */
@@ -148,43 +142,32 @@ header {
     text-decoration: none;
     font-family: Orbitron;
     cursor: pointer;
+    margin-right: 10px;
+    display: inline-block;
 }
 
 .neon-btn {
     background: linear-gradient(90deg, #ff63d8, #a855f7);
     color: #fff;
-    transition: all 0.3s ease;
-}
-.neon-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #ff63d8, 0 0 30px #a855f7;
 }
 
 .outline-btn {
     border: 2px solid #ff63d8;
     color: #ff63d8;
-    transition: all 0.3s ease;
-}
-.outline-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #ff63d8, 0 0 30px #a855f7;
 }
 
 /* Home Image */
 .home-img img {
-    width: 290px;
+    width: 300px;
     border-radius: 50%;
     border: 4px solid #ff63d8;
     box-shadow: 0 0 20px #ff63d8;
-    opacity: 0;
-    transform: translateX(100px);
-    animation: floatIn 1.5s forwards ease-in-out;
+    animation: float 4s ease-in-out infinite;
 }
 
-@keyframes floatIn {
-    0% { opacity:0; transform: translateX(100px);}
-    50% { transform: translateX(0) translateY(-10px);}
-    100% { opacity:1; transform: translateX(0) translateY(0);}
+@keyframes float {
+    0%, 100% { transform: translateX(0px) translateY(0px); }
+    50% { transform: translateX(10px) translateY(-15px); }
 }
 
 /* =====================
@@ -194,27 +177,25 @@ header {
     width: 90%;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     gap: 40px;
-    text-align: center;
 }
 
 .about-block {
+    text-align: center;
+    border: 2px solid #ff63d8;
     padding: 20px;
     border-radius: 20px;
-    border: 2px solid #ff63d8;
-    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
-    transition: all 0.5s ease;
+    box-shadow: 0 0 20px #ff63d8;
+    transition: all 0.3s;
 }
 .about-block:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #ff63d8;
 }
 
 .about-gif {
     width: 220px;
-    height: 220px;
-    object-fit: cover;
     border-radius: 20px;
     margin-bottom: 15px;
 }
@@ -234,12 +215,11 @@ header {
     border-radius: 20px;
     background: rgba(255,255,255,0.08);
     border: 2px solid #ff63d8;
-    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
-    transition: all 0.4s ease;
+    box-shadow: 0 0 20px #ff63d8;
+    transition: all 0.3s;
 }
 .skill-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
+    transform: scale(1.05);
 }
 
 /* CV Button */
@@ -247,7 +227,7 @@ header {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 25px;
-    background: linear-gradient(90deg, #ff63d8, #a855f7);
+    background: #ff63d8;
     color: white;
     font-family: Orbitron;
     border-radius: 30px;
@@ -256,84 +236,115 @@ header {
 /* =====================
    CERTIFICATIONS
 ===================== */
-.cert-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+.certs-container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
 }
 
 .cert-card {
-    width: 220px;
-    padding: 15px;
-    text-align: center;
-    background: rgba(255,255,255,0.05);
-    border-radius: 25px;
+    display: inline-block;
+    margin: 10px;
     border: 2px solid #ff63d8;
-    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
-    transition: all 0.5s ease;
-}
-.cert-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
     border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #ff63d8;
+    transition: all 0.3s;
 }
+
+.cert-card img {
+    width: 220px;
+    display: block;
+}
+
 .cert-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
+    box-shadow: 0 0 40px #ff63d8;
 }
 
 /* =====================
-   PROJECTS
+   PROJECT SLIDER
 ===================== */
 .project-slider {
     width: 90%;
     margin: auto;
     overflow: hidden;
-    scroll-behavior: smooth;
+    position: relative;
+}
+
+.project-container {
+    display: flex;
+    transition: all 0.5s ease-in-out;
 }
 
 .project {
     min-width: 100%;
     text-align: center;
+    padding: 20px;
 }
 
 .project-images {
     display: flex;
     justify-content: center;
-    gap: 20px;
-}
-.project-images img {
-    width: 250px;
-    border-radius: 20px;
-    border: 2px solid #ff63d8;
-    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
-    transition: all 0.4s ease;
-}
-.project-images img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
+    gap: 15px;
 }
 
-/* Slider Controls */
-.slider-controls {
-    text-align: center;
-    margin-top: 20px;
-}
-.slider-controls button {
-    padding: 10px 20px;
-    font-size: 1.5rem;
+.project-images img {
+    width: 220px;
     border-radius: 15px;
-    background: linear-gradient(90deg, #ff63d8, #a855f7);
-    color: white;
-    border: none;
+    border: 2px solid #ff63d8;
+    box-shadow: 0 0 20px #ff63d8;
+    transition: all 0.3s;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
-.slider-controls button:hover {
+
+.project-images img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
+    box-shadow: 0 0 40px #ff63d8;
+}
+
+/* Slider Dots */
+.slider-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+.slider-dots span {
+    font-size: 1.5rem;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s;
+}
+.slider-dots .active {
+    color: #ff63d8;
+}
+
+/* =====================
+   MODAL
+===================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 10000;
+}
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
 }
 
 /* =====================
@@ -352,30 +363,14 @@ header {
         transition: 0.4s;
         z-index: 999;
     }
-
     .burger {
         display: flex;
     }
-
     .home-container {
         flex-direction: column;
         text-align: center;
     }
-
     .home-img img {
         width: 230px;
     }
-
-    .project-images img {
-        width: 180px;
-    }
-
-    .about-gif {
-        width: 180px;
-        height: 180px;
-    }
-
-    .cert-card {
-        width: 180px;
-    }
-}
+    .project-images im
