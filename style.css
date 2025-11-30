@@ -293,7 +293,7 @@ header {
 }
 
 .cert-card img {
-    width: 300px; /* increased size */
+    width: 450px; 
     height: auto;
     display: block;
     border-radius: 15px;
@@ -332,7 +332,7 @@ header {
 }
 
 .project-images img {
-    width: 300px; /* increased size */
+    width: 450px; 
     border-radius: 15px;
     border: 2px solid #ff63d8;
     box-shadow: 0 0 25px #ff63d8;
