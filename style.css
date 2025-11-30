@@ -201,26 +201,69 @@ header {
 /* =====================
    SKILLS & EXPERIENCE
 ===================== */
-.skills-grid { display:flex; flex-wrap:wrap; gap:18px; justify-content:center; align-items:flex-start; }
-.skill-card {
-  width: 160px;  /* slightly bigger */
-  padding:16px;
+
+/* Skills grid */
+.skills-grid { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 18px; 
+  justify-content: center; 
+  align-items: flex-start; 
 }
-.skill-card img { width:80px; height:80px; }
+
+/* Each skill in a rounded neon box */
+.skill-card {
+  width: 160px;
+  padding: 16px;
+  text-align: center;
+  border-radius: 20px; /* rounded */
+  border: 2px solid #ff63d8; /* neon pink/purple border */
+  box-shadow: 0 0 15px #ff63d8, 0 0 30px #a855f7; /* glowing effect */
+  background: rgba(255,255,255,0.02); /* subtle transparent background */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px #ff63d8, 0 0 50px #a855f7;
+}
+
+.skill-card img { 
+  width: 80px; 
+  height: 80px; 
+  margin-bottom: 10px;
+}
+
+/* Experience list as separate rounded neon boxes */
 .exp-list {
-  background: rgba(255,255,255,.02);
-  padding:20px;
-  border-radius:12px;
-  border:2px solid rgba(255,99,216,.08);
-  box-shadow:0 6px 20px rgba(255,99,216,.04);
-  max-width:400px;
-  margin:auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 20px; /* rounded */
+  border: 2px solid #ff63d8;
+  box-shadow: 0 0 20px #ff63d8, 0 0 40px #a855f7;
+  background: rgba(255,255,255,0.02);
+  max-width: 400px;
+  margin: 20px auto;
 }
 
 .exp-list li {
-  margin-bottom:12px;
-  font-size:1.1rem;
+  padding: 12px 16px;
+  border-radius: 12px; /* each experience item rounded */
+  border: 2px solid #a855f7;
+  box-shadow: 0 0 15px #a855f7, 0 0 30px #ff63d8;
+  background: rgba(0,0,0,0.05);
+  font-size: 1.1rem;
+  list-style: none;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.exp-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #a855f7, 0 0 50px #ff63d8;
+}
+
 /* =====================
    CERTIFICATIONS
 ===================== */
