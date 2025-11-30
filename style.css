@@ -280,22 +280,24 @@ header {
 
 .cert-card {
     display: inline-block;
-    margin: 10px;
+    margin: 15px;
     border: 2px solid #ff63d8;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 20px #ff63d8;
+    box-shadow: 0 0 25px #ff63d8;
     transition: all 0.3s;
 }
 
 .cert-card img {
-    width: 220px;
+    width: 260px; /* increased from 220px */
+    height: auto;
     display: block;
+    border-radius: 15px;
 }
 
 .cert-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 40px #ff63d8;
+    box-shadow: 0 0 50px #ff63d8;
 }
 
 /* =====================
@@ -322,31 +324,35 @@ header {
 .project-images {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .project-images img {
-    width: 220px;
+    width: 260px; /* increased from 220px */
     border-radius: 15px;
     border: 2px solid #ff63d8;
-    box-shadow: 0 0 20px #ff63d8;
+    box-shadow: 0 0 25px #ff63d8;
     transition: all 0.3s;
     cursor: pointer;
 }
 
 .project-images img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 40px #ff63d8;
+    box-shadow: 0 0 50px #ff63d8;
 }
 
-/* Slider Dots */
+/* Slider Dots (centered below slider) */
 .slider-dots {
     text-align: center;
-    margin-top: 15px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
 }
 .slider-dots span {
     font-size: 1.5rem;
-    margin: 0 5px;
     cursor: pointer;
     color: #fff;
     transition: color 0.3s;
@@ -355,6 +361,34 @@ header {
     color: #ff63d8;
 }
 
+/* Swipe Buttons for projects */
+.swipe-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, #ff63d8, #a855f7);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    color: #fff;
+}
+.swipe-btn#prevProject {
+    left: 10px;
+}
+.swipe-btn#nextProject {
+    right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-images img,
+    .cert-card img {
+        width: 200px; 
+    }
+}
 /* =====================
    MODAL
 ===================== */
@@ -409,4 +443,11 @@ header {
     .home-img img {
         width: 230px;
     }
-    .project-images im
+    .project-images img,
+    .cert-card img {
+        width: 200px; /* scale down for mobile */
+    }
+    .project-slider {
+        width: 95%;
+    }
+}
