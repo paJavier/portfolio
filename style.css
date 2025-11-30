@@ -81,6 +81,11 @@ header {
   list-style: none;
   gap: 25px;
   justify-content: center; /* center horizontally */
+  flex: 1; /* take available space */
+}
+
+.nav-links li {
+  text-align: center; /* center links */
 }
 
 .nav-links li a {
@@ -88,7 +93,7 @@ header {
   text-decoration: none;
   font-family: 'Audiowide', sans-serif;
   font-weight: 600;
-   font-size: 1.2rem; 
+  font-size: 1.2rem; 
 }
 
 .nav-links li a:hover {
@@ -97,6 +102,21 @@ header {
 }
 
 /* BURGER ICON */
+#burger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 1000;
+}
+#burger span {
+  width: 25px;
+  height: 3px;
+  background: var(--pink, #ff63d8);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
 #burger {
   display: none; /* hidden on desktop */
   flex-direction: column;
@@ -258,15 +278,16 @@ header {
 ===================== */
 .cert-section { 
   display:flex; 
-  flex-wrap:wrap; 
-  gap:24px; 
-  justify-content:center; 
-  align-items:flex-start; 
+  flex-wrap: wrap; 
+  gap: 24px; 
+  justify-content: center; 
+  align-items: flex-start; 
 }
 
 .cert-card { 
+  flex: 1 1 90%; /* almost full width */
+  max-width: 1000px; 
   font-size: 1.25rem; 
-  width: 380px; /* increased from 340px */
   background: rgba(255,255,255,.02); 
   padding: 14px; 
   border-radius: 12px; 
@@ -277,16 +298,16 @@ header {
 
 .cert-card img {
   width: 100%;       /* fill container */
-  max-width: 420px;  /* increased from 380px */
   height: auto;
   border-radius: 10px;
 }
-
+   
 /* =====================
    PROJECT SLIDER
 ===================== */
 .project-slider { 
-  max-width: 1100px; 
+  max-width: 1000px; 
+  width: 90%;
   margin: 30px auto; 
   position: relative; 
   padding-bottom: 70px; 
@@ -300,7 +321,7 @@ header {
 }
 
 .project { 
-  min-width: 100%; /* ensures one project occupies full slider width */
+  min-width: 100%; /* one project per view */
   padding: 12px; 
   display: flex; 
   flex-direction: column; 
@@ -317,11 +338,13 @@ header {
 }
 
 .project-images img {
-  width: 500px;   /* increased from 420px */
+  width: 100%;      /* fill container */
+  max-width: 900px; /* almost full page */
   height: auto; 
   border-radius: 12px;
   border: 3px solid rgba(255,99,216,.12);
   box-shadow: 0 0 30px rgba(255,99,216,.12);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-images img:hover { 
@@ -329,30 +352,40 @@ header {
   box-shadow: 0 0 60px rgba(255,99,216,.18); 
 }
 
-/* Keep swipe buttons */
+
+/* =====================
+   SWIPE BUTTONS
+===================== */
 .swipe-btn { 
   position: absolute; 
   top: 50%; 
   transform: translateY(-50%); 
   background: linear-gradient(90deg,#ff63d8,#a855f7); 
   border: none; 
-  padding: 10px; 
+  padding: 15px 18px; /* slightly larger */
   border-radius: 50%; 
   color: #fff; 
-  font-size: 20px; 
+  font-size: 22px; 
   cursor: pointer; 
-  box-shadow: 0 10px 30px rgba(168,72,234,.12); 
+  box-shadow: 0 10px 40px rgba(168,72,234,.2); 
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-#prevProject { left: 10px; }
-#nextProject { right: 10px; }
+.swipe-btn:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(255,99,216,.25); }
 
-/* Hide slider dots (no preview) */
-.slider-dots { display: none; }
+#prevProject { left: 15px; }
+#nextProject { right: 15px; }
 
-/* Responsive */
+/* =====================
+   RESPONSIVE
+===================== */
 @media (max-width:1024px){
-  .project-images img{width:380px;}
+  .project-images img{ max-width: 700px; }
+  .cert-card { flex: 1 1 95%; }
 }
+
 @media (max-width:768px){
-  .project-images img{width:240px;}
+  .project-images img{ max-width: 100%; }
+  .cert-card { flex: 1 1 100%; }
+  #burger { display: flex; } /* show burger */
+  .nav-links { display: none; } /* hide desktop links */
 }
