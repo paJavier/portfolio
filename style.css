@@ -270,7 +270,7 @@ header h1#logo {
 ===================== */
 .skills-container {
     width: 80%;
-    margin: auto;
+    margin: 100px auto 50px; 
     text-align: center;
 }
 
@@ -303,7 +303,7 @@ header h1#logo {
 ===================== */
 .certs-container {
     width: 95%;
-    margin: 50px auto 80px; /* increased bottom margin for spacing */
+    margin: 100px auto 50px; 
     text-align: center;
     display: flex;
     justify-content: center;
@@ -338,7 +338,7 @@ header h1#logo {
 ===================== */
 .project-slider {
     width: 95%;
-    margin: 60px auto 100px; /* more spacing above and below */
+    margin: 100px auto 50px; 
     overflow: hidden;
     position: relative;
 }
