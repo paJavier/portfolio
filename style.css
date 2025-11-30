@@ -141,7 +141,8 @@ header {
 /* MEDIA QUERY FOR MOBILE */
 @media (max-width: 768px) {
   .nav-links { display: none; }  /* hide desktop links */
-  #burger { display: flex; }     /* show burger */
+  #burger { display: flex; }   
+}
 
 /* =====================
    HOME / HERO
