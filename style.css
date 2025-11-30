@@ -194,11 +194,47 @@ header {
     box-shadow: 0 0 40px #ff63d8;
 }
 
+/* About GIFs */
 .about-gif {
     width: 220px;
     border-radius: 20px;
+    box-shadow: 0 0 20px #ff63d8;
     margin-bottom: 15px;
 }
+
+/* Neon Border & Glow */
+.neon-border {
+    border: 2px solid #ff63d8;
+    box-shadow: 0 0 15px #ff63d8;
+    padding: 15px;
+    border-radius: 20px;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.neon-border:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff63d8, 0 0 40px #a855f7;
+}
+
+/* Floating animation */
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Gradient Section Titles */
+.section-title.gradient-text {
+    background: linear-gradient(90deg, #ff29ff, #a855f7, #ff63d8);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 50px;
+}
+
 
 /* =====================
    SKILLS
