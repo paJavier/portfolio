@@ -1,6 +1,8 @@
 /* =====================
    GLOBAL
 ===================== */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:wght@400;700&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,12 +10,13 @@
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    background: #0a0a0a;
-    color: #fff;
-    overflow-x: hidden;
+    font-family: 'Exo 2', sans-serif;
+    background: #ffe4f0; /* light pink background initially */
+    color: #111;
     transition: background 0.4s, color 0.4s;
+   overflow-x: hidden;
 }
+
 
 body.light-mode { background: #ffd1e8; color: #000; }
 body.dark-mode { background: #0a0a0a; color: #fff; }
@@ -37,7 +40,7 @@ body.dark-mode { background: #0a0a0a; color: #fff; }
     text-align: center;
     margin-bottom: 30px;
     font-size: 2.5rem;
-    font-family: "Orbitron";
+    font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
 }
 
@@ -78,7 +81,7 @@ header {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-    font-family: Orbitron;
+    font-family: 'Audiowide', sans-serif;
     transition: 0.3s;
 }
 .nav-links li a:hover {
@@ -109,7 +112,7 @@ header {
     background: linear-gradient(90deg, #ff63d8, #a855f7);
     cursor: pointer;
     color: #fff;
-    font-family: Orbitron;
+    font-family: 'Audiowide', sans-serif;
     align-items: center;
 }
 /* =====================
@@ -182,7 +185,7 @@ header h1#logo {
     padding: 12px 25px;
     border-radius: 30px;
     text-decoration: none;
-    font-family: Orbitron;
+    font-family: 'Audiowide', sans-serif;
     cursor: pointer;
     margin-right: 10px;
     display: inline-block;
@@ -345,22 +348,23 @@ header h1#logo {
    PROJECT SLIDER
 ===================== */
 .project-slider {
-    width: 95%;
-    margin: 100px auto 20px; 
-    overflow: hidden;
-    position: relative;
+  position: relative;
+  overflow: hidden;
+  margin: 100px auto 40px;  
 }
 
 .project-container {
-    display: flex;
-    transition: all 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
+
 .project {
-    min-width: 100%;
-    text-align: center;
-    padding: 20px;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 60px; 
 }
+
 
 .project-images {
     display: flex;
@@ -383,15 +387,14 @@ header h1#logo {
 }
 
 /* Slider Dots (centered below slider) */
-.slider-dots {
-    text-align: center;
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
+slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; 
+  position: relative;
+  bottom: 0;
 }
+
 .slider-dots span {
     font-size: 1.8rem; /* slightly bigger dots */
     cursor: pointer;
@@ -404,17 +407,8 @@ header h1#logo {
 
 /* Optional: move the swipe buttons closer to the projects */
 .swipe-btn {
-    top: 50%;
-    transform: translateY(-50%);
-    background: linear-gradient(90deg, #ff63d8, #a855f7);
-    border: none;
-    padding: 10px 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.5rem;
-    color: #fff;
-    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
+  position: absolute;
+  top: calc(50% - 10px); /* vertical center in slide, or adjust as desired */
 }
 
 .swipe-btn#prevProject {
