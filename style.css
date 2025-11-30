@@ -234,23 +234,22 @@ header {
   margin-bottom: 10px;
 }
 
-/* Experience list as separate rounded neon boxes */
+/* =====================
+   Experience as horizontal neon boxes
+===================== */
 .exp-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 20px;
-  border-radius: 20px; /* rounded */
-  border: 2px solid #ff63d8;
-  box-shadow: 0 0 20px #ff63d8, 0 0 40px #a855f7;
-  background: rgba(255,255,255,0.02);
-  max-width: 400px;
+  display: flex;             /* horizontal layout */
+  flex-wrap: wrap;           /* wrap to next line on small screens */
+  gap: 18px;                 /* space between items */
+  justify-content: center;   /* center horizontally */
+  padding: 10px;
+  max-width: 1000px;         /* optional max width */
   margin: 20px auto;
 }
 
 .exp-list li {
-  padding: 12px 16px;
-  border-radius: 12px; /* each experience item rounded */
+  padding: 16px 20px;
+  border-radius: 20px; /* rounded */
   border: 2px solid #a855f7;
   box-shadow: 0 0 15px #a855f7, 0 0 30px #ff63d8;
   background: rgba(0,0,0,0.05);
