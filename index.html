@@ -1,103 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Psyryll Javier | Portfolio</title>
-
-<!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- CSS -->
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Psyryll Javier | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <canvas id="bgCanvas"></canvas>
 
-<!-- CYBERPUNK BACKGROUND -->
-<canvas id="tech-circuit" aria-hidden="true"></canvas>
+  <header>
+    <div class="logo">Psyryll</div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-left">
-    <button id="hamburger" class="hamburger" aria-expanded="false" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-center" id="nav-center" aria-hidden="true">
-    <ul class="nav-links">
-      <li><a href="#home" class="glitch" data-text="Home">Home</a></li>
-      <li><a href="#about" class="glitch" data-text="About">About Me</a></li>
-      <li><a href="#skills" class="glitch" data-text="Skills">Skills & Experience</a></li>
-      <li><a href="#achievements" class="glitch" data-text="Certificates">Certificates</a></li>
-      <li><a href="#projects" class="glitch" data-text="Projects">Projects</a></li>
-      <li><a href="#contact" class="glitch" data-text="Contact">Contact</a></li>
-    </ul>
-  </div>
-  <div class="nav-right">
-    <button id="theme-toggle">🌙 Dark Mode</button>
-  </div>
-</nav>
+    <div class="burger">
+      <i class="fa-solid fa-bars"></i>
+    </div>
 
-<!-- HOME -->
-<section id="home" class="section-home">
-  <div class="container home-container">
+    <button id="modeToggle">🌙 Dark Mode</button>
+  </header>
+
     <div class="home-text">
       <h1 class="header-title">Hi, I'm Psy!<br><span class="header-subline">Aspiring Web Developer</span></h1>
-      <p class="lead typing" data-text="I craft clean interfaces & thoughtful UX.">I craft clean interfaces & thoughtful UX.</p>
-      <p class="sub typing" data-text="Year 2 • Mapúa Malayan Colleges Mindanao">Year 2 • Mapúa Malayan Colleges Mindanao</p>
+      <p class="lead typing" data-text="I craft clean interfaces &amp; thoughtful UX.">I craft clean interfaces &amp; thought</p>
+      <p class="sub typing" data-text="Year 2 • Mapúa Malayan Colleges Mindanao">Year 2 • Mapúa Malayan Colleg</p>
 
       <div class="home-ctas">
         <a class="btn-primary" href="#projects">View Projects</a>
         <a class="btn-outline" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
       </div>
-
-      <div class="socials">
-        <a href="https://github.com/paJavier" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-      </div>
+  
+  <section id="about" class="section about-section">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-block">
+      <img src="gif1.gif" class="about-gif" />
+      <p class="about-text">Hi! I'm Psyryll Andre Javier — a Computer Science student who loves building clean, efficient, and user-friendly software. 
+        I enjoy making projects that solve real problems while looking polished and intuitive. I started with robotics in high school which sparked my interest in coding. Outside of development, I enjoy gaming, 
+        exploring digital art, and testing new UI ideas.</p>
+      
     </div>
-
-    <div class="home-img">
-      <div class="profile-wrapper">
-        <img id="profile-img" src="mainprofile.png" alt="Psyryll Javier profile">
-        <div class="holo-overlay"></div>
-        <canvas id="profile-particles"></canvas>
-      </div>
+    <div class="about-block">
+      <img src="gif2.gif" class="about-gif" />
+      <p class="about-text">I'm actively learning modern frameworks and improving my UI/UX skills. I thrive in collaborative environments and love turning ideas into delightful user experiences.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container about-container">
-    <h2 class="gradient-title">About Me</h2>
-    <div class="about-grid">
-      <div class="about-media">
-        <img src="aboutme2.gif" alt="About gif 1" class="about-gif">
-        <img src="profile1.gif" alt="About gif 2" class="about-gif">
-      </div>
-      <div class="about-text">
-        <p>Hi! I'm Psyryll Andre Javier — a Computer Science student who loves building clean, efficient, and user-friendly software. I enjoy making projects that solve real problems while looking polished and intuitive.</p>
-        <p>I started with robotics in high school which sparked my interest in coding. Outside of development, I enjoy gaming, exploring digital art, and testing new UI ideas.</p>
-      </div>
-      <div class="about-media">
-        <img src="aboutme.gif" alt="About gif 3" class="about-gif">
-        <img src="aboutme1.gif" alt="About gif 4" class="about-gif">
-      </div>
-      <div class="about-text">
-        <p>I'm actively learning modern frameworks and improving my UI/UX skills. I thrive in collaborative environments and love turning ideas into delightful user experiences.</p>
-        <p>My focus areas: full-stack development, UI/UX, and maintainable code.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <h2 class="gradient-title">Skills & Experience</h2>
+    <h2 class="gradient-title">Skills &amp; Experience</h2>
     <div class="skills-experience-grid">
       <div class="skills-card">
         <h3>Technical Skills</h3>
@@ -110,16 +69,15 @@
         <h3>Other Work</h3>
         <ul>
           <li>Working student at Mapúa Malayan Colleges Mindanao</li>
-          <li>Freelance Web Design & Development</li>
-          <li>Quality Analyst & Customer Support</li>
+          <li>Freelance Web Design &amp; Development</li>
+          <li>Quality Analyst &amp; Customer Support</li>
         </ul>
         <a href="resume.pdf" class="btn-download" target="_blank" rel="noopener">Download CV</a>
       </div>
     </div>
   </div>
 </section>
-
-<!-- CERTIFICATIONS -->
+      
 <section id="achievements">
   <div class="container">
     <h2 class="gradient-title">Certifications</h2>
@@ -129,53 +87,30 @@
     </div>
   </div>
 </section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <h2 class="gradient-title">Previous Projects</h2>
-    <div class="thumb-grid project-grid">
-      <div class="thumb-card">
-        <img src="project.png" alt="BuzzLock">
+      
+  <section id="projects" class="section project-section">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="project-slider">
+      <div class="project-item active">
         <p>BuzzLock – Secure Password Management System. Stores and manages encrypted user passwords.</p>
+        <img src="project.png" />
+        <img src="project1.png" />
       </div>
-      <div class="thumb-card">
-        <img src="project1.png" alt="BuzzLock 2">
+      <div class="project-item">
+        <p>URL Tokenizer – Parses URLs and extracts components efficiently.</p>        
+        <img src="urltokenizer1.png" />
+        <img src="urltokenizer1.png" />
       </div>
-      <div class="thumb-card">
-        <img src="urltokenizer1.png" alt="URL Tokenizer">
-        <p>URL Tokenizer – Parses URLs and extracts components efficiently.</p>
-      </div>
-      <div class="thumb-card">
-        <img src="urltokenizer2.png" alt="URL Tokenizer 2">
-      </div>
-      <div class="thumb-card">
-        <img src="jupiter1.JPG" alt="Jupiter Rehab">
+      <div class="project-item">
         <p>Jupiter Rehab – Healthcare Tracking. A desktop system for medical billing and tracking in rehab facilities.</p>
+        <img src="jupiter1.JPG" />
+        <img src="jupiter2.JPG" />
       </div>
-      <div class="thumb-card">
-        <img src="jupiter2.JPG" alt="Jupiter Rehab 2">
-      </div>
-      <div class="thumb-card">
-        <img src="jupiter3.JPG" alt="Jupiter Rehab 3">
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container contact-box">
-    <h2 class="gradient-title">Contact Me</h2>
-    <p>Let's connect — email or check my GitHub / LinkedIn.</p>
-    <div class="contact-links">
-      <a href="mailto:psyryllj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-      <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-      <a href="https://github.com/paJavier" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
     </div>
-  </div>
-</section>
+    <button class="slide-btn" id="nextProject">Next</button>
+  </section>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
