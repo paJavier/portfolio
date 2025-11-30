@@ -1,119 +1,113 @@
-/* ===== BACKGROUND CYBERPUNK PARTICLE EFFECT ===== */
-const canvas = document.getElementById('bgCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+/* =====================
+   BURGER MENU
+===================== */
+const burger = document.getElementById("burger");
+const nav = document.getElementById("nav-links");
+
+burger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+
+// Close nav when clicking link
+document.querySelectorAll(".nav-item").forEach(item => {
+    item.addEventListener("click", () => nav.classList.remove("active"));
+});
+
+// Close nav on outside click
+document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target) && !burger.contains(e.target)) {
+        nav.classList.remove("active");
+    }
+});
+
+/* =====================
+   THEME TOGGLE
+===================== */
+const themeBtn = document.getElementById("theme-btn");
+let darkMode = true;
+
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    darkMode = !darkMode;
+    themeBtn.innerHTML = darkMode 
+        ? `<i class="fa-solid fa-sun"></i><span>Light Mode</span>`
+        : `<i class="fa-solid fa-moon"></i><span>Dark Mode</span>`;
+});
+
+/* =====================
+   TYPEWRITER EFFECT
+===================== */
+const typer = document.querySelector(".typing");
+const text = typer.getAttribute("data-text");
+
+let index = 0;
+
+function type() {
+    typer.textContent = text.slice(0, index);
+    index++;
+    if (index <= text.length) {
+        setTimeout(type, 70);
+    }
+}
+type();
+
+/* =====================
+   PROJECT SLIDER
+===================== */
+const slider = document.getElementById("project-slider");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+
+nextBtn.addEventListener("click", () => {
+    slider.scrollLeft += slider.clientWidth;
+});
+
+prevBtn.addEventListener("click", () => {
+    slider.scrollLeft -= slider.clientWidth;
+});
+
+/* =====================
+   PARTICLE BACKGROUND
+===================== */
+const canvas = document.getElementById("particle-canvas");
+const ctx = canvas.getContext("2d");
 let particles = [];
 
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 3 + 1;
-    this.speedX = Math.random() * 1 - 0.5;
-    this.speedY = Math.random() * 1 - 0.5;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    if (this.size > 0.2) this.size -= 0.02;
-  }
-  draw() {
-    ctx.fillStyle = 'rgba(255, 90, 220, 0.8)';
-    ctx.shadowBlur = 12;
-    ctx.shadowColor = '#ff4fd8';
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
+resize();
+window.onresize = resize;
 
-function initParticles() {
-  particles = [];
-  for (let i = 0; i < 120; i++) particles.push(new Particle());
+for (let i = 0; i < 70; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3 + 1,
+        speedX: Math.random() * 0.6 - 0.3,
+        speedY: Math.random() * 0.6 - 0.3
+    });
 }
 
 function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p) => {
-    p.update();
-    p.draw();
-    if (p.size <= 0.2) particles.splice(particles.indexOf(p), 1);
-  });
-  if (particles.length < 120) particles.push(new Particle());
-  requestAnimationFrame(animateParticles);
-}
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-initParticles();
+    particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+        ctx.fillStyle = "#ff63d8";
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#ff63d8";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animateParticles);
+}
 animateParticles();
-
-/* Resize canvas */
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  initParticles();
-});
-
-/* ===== TYPEWRITER EFFECT FIXED (SMOOTHER) ===== */
-const typewriterElement = document.getElementById('typewriter');
-const messages = [
-  "A Futuristic Developer",
-  "A Creative Designer",
-  "A Tech Explorer"
-];
-let msgIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-function typewriter() {
-  let currentMessage = messages[msgIndex];
-
-  if (!deleting) {
-    typewriterElement.textContent = currentMessage.slice(0, charIndex++);
-    if (charIndex > currentMessage.length + 10) deleting = true;
-  } else {
-    typewriterElement.textContent = currentMessage.slice(0, charIndex--);
-    if (charIndex === 0) {
-      deleting = false;
-      msgIndex = (msgIndex + 1) % messages.length;
-    }
-  }
-  setTimeout(typewriter, deleting ? 60 : 80);
-}
-typewriter();
-
-/* ===== BURGER MENU ===== */
-const burger = document.querySelector('.burger');
-const navList = document.querySelector('nav ul');
-
-burger.addEventListener('click', () => {
-  navList.classList.toggle('show');
-});
-
-document.addEventListener('click', (e) => {
-  if (!burger.contains(e.target) && !navList.contains(e.target)) navList.classList.remove('show');
-});
-
-navList.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => navList.classList.remove('show'));
-});
-
-/* ===== DARK MODE ===== */
-const modeToggle = document.getElementById('modeToggle');
-let dark = false;
-
-modeToggle.addEventListener('click', () => {
-  dark = !dark;
-  document.body.classList.toggle('dark-mode');
-  modeToggle.textContent = dark ? "☀️ Light Mode" : "🌙 Dark Mode";
-});
-
-/* ===== PROJECT SLIDER ===== */
-const projects = document.querySelectorAll('.project-item');
-let current = 0;
-
-document.getElementById('nextProject').onclick = () => {
-  projects[current].classList.remove('active');
-  current = (current + 1) % projects.length;
-  projects[current].classList.add('active');
-};
