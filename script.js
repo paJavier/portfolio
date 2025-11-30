@@ -1,125 +1,119 @@
-// Hamburger menu
-const hamburger = document.getElementById('hamburger');
-const navCenter = document.getElementById('nav-center');
-const navLinks = document.querySelectorAll('.nav-links a');
-const themeBtn = document.getElementById('theme-toggle');
-const body = document.body;
+/* ===== BACKGROUND CYBERPUNK PARTICLE EFFECT ===== */
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let particles = [];
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', String(!expanded));
-    navCenter.classList.toggle('active');
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 3 + 1;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.speedY = Math.random() * 1 - 0.5;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.size > 0.2) this.size -= 0.02;
+  }
+  draw() {
+    ctx.fillStyle = 'rgba(255, 90, 220, 0.8)';
+    ctx.shadowBlur = 12;
+    ctx.shadowColor = '#ff4fd8';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < 120; i++) particles.push(new Particle());
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p) => {
+    p.update();
+    p.draw();
+    if (p.size <= 0.2) particles.splice(particles.indexOf(p), 1);
+  });
+  if (particles.length < 120) particles.push(new Particle());
+  requestAnimationFrame(animateParticles);
+}
+
+initParticles();
+animateParticles();
+
+/* Resize canvas */
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  initParticles();
 });
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navCenter.classList.remove('active');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-    });
+/* ===== TYPEWRITER EFFECT FIXED (SMOOTHER) ===== */
+const typewriterElement = document.getElementById('typewriter');
+const messages = [
+  "A Futuristic Developer",
+  "A Creative Designer",
+  "A Tech Explorer"
+];
+let msgIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typewriter() {
+  let currentMessage = messages[msgIndex];
+
+  if (!deleting) {
+    typewriterElement.textContent = currentMessage.slice(0, charIndex++);
+    if (charIndex > currentMessage.length + 10) deleting = true;
+  } else {
+    typewriterElement.textContent = currentMessage.slice(0, charIndex--);
+    if (charIndex === 0) {
+      deleting = false;
+      msgIndex = (msgIndex + 1) % messages.length;
+    }
+  }
+  setTimeout(typewriter, deleting ? 60 : 80);
+}
+typewriter();
+
+/* ===== BURGER MENU ===== */
+const burger = document.querySelector('.burger');
+const navList = document.querySelector('nav ul');
+
+burger.addEventListener('click', () => {
+  navList.classList.toggle('show');
 });
 
 document.addEventListener('click', (e) => {
-    if (!navCenter.classList.contains('active')) return;
-    const inside = navCenter.contains(e.target) || hamburger.contains(e.target);
-    if (!inside) {
-        navCenter.classList.remove('active');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-    }
+  if (!burger.contains(e.target) && !navList.contains(e.target)) navList.classList.remove('show');
 });
 
-// Dark mode
-themeBtn.addEventListener('click', () => {
-    const dark = body.classList.toggle('dark-mode');
-    themeBtn.textContent = dark ? '☀️ Light Mode' : '🌙 Dark Mode';
+navList.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => navList.classList.remove('show'));
 });
 
-// Typing animation
-function typeLoop(el, text, speed = 28, pause = 1400) {
-    let i = 0, forward = true;
-    function step() {
-        if (forward) {
-            el.textContent = text.slice(0, i);
-            i++;
-            if (i > text.length) { forward = false; setTimeout(step, pause); return; }
-        } else {
-            i--;
-            el.textContent = text.slice(0, i);
-            if (i <= 0) { forward = true; setTimeout(step, 300); return; }
-        }
-        setTimeout(step, speed);
-    }
-    step();
-}
+/* ===== DARK MODE ===== */
+const modeToggle = document.getElementById('modeToggle');
+let dark = false;
 
-document.querySelectorAll('.typing').forEach((el, idx) => {
-    const text = el.getAttribute('data-text') || el.textContent;
-    setTimeout(() => typeLoop(el, text, 28, 1100), idx*400);
+modeToggle.addEventListener('click', () => {
+  dark = !dark;
+  document.body.classList.toggle('dark-mode');
+  modeToggle.textContent = dark ? "☀️ Light Mode" : "🌙 Dark Mode";
 });
 
-// Cyberpunk background lines
-const canvas = document.getElementById('tech-circuit');
-const ctx = canvas.getContext('2d');
-let W = canvas.width = window.innerWidth;
-let H = canvas.height = window.innerHeight;
-function rand(min,max){return Math.random()*(max-min)+min;}
+/* ===== PROJECT SLIDER ===== */
+const projects = document.querySelectorAll('.project-item');
+let current = 0;
 
-let lines = [];
-function initLines(){
-    lines = [];
-    for(let i=0;i<Math.max(40,Math.floor((W*H)/100000));i++){
-        lines.push({x:rand(0,W),y:rand(0,H),len:rand(40,140),angle:rand(0,Math.PI*2),speed:rand(0.2,0.8),hue:rand(300,345)});
-    }
-}
-initLines();
-
-function resizeCanvas(){
-    W=canvas.width=window.innerWidth;
-    H=canvas.height=window.innerHeight;
-    initLines();
-}
-window.addEventListener('resize', resizeCanvas);
-
-function drawLines() {
-    ctx.clearRect(0, 0, W, H);
-    const dark = body.classList.contains('dark-mode');
-    const baseAlpha = dark ? 0.12 : 0.06;
-
-    lines.forEach(L => {
-        const x2 = L.x + Math.cos(L.angle) * L.len;
-        const y2 = L.y + Math.sin(L.angle) * L.len;
-
-        const g = ctx.createLinearGradient(L.x, L.y, x2, y2);
-
-        if (dark) {
-            g.addColorStop(0, `rgba(255,120,209,${baseAlpha})`);
-            g.addColorStop(1, `rgba(249,97,240,${baseAlpha})`);
-        } else {
-            g.addColorStop(0, `rgba(255,120,209,${baseAlpha})`);
-            g.addColorStop(1, `rgba(249,97,240,${baseAlpha})`);
-        }
-
-        ctx.strokeStyle = g;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(L.x, L.y);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-
-        // Movement
-        L.x += Math.cos(L.angle) * L.speed;
-        L.y += Math.sin(L.angle) * L.speed;
-
-        // Respawn when leaving screen
-        if (L.x > W || L.x < 0 || L.y > H || L.y < 0) {
-            L.x = rand(0, W);
-            L.y = rand(0, H);
-        }
-    });
-
-    requestAnimationFrame(drawLines);
-}
-
-drawLines();
+document.getElementById('nextProject').onclick = () => {
+  projects[current].classList.remove('active');
+  current = (current + 1) % projects.length;
+  projects[current].classList.add('active');
+};
