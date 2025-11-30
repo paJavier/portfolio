@@ -15,6 +15,10 @@ body {
     transition: background 0.4s, color 0.4s;
 }
 
+body.light-mode { background: #ffd1e8; color: #000; }
+body.dark-mode { background: #0a0a0a; color: #fff; }
+
+
 /* Futuristic font */
 .futuristic-font {
     font-family: "Orbitron", sans-serif;
@@ -64,6 +68,10 @@ header {
     display: flex;
     list-style: none;
     gap: 25px;
+}
+.nav-links.active { 
+   right: 0; 
+   display: flex; 
 }
 
 .nav-links li a {
