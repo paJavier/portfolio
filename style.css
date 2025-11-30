@@ -150,15 +150,8 @@ header {
    MOBILE HEADER
 ===================== */
 @media (max-width:768px){
-  /* Header flex layout: burger left, logo center, theme right */
-  header {
-    justify-content: space-between;
-    padding: 14px 20px;
-  }
-  .nav-links { display: none; } /* hide desktop nav */
-  .burger { display: flex; order: 1; }
-  #logo { order: 2; flex: 1; text-align: center; }
-  #theme-btn { order: 3; }
+  .nav-panel { display: flex; } /* only mobile */
+  .nav-links { display: none; } /* hide desktop links */
 }
 
 
