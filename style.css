@@ -31,9 +31,12 @@ body {
 .section-title {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-family: "Orbitron";
     letter-spacing: 2px;
+    background: linear-gradient(90deg, #ff29ff, #a855f7, #ff63d8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Canvas Background */
@@ -127,11 +130,15 @@ header {
     font-size: 3rem;
 }
 
+/* Typewriter */
 .typing {
     margin-top: 10px;
     font-size: 1.4rem;
     font-family: Orbitron;
     min-height: 32px;
+}
+.typing span {
+    display: inline-block;
 }
 
 /* Buttons */
@@ -146,11 +153,21 @@ header {
 .neon-btn {
     background: linear-gradient(90deg, #ff63d8, #a855f7);
     color: #fff;
+    transition: all 0.3s ease;
+}
+.neon-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff63d8, 0 0 30px #a855f7;
 }
 
 .outline-btn {
     border: 2px solid #ff63d8;
     color: #ff63d8;
+    transition: all 0.3s ease;
+}
+.outline-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff63d8, 0 0 30px #a855f7;
 }
 
 /* Home Image */
@@ -159,6 +176,15 @@ header {
     border-radius: 50%;
     border: 4px solid #ff63d8;
     box-shadow: 0 0 20px #ff63d8;
+    opacity: 0;
+    transform: translateX(100px);
+    animation: floatIn 1.5s forwards ease-in-out;
+}
+
+@keyframes floatIn {
+    0% { opacity:0; transform: translateX(100px);}
+    50% { transform: translateX(0) translateY(-10px);}
+    100% { opacity:1; transform: translateX(0) translateY(0);}
 }
 
 /* =====================
@@ -168,16 +194,27 @@ header {
     width: 90%;
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
     gap: 40px;
+    text-align: center;
 }
 
 .about-block {
-    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #ff63d8;
+    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
+    transition: all 0.5s ease;
+}
+.about-block:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
 }
 
 .about-gif {
     width: 220px;
+    height: 220px;
+    object-fit: cover;
     border-radius: 20px;
     margin-bottom: 15px;
 }
@@ -196,11 +233,13 @@ header {
     margin: 15px 0;
     border-radius: 20px;
     background: rgba(255,255,255,0.08);
-}
-
-.neon-border {
     border: 2px solid #ff63d8;
-    box-shadow: 0 0 10px #ff63d8;
+    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
+    transition: all 0.4s ease;
+}
+.skill-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
 }
 
 /* CV Button */
@@ -208,19 +247,49 @@ header {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 25px;
-    background: #ff63d8;
+    background: linear-gradient(90deg, #ff63d8, #a855f7);
     color: white;
     font-family: Orbitron;
     border-radius: 30px;
 }
 
 /* =====================
-   PROJECT SLIDER
+   CERTIFICATIONS
+===================== */
+.cert-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.cert-card {
+    width: 220px;
+    padding: 15px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 25px;
+    border: 2px solid #ff63d8;
+    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
+    transition: all 0.5s ease;
+}
+.cert-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.cert-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
+}
+
+/* =====================
+   PROJECTS
 ===================== */
 .project-slider {
     width: 90%;
     margin: auto;
-    display: flex;
     overflow: hidden;
     scroll-behavior: smooth;
 }
@@ -233,14 +302,21 @@ header {
 .project-images {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 .project-images img {
-    width: 200px;
-    border-radius: 10px;
+    width: 250px;
+    border-radius: 20px;
     border: 2px solid #ff63d8;
+    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
+    transition: all 0.4s ease;
+}
+.project-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
 }
 
+/* Slider Controls */
 .slider-controls {
     text-align: center;
     margin-top: 20px;
@@ -249,10 +325,15 @@ header {
     padding: 10px 20px;
     font-size: 1.5rem;
     border-radius: 15px;
-    background: #ff63d8;
+    background: linear-gradient(90deg, #ff63d8, #a855f7);
     color: white;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+.slider-controls button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff63d8, 0 0 35px #a855f7;
 }
 
 /* =====================
@@ -286,6 +367,15 @@ header {
     }
 
     .project-images img {
-        width: 150px;
+        width: 180px;
+    }
+
+    .about-gif {
+        width: 180px;
+        height: 180px;
+    }
+
+    .cert-card {
+        width: 180px;
     }
 }
