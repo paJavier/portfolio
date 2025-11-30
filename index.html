@@ -1,145 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Psyryll Javier | Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Psyryll Javier | Portfolio</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:wght@400;700&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="light-mode">
 
-    <!-- Canvas Background -->
-    <canvas id="particle-canvas"></canvas>
+<!-- canvas particles -->
+<canvas id="particle-canvas"></canvas>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo futuristic-font">Psyryll</div>
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-item">Home</a></li>
-            <li><a href="#about" class="nav-item">About</a></li>
-            <li><a href="#skills" class="nav-item">Skills</a></li>
-            <li><a href="#certs" class="nav-item">Certifications</a></li>
-            <li><a href="#projects" class="nav-item">Projects</a></li>
+<header>
+  <div class="logo container" style="align-items:center;display:flex;gap:12px;">
+    <h1 id="logo">Portfolio</h1>
+  </div>
+
+  <div class="nav-wrap">
+    <div class="burger" id="burger" aria-label="Open menu" role="button">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav class="nav-panel" id="nav-panel" aria-hidden="true">
+      <a href="#home" class="nav-item">Home</a>
+      <a href="#about" class="nav-item">About</a>
+      <a href="#skills" class="nav-item">Skills</a>
+      <a href="#certs" class="nav-item">Certifications</a>
+      <a href="#projects" class="nav-item">Projects</a>
+    </nav>
+
+    <div class="nav-links" aria-hidden="true">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certifications</a>
+      <a href="#projects">Projects</a>
+    </div>
+
+    <div id="theme-btn" title="Toggle theme"><i class="fa-solid fa-moon"></i><span>Dark Mode</span></div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="home">
+    <div class="home-inner container">
+      <div class="home-text">
+        <h1 class="gradient-text">Hi, I'm Psy!<br>
+          <span class="typing" data-text="Year 2 - Mapua Malayan Colleges Mindanao"></span>
+        </h1>
+        <div class="home-buttons">
+          <a href="#projects" class="btn neon-btn">View Projects</a>
+          <a href="#" class="btn outline-btn">Download CV</a>
+        </div>
+      </div>
+
+      <div class="home-img">
+        <img src="mainprofile.png" alt="profile">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="neon-box">
+      <div class="about-grid container">
+        <div class="about-card">
+          <img src="aboutme.gif" alt="">
+          <p>Hi! I'm Psyryll — a CS student passionate about building efficient and intuitive software.</p>
+        </div>
+        <div class="about-card">
+          <img src="aboutme1.gif" alt="">
+          <p>I'm actively learning modern frameworks and improving my UI/UX skills...</p>
+        </div>
+        <div class="about-card">
+          <img src="aboutme2.gif" alt="">
+          <p>I also enjoy experimental projects, cybersecurity, robotics, and creative UI ideas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & EXPERIENCE -->
+  <section id="skills">
+    <h2 class="section-title">Skills & Experience</h2>
+    <div class="neon-box">
+      <div class="container">
+        <div class="skills-grid">
+          <div class="skill-card">
+            <img src="skill-html.png" alt="HTML">
+            <p><strong>HTML</strong></p>
+          </div>
+          <div class="skill-card">
+            <img src="skill-css.png" alt="CSS">
+            <p><strong>CSS</strong></p>
+          </div>
+          <div class="skill-card">
+            <img src="skill-js.png" alt="JS">
+            <p><strong>JavaScript</strong></p>
+          </div>
+          <div class="skill-card">
+            <img src="skill-csharp.png" alt="C#">
+            <p><strong>C#</strong></p>
+          </div>
+         <div class="skill-card">
+            <img src="skill-csharp.png" alt="C#">
+            <p><strong>Java</strong></p>
+          </div>
+         <div class="skill-card">
+            <img src="skill-csharp.png" alt="C#">
+            <p><strong>Git/GitHub</strong></p>
+          </div>            
+         <div class="skill-card">
+            <img src="skill-csharp.png" alt="C#">
+            <p><strong>UX/UI</strong></p>
+          </div>           
+        </div>
+
+        <div class="section-gap"></div>
+
+        <h3 style="font-family:Orbitron;text-align:center;margin-bottom:10px;color:var(--vio)">Experience</h3>
+        <ul class="exp-list">
+          <li>Working Student — Customer Support & Quality Analysis</li>
+          <li>Freelance Web Designer — Responsive business websites</li>
+          <li>Student Projects — Desktop & Web Apps</li>
         </ul>
-        <div class="burger">
-            <span></span>
-            <span></span>
-            <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <h2 class="section-title">Certifications</h2>
+    <div class="neon-box">
+      <div class="cert-section container">
+        <div class="cert-card">
+          <img src="certificate.jpg" alt="Certificate 1">
+          <p>Information Technology Specialist — Java</p>
         </div>
-        <div id="theme-btn"><i class="fa-solid fa-moon"></i><span>Dark Mode</span></div>
-    </header>
-
-    <!-- HOME -->
-    <section id="home">
-        <div class="home-container">
-            <div class="home-text">
-                <h1 class="gradient-text">Hi, I'm Psy!<br><span class="typing" data-text="Year 2 - Mapua Malayan Colleges Mindanao"></span></h1>
-                <div class="home-buttons">
-                    <a href="#projects" class="btn neon-btn">View Projects</a>
-                    <a href="resume.pdf" target="_blank" class="btn outline-btn">Download CV</a>
-                </div>
-            </div>
-            <div class="home-img">
-                <img src="mainprofile.png" alt="Psy Profile Image">
-            </div>
+        <div class="cert-card">
+          <img src="certificate1.png" alt="Certificate 2">
+          <p>C# Certificate</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <h2 class="section-title gradient-text">About Me</h2>
-        <div class="about-container">
-            <div class="about-block neon-border">
-                <img src="aboutme.gif" class="about-gif" alt="About GIF">
-                <p>Hi! I'm Psyryll Andre Javier — a Computer Science student passionate about building efficient and intuitive software...</p>
-            </div>
-            <div class="about-block neon-border">
-                <img src="aboutme1.gif" class="about-gif" alt="About GIF">
-                <p>I'm actively learning modern frameworks and improving my UI/UX skills...</p>
-            </div>
-            <div class="about-block neon-border">
-                <img src="aboutme2.gif" class="about-gif" alt="About GIF">
-                <p>I also enjoy exploring experimental projects, robotics, and innovative tech solutions...</p>
-            </div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="project-slider">
+      <div class="project-container">
+        <div class="project">
+          <p style="font-weight:700">BuzzLock – Secure Password Management System</p>
+          <div class="project-images">
+            <img src="project.png" alt="">
+            <img src="project1.png" alt="">
+          </div>
         </div>
-    </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-        <h2 class="section-title gradient-text">Skills & Experience</h2>
-        <div class="skills-container">
-            <div class="skill-card neon-border">
-                <h3>Working Student</h3>
-                <p>Experience in Customer Support and Quality Analysis</p>
-            </div>
-            <div class="skill-card neon-border">
-                <h3>Freelance Web Designing</h3>
-                <p>Building clean and responsive websites for clients</p>
-            </div>
+        <div class="project">
+          <p style="font-weight:700">URL Tokenizer – Parses and extracts URL components</p>
+          <div class="project-images">
+            <img src="urltokenizer1.png" alt="">
+            <img src="urltokenizer2.png" alt="">
+          </div>
         </div>
-    </section>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certs">
-        <h2 class="section-title">Certifications</h2>
-        
-        <div class="cert-section">
-            <div class="cert-card">
-                <img src="certificate.jpg">
-                <p>Information Technology Specialist – Java</p>
-            </div>
-        
-            <div class="cert-card">
-                <img src="certificate1.png">
-                <p>C# Certificate</p>
-            </div>
+        <div class="project">
+          <p style="font-weight:700">Jupiter Rehab – Healthcare Tracking</p>
+          <div class="project-images">
+            <img src="jupiter1.JPG" alt="">
+            <img src="jupiter2.JPG" alt="">
+          </div>
         </div>
-    </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <h2 class="section-title gradient-text">Featured Projects</h2>
-        <div class="project-slider">
-            <div class="project-container">
-                <div class="project">
-                    <p>BuzzLock – Secure Password Management System.</p>
-                    <div class="project-images">
-                        <img src="project.png" alt="BuzzLock Screenshot">
-                        <img src="project1.png" alt="BuzzLock Screenshot">
-                    </div>
-                </div>
-                <div class="project">
-                    <p>URL Tokenizer – Parses URLs and extracts components efficiently.</p>
-                    <div class="project-images">
-                        <img src="urltokenizer1.png" alt="URL Tokenizer Screenshot">
-                        <img src="urltokenizer2.png" alt="URL Tokenizer Screenshot">
-                    </div>
-                </div>
-                <div class="project">
-                    <p>Jupiter Rehab – Healthcare Tracking.</p>
-                    <div class="project-images">
-                        <img src="jupiter1.JPG" alt="Jupiter Rehab Screenshot">
-                        <img src="jupiter2.JPG" alt="Jupiter Rehab Screenshot">
-                    </div>
-                </div>
-                <div class="project">
-                    <p>SATORI – A webpage for ESL Company.</p>
-                    <div class="project-images">
-                        <img src="satori.png" alt="Satori Screenshot">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Swipe Buttons -->
-            <button id="prevProject" class="swipe-btn">‹</button>
-            <button id="nextProject" class="swipe-btn">›</button>
-
-            <!-- Dot Indicators -->
-            <div class="slider-dots"></div>
+        <div class="project">
+          <p style="font-weight:700">SATORI – Webpage for ESL Company</p>
+          <div class="project-images">
+            <img src="satori.png" alt="">
+          </div>
         </div>
-    </section>
+      </div>
 
-    <script src="script.js"></script>
+      <!-- arrows -->
+      <button id="prevProject" class="swipe-btn" aria-label="Previous">‹</button>
+      <button id="nextProject" class="swipe-btn" aria-label="Next">›</button>
+
+      <!-- dots -->
+      <div class="slider-dots" aria-hidden="false"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- modal for images -->
+<div class="modal" id="modal"></div>
+
+<!-- Custom JS -->
+<script src="script.js"></script>
 </body>
 </html>
