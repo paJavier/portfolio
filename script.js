@@ -82,22 +82,44 @@ function resizeCanvas(){
 }
 window.addEventListener('resize', resizeCanvas);
 
-function drawLines(){
-    ctx.clearRect(0,0,W,H);
+function drawLines() {
+    ctx.clearRect(0, 0, W, H);
     const dark = body.classList.contains('dark-mode');
-    const baseAlpha = dark?0.12:0.06;
-    lines.forEach(L=>{
-        const x2=L.x+Math.cos(L.angle)*L.len;
-        const y2=L.y+Math.sin(L.angle)*L.len;
-        const g=ctx.createLinearGradient(L.x,L.y,x2,y2);
-        if(dark){ g.addColorStop(0,`rgba(255,120,209,${baseAlpha})`); g.addColorStop(1,`rgba(148,52,116,${baseAlpha*0.6})`);}
-        else { g.addColorStop(0,`rgba(255,120,209,${baseAlpha*1.2})`); g.addColorStop(1,`rgba(250,97,240,${baseAlpha*0.5})`);}
-        ctx.strokeStyle=g; ctx.lineWidth=1.1;
-        ctx.beginPath(); ctx.moveTo(L.x,L.y); ctx.lineTo(x2,y2); ctx.stroke();
-        L.x+=Math.cos(L.angle)*L.speed; L.y+=Math.sin(L.angle)*L.speed;
-        L.angle+=Math.sin((performance.now()+L.x)/6000)*0.003;
-        if(L.x<-80||L.x>W+80||L.y<-80||L.y>H+80){L.x=rand(0,W);L.y=rand(0,H);}
+    const baseAlpha = dark ? 0.12 : 0.06;
+
+    lines.forEach(L => {
+        const x2 = L.x + Math.cos(L.angle) * L.len;
+        const y2 = L.y + Math.sin(L.angle) * L.len;
+
+        const g = ctx.createLinearGradient(L.x, L.y, x2, y2);
+
+        if (dark) {
+            g.addColorStop(0, `rgba(255,120,209,${baseAlpha})`);
+            g.addColorStop(1, `rgba(249,97,240,${baseAlpha})`);
+        } else {
+            g.addColorStop(0, `rgba(255,120,209,${baseAlpha})`);
+            g.addColorStop(1, `rgba(249,97,240,${baseAlpha})`);
+        }
+
+        ctx.strokeStyle = g;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(L.x, L.y);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        // Movement
+        L.x += Math.cos(L.angle) * L.speed;
+        L.y += Math.sin(L.angle) * L.speed;
+
+        // Respawn when leaving screen
+        if (L.x > W || L.x < 0 || L.y > H || L.y < 0) {
+            L.x = rand(0, W);
+            L.y = rand(0, H);
+        }
     });
+
     requestAnimationFrame(drawLines);
 }
+
 drawLines();
