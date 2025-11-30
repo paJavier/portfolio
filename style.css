@@ -77,7 +77,6 @@ header {
   display: flex;
   list-style: none;
   gap: 25px;
-  flex: 1;
   justify-content: center; /* center horizontally */
 }
 
