@@ -162,6 +162,7 @@ header {
 @media (max-width: 768px) {
   .nav-links { display: none; }  /* hide desktop links */
   #burger { display: flex; }     /* show burger */
+}
 
 /* =====================
    HOME / HERO
