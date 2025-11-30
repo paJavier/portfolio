@@ -45,13 +45,11 @@ body.dark-mode { background: #0a0a0a; color:#fff; }
 /* =====================
    HEADER / NAV
 ===================== */
-/* =====================
-   HEADER / NAV
-===================== */
+
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* spread items left, center, right */
+  justify-content: space-between; /* spread left, center, right */
   padding: 15px 40px;
   position: fixed;
   width: 100%;
@@ -74,13 +72,13 @@ header {
   text-shadow:0 0 8px rgba(255,99,216,0.25);
 }
 
-/* Center nav links (desktop) */
+/* Desktop nav links */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 25px;
   flex: 1;
-  justify-content: center; /* center */
+  justify-content: center; /* center horizontally */
 }
 
 .nav-links li a {
@@ -93,6 +91,45 @@ header {
 .nav-links li a:hover {
   color: #ff63d8;
   text-shadow: 0 0 10px #ff63d8;
+}
+
+/* Mobile burger menu */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Mobile nav panel */
+.nav-panel {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  width: 60%;
+  height: 100vh;
+  background: #1a001a;
+  padding-top: 70px;
+  gap: 20px;
+  transition: 0.4s;
+}
+.nav-panel.active {
+  left: 0;
+}
+.nav-panel a {
+  font-size: 1.15rem;
+  color: #ff63d8;
+  text-shadow: 0 0 10px rgba(255,99,216,.15);
+  padding: 10px 20px;
+  display: block;
 }
 
 /* Theme toggle */
@@ -113,33 +150,17 @@ header {
    MOBILE HEADER
 ===================== */
 @media (max-width:768px){
+  /* Header flex layout: burger left, logo center, theme right */
   header {
-    justify-content: space-between; /* left: burger, center: logo, right: toggle */
+    justify-content: space-between;
     padding: 14px 20px;
   }
-
-  .burger { display: flex; order: 1; }   /* left */
-  #logo { order: 2; text-align: center; flex: 1; } /* center */
-  #theme-btn { order: 3; } /* right */
-
   .nav-links { display: none; } /* hide desktop nav */
-  
-  .nav-panel { 
-    display: flex; 
-    flex-direction: column; 
-    position: fixed; 
-    left: -100%; 
-    top: 0; 
-    width: 60%; 
-    height: 100vh; 
-    background: #1a001a; 
-    padding-top: 70px; 
-    gap: 20px; 
-    transition: 0.4s; 
-  }
-  .nav-panel.active { left: 0; }
-  .nav-panel a { font-size:1.15rem; color: #ff63d8; text-shadow:0 0 10px rgba(255,99,216,.15); }
+  .burger { display: flex; order: 1; }
+  #logo { order: 2; flex: 1; text-align: center; }
+  #theme-btn { order: 3; }
 }
+
 
 /* =====================
    HOME / HERO
