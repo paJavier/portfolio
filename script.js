@@ -1,33 +1,34 @@
 /* =====================
    BURGER MENU
 ===================== */
-const burger = document.getElementById("burger");
-const nav = document.getElementById("nav-links");
+const burger = document.querySelector(".burger");
+const navLinks = document.querySelector(".nav-links");
 
 burger.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
-
-// Close nav when clicking link
-document.querySelectorAll(".nav-item").forEach(item => {
-    item.addEventListener("click", () => nav.classList.remove("active"));
+    navLinks.classList.toggle("active");
 });
 
 // Close nav on outside click
 document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && !burger.contains(e.target)) {
-        nav.classList.remove("active");
+    if (!navLinks.contains(e.target) && !burger.contains(e.target)) {
+        navLinks.classList.remove("active");
     }
+});
+
+// Close nav on link click
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => navLinks.classList.remove("active"));
 });
 
 /* =====================
    THEME TOGGLE
 ===================== */
 const themeBtn = document.getElementById("theme-btn");
-let darkMode = true;
+let darkMode = true; // default dark
 
 themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
+    document.body.classList.toggle("dark-mode");
     darkMode = !darkMode;
     themeBtn.innerHTML = darkMode 
         ? `<i class="fa-solid fa-sun"></i><span>Light Mode</span>`
@@ -39,32 +40,14 @@ themeBtn.addEventListener("click", () => {
 ===================== */
 const typer = document.querySelector(".typing");
 const text = typer.getAttribute("data-text");
-
 let index = 0;
 
 function type() {
     typer.textContent = text.slice(0, index);
     index++;
-    if (index <= text.length) {
-        setTimeout(type, 70);
-    }
+    if (index <= text.length) setTimeout(type, 70);
 }
 type();
-
-/* =====================
-   PROJECT SLIDER
-===================== */
-const slider = document.getElementById("project-slider");
-const nextBtn = document.getElementById("next");
-const prevBtn = document.getElementById("prev");
-
-nextBtn.addEventListener("click", () => {
-    slider.scrollLeft += slider.clientWidth;
-});
-
-prevBtn.addEventListener("click", () => {
-    slider.scrollLeft -= slider.clientWidth;
-});
 
 /* =====================
    PARTICLE BACKGROUND
@@ -92,14 +75,11 @@ for (let i = 0; i < 70; i++) {
 
 function animateParticles() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-
     particles.forEach(p => {
         p.x += p.speedX;
         p.y += p.speedY;
-
         if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
         if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
         ctx.fillStyle = "#ff63d8";
         ctx.shadowBlur = 10;
         ctx.shadowColor = "#ff63d8";
@@ -107,7 +87,69 @@ function animateParticles() {
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
     });
-
     requestAnimationFrame(animateParticles);
 }
 animateParticles();
+
+/* =====================
+   PROJECT SLIDER + DOTS + MODAL + SWIPE
+===================== */
+const projectContainer = document.querySelector(".project-container");
+const projects = document.querySelectorAll(".project");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+const dotsContainer = document.querySelector(".slider-dots");
+
+// Initialize dots
+projects.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if(i===0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+        current = i;
+        updateSlider();
+    });
+    dotsContainer.appendChild(dot);
+});
+
+let current = 0;
+
+function updateSlider() {
+    projectContainer.style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll(".slider-dots span").forEach((dot,i) => {
+        dot.classList.toggle("active", i===current);
+    });
+}
+
+// Next/Prev buttons
+nextBtn.addEventListener("click", () => {
+    current = (current + 1) % projects.length;
+    updateSlider();
+});
+prevBtn.addEventListener("click", () => {
+    current = (current - 1 + projects.length) % projects.length;
+    updateSlider();
+});
+
+// Swipe for mobile
+let startX = 0;
+projectContainer.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+});
+projectContainer.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50) { current = (current+1)%projects.length; updateSlider();}
+    if(endX - startX > 50) { current = (current-1+projects.length)%projects.length; updateSlider();}
+});
+
+// Modal popup for project images
+const modal = document.createElement("div");
+modal.classList.add("modal");
+document.body.appendChild(modal);
+
+document.querySelectorAll(".project-images img").forEach(img => {
+    img.addEventListener("click", () => {
+        modal.innerHTML = `<img src="${img.src}" alt="">`;
+        modal.classList.add("active");
+    });
+});
+modal.addEventListener("click", () => modal.classList.remove("active"));
