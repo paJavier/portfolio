@@ -394,25 +394,33 @@ header h1#logo {
     color: #ff63d8;
 }
 
-/* Optional: Swipe Buttons for projects */
+/* Optional: move the swipe buttons closer to the projects */
 .swipe-btn {
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(90deg, #ff63d8, #a855f7);
     border: none;
-    padding: 12px 18px;
+    padding: 10px 14px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: #fff;
+    box-shadow: 0 0 15px #ff63d8, 0 0 25px #a855f7;
 }
+
 .swipe-btn#prevProject {
-    left: 15px;
+    left: 10px; /* closer to card */
 }
+
 .swipe-btn#nextProject {
-    right: 15px;
+    right: 10px; /* closer to card */
+}
+
+/* Smooth transition for the project container */
+.project-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out; /* faster sliding speed */
 }
 
 /* Responsive adjustments */
