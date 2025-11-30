@@ -245,45 +245,91 @@ header h1#logo {
     margin-bottom: 50px;
 }
 
-/* --- Certificates Container Fix --- */
-.certs-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* center cards horizontally */
-  gap: 40px; /* spacing between cards */
-  width: 100%; /* ensure full width so flex-wrap works */
-  padding: 40px 0; /* some vertical spacing */
-  box-sizing: border-box;
+/* ============================
+   NEON CONTAINERS (Skills + Experience)
+============================ */
+.neon-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 25px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1200px;
+    border: 2px solid rgba(255, 99, 216, 0.7);
+    box-shadow: 0 0 20px #ff63d8, 0 0 40px #b36bff, inset 0 0 30px rgba(255, 99, 216, 0.3);
+    backdrop-filter: blur(6px);
+}
+
+/* ============================
+   CERTIFICATION CARDS
+============================ */
+.cert-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
 }
 
 .cert-card {
-  flex: 0 1 300px; /* cards take up to 300px but shrink on small screens */
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    width: 350px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #ff63d8;
+    box-shadow: 0 0 15px #ff63d8;
 }
 
-/* --- Skills --- */
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  width: 100%;
-  padding: 60px 0;
-  box-sizing: border-box;
+.cert-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cert-card p {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #b36bff;
+}
+
+/* spacing between sections */
+.section-title {
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+/* ============================
+   SKILLS GRID
+============================ */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
 
 .skill-card {
-  flex: 0 1 280px;
-  max-width: 300px;
-  margin: 10px;
-  text-align: center;
+    width: 150px;
+    text-align: center;
 }
 
+.skill-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
 
+/* ============================
+   EXPERIENCE LIST
+============================ */
+.exp-list {
+    margin-top: 20px;
+}
+
+.exp-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
 /* =====================
    PROJECT SLIDER
 ===================== */
