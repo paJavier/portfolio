@@ -45,10 +45,13 @@ body.dark-mode { background: #0a0a0a; color:#fff; }
 /* =====================
    HEADER / NAV
 ===================== */
+/* =====================
+   HEADER / NAV
+===================== */
 header {
   display: flex;
-  justify-content: center; /* center navbar */
   align-items: center;
+  justify-content: space-between; /* spread items left, center, right */
   padding: 15px 40px;
   position: fixed;
   width: 100%;
@@ -70,13 +73,14 @@ header {
   animation: logoShift 4s linear infinite;
   text-shadow:0 0 8px rgba(255,99,216,0.25);
 }
-@keyframes logoShift{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
 
-/* Nav links */
+/* Center nav links (desktop) */
 .nav-links {
   display: flex;
   list-style: none;
   gap: 25px;
+  flex: 1;
+  justify-content: center; /* center */
 }
 
 .nav-links li a {
@@ -91,36 +95,50 @@ header {
   text-shadow: 0 0 10px #ff63d8;
 }
 
-/* Hide mobile menu on desktop */
-.nav-panel {
-  display: none;
-}
-
-/* Burger menu */
-.burger {
-  display: none;
-}
-
-@media (max-width:768px){
-  .burger { display: flex; }
-  .nav-links { display: none; }
-  .nav-panel { display: flex; flex-direction: column; position: fixed; left:-100%; top:0; width:60%; height:100vh; background:#1a001a; padding-top:70px; gap:20px; transition:0.4s; }
-  .nav-panel.active { left:0; }
-}
-
-.nav-panel.open { left:0; }
-  .nav-panel a { font-size:1.15rem; color: #ff63d8; text-shadow:0 0 10px rgba(255,99,216,.15); }
-}
-
 /* Theme toggle */
 #theme-btn {
-  display:flex; align-items:center; gap:8px; padding:8px 12px;
+  display:flex; 
+  align-items:center; 
+  gap:8px; 
+  padding:8px 12px;
   border-radius:20px;
   background:linear-gradient(90deg,#ff63d8,#a855f7);
   color:#fff;
   font-family:'Audiowide';
   cursor:pointer;
   box-shadow:0 6px 20px rgba(168,72,234,.12);
+}
+
+/* =====================
+   MOBILE HEADER
+===================== */
+@media (max-width:768px){
+  header {
+    justify-content: space-between; /* left: burger, center: logo, right: toggle */
+    padding: 14px 20px;
+  }
+
+  .burger { display: flex; order: 1; }   /* left */
+  #logo { order: 2; text-align: center; flex: 1; } /* center */
+  #theme-btn { order: 3; } /* right */
+
+  .nav-links { display: none; } /* hide desktop nav */
+  
+  .nav-panel { 
+    display: flex; 
+    flex-direction: column; 
+    position: fixed; 
+    left: -100%; 
+    top: 0; 
+    width: 60%; 
+    height: 100vh; 
+    background: #1a001a; 
+    padding-top: 70px; 
+    gap: 20px; 
+    transition: 0.4s; 
+  }
+  .nav-panel.active { left: 0; }
+  .nav-panel a { font-size:1.15rem; color: #ff63d8; text-shadow:0 0 10px rgba(255,99,216,.15); }
 }
 
 /* =====================
