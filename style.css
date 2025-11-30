@@ -273,23 +273,27 @@ header {
    CERTIFICATIONS
 ===================== */
 .certs-container {
-    width: 90%;
-    margin: auto;
+    width: 95%;
+    margin: 50px auto 80px; /* increased bottom margin for spacing */
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px; /* spacing between certificates */
 }
 
 .cert-card {
     display: inline-block;
-    margin: 15px;
+    margin: 10px;
     border: 2px solid #ff63d8;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 25px #ff63d8;
+    box-shadow: 0 0 30px #ff63d8;
     transition: all 0.3s;
 }
 
 .cert-card img {
-    width: 260px; /* increased from 220px */
+    width: 300px; /* increased size */
     height: auto;
     display: block;
     border-radius: 15px;
@@ -297,15 +301,15 @@ header {
 
 .cert-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 50px #ff63d8;
+    box-shadow: 0 0 60px #ff63d8;
 }
 
 /* =====================
    PROJECT SLIDER
 ===================== */
 .project-slider {
-    width: 90%;
-    margin: auto;
+    width: 95%;
+    margin: 60px auto 100px; /* more spacing above and below */
     overflow: hidden;
     position: relative;
 }
@@ -324,11 +328,11 @@ header {
 .project-images {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px; /* larger gap between images */
 }
 
 .project-images img {
-    width: 260px; /* increased from 220px */
+    width: 300px; /* increased size */
     border-radius: 15px;
     border: 2px solid #ff63d8;
     box-shadow: 0 0 25px #ff63d8;
@@ -338,7 +342,7 @@ header {
 
 .project-images img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 50px #ff63d8;
+    box-shadow: 0 0 60px #ff63d8;
 }
 
 /* Slider Dots (centered below slider) */
@@ -349,10 +353,10 @@ header {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 8px;
+    gap: 12px;
 }
 .slider-dots span {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* slightly bigger dots */
     cursor: pointer;
     color: #fff;
     transition: color 0.3s;
@@ -361,32 +365,38 @@ header {
     color: #ff63d8;
 }
 
-/* Swipe Buttons for projects */
+/* Optional: Swipe Buttons for projects */
 .swipe-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(90deg, #ff63d8, #a855f7);
     border: none;
-    padding: 10px 15px;
+    padding: 12px 18px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #fff;
 }
 .swipe-btn#prevProject {
-    left: 10px;
+    left: 15px;
 }
 .swipe-btn#nextProject {
-    right: 10px;
+    right: 15px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .project-images img,
     .cert-card img {
-        width: 200px; 
+        width: 200px; /* smaller for mobile */
+    }
+    .certs-container {
+        gap: 20px;
+    }
+    .project-images {
+        gap: 15px;
     }
 }
 /* =====================
