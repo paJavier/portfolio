@@ -263,14 +263,14 @@ header {
 .cert-section { 
   display:flex; 
   flex-wrap:wrap; 
-  gap:24px; 
+  gap:32px; 
   justify-content:center; 
   align-items:flex-start; 
 }
 
 .cert-card { 
-  font-size: 1.25rem; 
-  width: 380px; /* increased from 340px */
+  font-size: 1.3rem; 
+  width: 480px; /* increased from 340px */
   background: rgba(255,255,255,.02); 
   padding: 14px; 
   border-radius: 12px; 
@@ -281,7 +281,7 @@ header {
 
 .cert-card img {
   width: 100%;       /* fill container */
-  max-width: 420px;  /* increased from 380px */
+  max-width: 520px;  /* increased from 380px */
   height: auto;
   border-radius: 10px;
 }
@@ -305,12 +305,12 @@ header {
 
 .project { 
   min-width: 100%; /* ensures one project occupies full slider width */
-  padding: 12px; 
+  padding: 20px; 
   display: flex; 
   flex-direction: column; 
   align-items: center; 
-  gap: 12px; 
-  font-size: 1.3rem; 
+  gap: 20px; 
+  font-size: 1.35rem; 
 }
 
 .project-images { 
@@ -321,11 +321,12 @@ header {
 }
 
 .project-images img {
-  width: 500px;   /* increased from 420px */
+  width: 650px;   
+  max-width: 95vw;
   height: auto; 
-  border-radius: 12px;
-  border: 3px solid rgba(255,99,216,.12);
-  box-shadow: 0 0 30px rgba(255,99,216,.12);
+  border-radius: 14px;
+  border: 3px solid rgba(255,99,216,.14);
+  box-shadow: 0 0 40px rgba(255,99,216,.14);
 }
 
 .project-images img:hover { 
