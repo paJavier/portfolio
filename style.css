@@ -390,6 +390,7 @@ header {
   background: linear-gradient(90deg,#ff29ff,#a855f7,#ff63d8);
   -webkit-background-clip: text;
   color: transparent;
+   text-align: center;
 }
 
 /* ICON ROW */
