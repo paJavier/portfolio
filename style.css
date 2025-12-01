@@ -263,27 +263,41 @@ header {
 .cert-section { 
   display:flex; 
   flex-wrap:wrap; 
-  gap:32px; 
+  gap:28px; 
   justify-content:center; 
   align-items:flex-start; 
 }
 
 .cert-card { 
-  font-size: 1.3rem; 
-  width: 480px; /* increased from 340px */
-  background: rgba(255,255,255,.02); 
-  padding: 14px; 
-  border-radius: 12px; 
-  border: 2px solid rgba(255,99,216,.12); 
-  box-shadow: 0 10px 30px rgba(255,99,216,.06); 
-  text-align: center; 
+  width: 420px;
+  background: rgba(255,255,255,.02);
+  padding: 16px;
+  border-radius: 14px;
+  border: 2px solid rgba(255,99,216,.14);
+  box-shadow: 0 10px 30px rgba(255,99,216,.10);
+  text-align: center;
+  transition: 0.25s ease;
+  font-size: 1.3rem;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(255,99,216,.20);
 }
 
 .cert-card img {
-  width: 100%;       /* fill container */
-  max-width: 520px;  /* increased from 380px */
+  width: 100%;
+  max-width: 650px;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: 3px solid rgba(255,99,216,.12);
+  box-shadow: 0 0 35px rgba(255,99,216,.14);
+  transition: 0.25s ease;
+}
+
+.cert-card img:hover {
+  transform: scale(1.035);
+  box-shadow: 0 0 60px rgba(255,99,216,.20);
 }
 
 /* =====================
@@ -321,12 +335,13 @@ header {
 }
 
 .project-images img {
-  width: 650px;   
+  width: 650px;
   max-width: 95vw;
-  height: auto; 
+  height: auto;
   border-radius: 14px;
   border: 3px solid rgba(255,99,216,.14);
   box-shadow: 0 0 40px rgba(255,99,216,.14);
+  transition: 0.25s ease;
 }
 
 .project-images img:hover { 
@@ -356,8 +371,32 @@ header {
 
 /* Responsive */
 @media (max-width:1024px){
-  .project-images img{width:380px;}
+  .project-images img{
+    width: 450px;
+  }
+  .cert-card {
+    width: 360px;
+  }
 }
+
 @media (max-width:768px){
-  .project-images img{width:240px;}
+  .project-images img{
+    width: 280px;
+  }
+  .cert-card {
+    width: 300px;
+  }
+}
+
+/* Phones */
+@media (max-width:480px){
+  .project-images img{
+    width: 220px;
+  }
+  .cert-card {
+    width: 260px;
+  }
+  .cert-card img {
+    max-width: 260px;
+  }
 }
