@@ -369,6 +369,70 @@ header {
 /* Hide slider dots (no preview) */
 .slider-dots { display: none; }
 
+/*Contact*/
+.contact-container {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+.contact-text {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+  color: var(--text);
+}
+
+/* Title under Contact Me */
+.contact-subtitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(90deg,#ff29ff,#a855f7,#ff63d8);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ICON ROW */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 25px;
+}
+
+/* Each icon */
+.contact-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.2rem;
+  color: #ff63d8;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Icon circle */
+.contact-icon i {
+  font-size: 2.4rem;
+  padding: 12px;
+  border-radius: 14px;
+  border: 2px solid rgba(255,99,216,0.2);
+  box-shadow: 0 0 20px rgba(255,99,216,0.15);
+  transition: 0.3s;
+}
+
+/* Hover neon glow */
+.contact-icon:hover i {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(255,99,216,0.3);
+}
+
+.contact-icon span {
+  font-size: 1.1rem;
+}
+
 /* Responsive */
 @media (max-width:1024px){
   .project-images img{
