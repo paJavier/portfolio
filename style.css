@@ -107,9 +107,12 @@ header {
 #burger span {
   width: 25px;
   height: 3px;
-  background: var(--pink, #ff63d8);
+  background: #ff63d8 !important;
   border-radius: 2px;
   transition: all 0.3s ease;
+}
+#burger.open span {
+  background: linear-gradient(90deg,#ff63d8,#a855f7) !important;
 }
 
 /* MOBILE NAV PANEL */
