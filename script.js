@@ -9,10 +9,13 @@ const navPanelLinks = document.querySelectorAll('.nav-panel a');
 function closeNavPanel() {
   navPanel.classList.remove('open');
   navPanel.setAttribute('aria-hidden','true');
+  burger.classList.remove('open');
+
 }
 function openNavPanel() {
   navPanel.classList.add('open');
   navPanel.setAttribute('aria-hidden','false');
+  burger.classList.add('open');            
 }
 
 burger.addEventListener('click', (e) => {
