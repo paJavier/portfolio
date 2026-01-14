@@ -335,18 +335,18 @@ header {
 }
 
 .project-images img {
-  width: 650px;
-  max-width: 95vw;
+  width: 480px;         /* smaller default width */
+  max-width: 95vw;      /* keeps them responsive */
   height: auto;
   border-radius: 14px;
   border: 3px solid rgba(255,99,216,.14);
-  box-shadow: 0 0 40px rgba(255,99,216,.14);
+  box-shadow: 0 0 35px rgba(255,99,216,.14); /* slightly smaller glow */
   transition: 0.25s ease;
 }
 
 .project-images img:hover { 
-  transform: scale(1.035); 
-  box-shadow: 0 0 60px rgba(255,99,216,.18); 
+  transform: scale(1.025); /* slightly smaller zoom than before */
+  box-shadow: 0 0 50px rgba(255,99,216,.18); 
 }
 
 /* Keep swipe buttons */
@@ -459,7 +459,7 @@ header {
 /* Responsive */
 @media (max-width:1024px){
   .project-images img{
-    width: 450px;
+    width: 400px;
   }
   .cert-card {
     width: 360px;
