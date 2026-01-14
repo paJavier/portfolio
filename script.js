@@ -155,13 +155,22 @@ projectContainer.addEventListener('touchend', (e)=>{
 
 // modal
 document.querySelectorAll('.project-images img').forEach(img=>{
-  img.addEventListener('click', ()=>{
-    modal.innerHTML = `<img src="${img.src}" alt="">`;
+document.querySelectorAll('.project-images img').forEach(img => {
+  img.addEventListener('click', (e) => {
+    e.stopPropagation(); // 🔑 prevents slider / page jump
+
+    modal.innerHTML = `
+      <img src="${img.src}" alt="">
+      <span class="close-modal">&times;</span>
+    `;
     modal.classList.add('active');
   });
 });
-modal.addEventListener('click', ()=> modal.classList.remove('active'));
 
+// close modal when clicking outside image
+modal.addEventListener('click', () => {
+  modal.classList.remove('active');
+});
 
 /* =====================
    EQUALIZE CARD HEIGHTS
