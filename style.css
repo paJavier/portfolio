@@ -330,11 +330,12 @@ header {
   font-size: 1.35rem; 
 }
 
-.project-images { 
-  display: flex; 
-  gap: 20px; 
-  flex-wrap: wrap; 
-  justify-content: center; 
+.project-images {
+  position: relative; 
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .project-images img {
@@ -346,6 +347,8 @@ header {
   box-shadow: 0 0 40px rgba(255,99,216,.14);
   transition: 0.25s ease;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .project-images img:hover { 
@@ -356,22 +359,30 @@ header {
 /* Swipe / arrow buttons */
 .swipe-btn { 
   position: absolute; 
-  top: 50%; 
-  transform: translateY(-50%); 
+  top: 50%;
+  transform: translateY(-50%);
   background: linear-gradient(90deg,#ff63d8,#a855f7); 
   border: none; 
-  padding: 10px; 
+  width: 44px;
+  height: 44px;
   border-radius: 50%; 
   color: #fff; 
   font-size: 20px; 
   cursor: pointer; 
-  box-shadow: 0 10px 30px rgba(168,72,234,.12); 
-  z-index: 30;          /* 🔧 ensures clickable */
-  pointer-events: auto; /* 🔧 prevents blocking */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(168,72,234,.12);
+  z-index: 10;
 }
 
-#prevProject { left: 10px; }
-#nextProject { right: 10px; }
+#prevProject {
+  left: -22px; 
+}
+
+#nextProject {
+  right: -22px;
+}
 
 /* Hide slider dots (no preview) */
 .slider-dots { 
