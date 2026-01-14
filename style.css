@@ -309,15 +309,12 @@ header {
   position: relative; 
   padding-bottom: 70px; 
   overflow: hidden; /* ensures only one project visible */
-  z-index: 20; /* 🔧 keeps slider above canvas & transforms */
 }
 
 .project-container { 
   display: flex; 
   transition: transform 0.45s cubic-bezier(.2,.9,.2,1); 
   width: 100%;
-  position: relative;
-  z-index: 10; /* 🔧 prevents transform stacking issues */
 }
 
 .project { 
@@ -330,12 +327,11 @@ header {
   font-size: 1.35rem; 
 }
 
-.project-images {
-  position: relative; 
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+.project-images { 
+  display: flex; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
 .project-images img {
@@ -346,9 +342,6 @@ header {
   border: 3px solid rgba(255,99,216,.14);
   box-shadow: 0 0 40px rgba(255,99,216,.14);
   transition: 0.25s ease;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
 }
 
 .project-images img:hover { 
@@ -356,67 +349,25 @@ header {
   box-shadow: 0 0 60px rgba(255,99,216,.18); 
 }
 
-/* Swipe / arrow buttons */
+/* Keep swipe buttons */
 .swipe-btn { 
   position: absolute; 
-  top: 50%;
-  transform: translateY(-50%);
+  top: 50%; 
+  transform: translateY(-50%); 
   background: linear-gradient(90deg,#ff63d8,#a855f7); 
   border: none; 
-  width: 44px;
-  height: 44px;
+  padding: 10px; 
   border-radius: 50%; 
   color: #fff; 
   font-size: 20px; 
   cursor: pointer; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 30px rgba(168,72,234,.12);
-  z-index: 10;
+  box-shadow: 0 10px 30px rgba(168,72,234,.12); 
 }
-
-#prevProject {
-  left: -22px; 
-}
-
-#nextProject {
-  right: -22px;
-}
+#prevProject { left: 10px; }
+#nextProject { right: 10px; }
 
 /* Hide slider dots (no preview) */
-.slider-dots { 
-  display: none; 
-}
-
-/* =====================
-   MODAL (image viewer)
-===================== */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none; /* 🔧 prevents blocking slider */
-  transition: opacity 0.3s ease;
-  z-index: 9999;
-}
-
-.modal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 14px;
-  box-shadow: 0 0 60px rgba(255,99,216,.3);
-}
-
+.slider-dots { display: none; }
 
 /*Contact*/
 .contact-container {
