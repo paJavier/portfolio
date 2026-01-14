@@ -141,26 +141,35 @@ function updateSlider(){
   projectContainer.style.transform = `translateX(-${current * 100}%)`;
 }
 
-nextBtn.addEventListener('click', ()=>{ current = (current + 1) % projects.length; updateSlider(); });
-prevBtn.addEventListener('click', ()=>{ current = (current - 1 + projects.length) % projects.length; updateSlider(); });
+/* ----- BUTTONS ----- */
+nextBtn.addEventListener('click', () => { 
+  current = (current + 1) % projects.length; 
+  updateSlider(); 
+});
+prevBtn.addEventListener('click', () => { 
+  current = (current - 1 + projects.length) % projects.length; 
+  updateSlider(); 
+});
 
-// swipe
+/* ----- SWIPE ----- */
 let startX = 0;
-projectContainer.addEventListener('touchstart', (e)=> startX = e.touches[0].clientX, {passive:true});
-projectContainer.addEventListener('touchend', (e)=>{
+projectContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+projectContainer.addEventListener('touchend', e => {
   let endX = e.changedTouches[0].clientX;
   if(startX - endX > 50) { current = (current+1) % projects.length; updateSlider(); }
   if(endX - startX > 50) { current = (current-1 + projects.length) % projects.length; updateSlider(); }
 });
 
-// modal
-document.querySelectorAll('.project-images img').forEach(img=>{
-  img.addEventListener('click', ()=>{
-    modal.innerHTML = `<img src="${img.src}" alt="">`;
+/* ----- MODAL ----- */
+document.querySelectorAll('.project-images img').forEach(img => {
+  img.addEventListener('click', e => {
+    e.preventDefault(); // ✅ Prevents scrolling
+    modal.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
     modal.classList.add('active');
   });
 });
-modal.addEventListener('click', ()=> modal.classList.remove('active'));
+
+modal.addEventListener('click', () => modal.classList.remove('active'));
 
 
 /* =====================
