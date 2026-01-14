@@ -160,15 +160,25 @@ projectContainer.addEventListener('touchend', e => {
   if(endX - startX > 50) { current = (current-1 + projects.length) % projects.length; updateSlider(); }
 });
 
-/* ----- MODAL ----- */
+/* ----- MODAL for PROJECTS ----- */
 document.querySelectorAll('.project-images img').forEach(img => {
   img.addEventListener('click', e => {
-    e.preventDefault(); // ✅ Prevents scrolling
+    e.preventDefault(); // prevents scroll
     modal.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
     modal.classList.add('active');
   });
 });
 
+/* ----- MODAL for CERTIFICATES ----- */
+document.querySelectorAll('.cert-card img').forEach(img => {
+  img.addEventListener('click', e => {
+    e.preventDefault(); // prevents scroll
+    modal.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+    modal.classList.add('active');
+  });
+});
+
+/* ----- CLOSE MODAL ON CLICK ----- */
 modal.addEventListener('click', () => modal.classList.remove('active'));
 
 
