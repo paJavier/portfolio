@@ -487,3 +487,117 @@ header {
     max-width: 260px;
   }
 }
+
+
+footer#contact {
+  position: relative;
+  margin-top: 90px;
+  padding: 14px 28px 8px; 
+
+  /* Glass base */
+  background: rgba(12, 12, 18, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  /* Separation */
+  border-top: 1px solid rgba(180, 80, 255, 0.35);
+  box-shadow:
+    0 -20px 60px rgba(180, 80, 255, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Neon glow line */
+footer#contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--vio),
+    #6cf,
+    var(--vio),
+    transparent
+  );
+  box-shadow: 0 0 15px var(--vio);
+}
+
+/* Subtle animated glow wash */
+footer#contact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(180,80,255,0.15), transparent 60%);
+  pointer-events: none;
+}
+
+/* Titles */
+footer#contact .section-title {
+  margin-bottom: 10px;
+}
+
+footer#contact .contact-subtitle {
+  opacity: 0.75;
+  margin-bottom: 35px;
+}
+
+/* Text */
+footer#contact .contact-text {
+  max-width: 520px;
+  margin: 0 auto 45px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* Icons container */
+footer#contact .contact-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+/* Icon cards */
+footer#contact .contact-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 20px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(180,80,255,0.25);
+
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+/* Icon hover — cyberpunk but clean */
+footer#contact .contact-icon:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 18px rgba(180,80,255,0.45),
+    0 0 40px rgba(108,204,255,0.15);
+  border-color: var(--vio);
+}
+
+/* Icon symbols */
+footer#contact .contact-icon i {
+  font-size: 1.2rem;
+  color: var(--vio);
+}
+
+/* Footer copyright */
+footer#contact .footer-copy {
+  margin-top: 50px;
+  font-size: 0.85rem;
+  opacity: 0.5;
+}

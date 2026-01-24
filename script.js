@@ -60,6 +60,7 @@ function updateThemeBtn() {
   themeBtn.innerHTML = darkMode ? '<i class="fa-solid fa-sun"></i><span>Light Mode</span>' : '<i class="fa-solid fa-moon"></i><span>Dark Mode</span>';
 }
 updateThemeBtn();
+
 themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
   document.body.classList.toggle('light-mode');
@@ -67,6 +68,17 @@ themeBtn.addEventListener('click', () => {
   updateThemeBtn();
 });
 
+const style = document.createElement('style');
+style.textContent = `
+  #theme-btn {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  #theme-btn:hover {
+    transform: scale(1.1);
+  }
+`;
+document.head.appendChild(style);
 
 /* =====================
    TYPEWRITER EFFECT
