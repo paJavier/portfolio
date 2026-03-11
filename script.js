@@ -147,30 +147,82 @@ const nextBtn = document.getElementById('nextProject');
 const prevBtn = document.getElementById('prevProject');
 const modal = document.getElementById('modal');
 
-let current = 0;
+if(projectContainer && projects.length && nextBtn && prevBtn){
+  let current = 0;
+  let isTransitioning = false;
+  let unlockTimer = null;
+  const sliderButtons = [prevBtn, nextBtn];
+  const sliderLiveRegion = document.createElement('span');
+  sliderLiveRegion.className = 'sr-only';
+  sliderLiveRegion.setAttribute('aria-live','polite');
+  const sliderWrapper = projectContainer.parentElement || projectContainer;
+  sliderWrapper.appendChild(sliderLiveRegion);
 
-function updateSlider(){
-  projectContainer.style.transform = `translateX(-${current * 100}%)`;
+  function setButtonState(disabled){
+    sliderButtons.forEach(btn => {
+      btn.disabled = disabled;
+      btn.setAttribute('aria-disabled', String(disabled));
+      btn.classList.toggle('is-disabled', disabled);
+    });
+  }
+
+  function updateSlider(){
+    projectContainer.style.transform = `translateX(-${current * 100}%)`;
+    sliderLiveRegion.textContent = `Showing project ${current + 1} of ${projects.length}`;
+    prevBtn.setAttribute('aria-label', `Show previous project (${((current - 1 + projects.length) % projects.length) + 1} of ${projects.length})`);
+    nextBtn.setAttribute('aria-label', `Show next project (${((current + 1) % projects.length) + 1} of ${projects.length})`);
+  }
+
+  function handleTransitionEnd(){
+    if(!isTransitioning) return;
+    isTransitioning = false;
+    setButtonState(false);
+    if(unlockTimer){
+      clearTimeout(unlockTimer);
+      unlockTimer = null;
+    }
+  }
+
+  function goToSlide(direction){
+    if(isTransitioning) return;
+    isTransitioning = true;
+    setButtonState(true);
+    current = (current + direction + projects.length) % projects.length;
+    updateSlider();
+    unlockTimer = setTimeout(handleTransitionEnd, 600); // safety unlock
+  }
+
+  updateSlider();
+  setButtonState(false);
+
+  /* ----- BUTTONS ----- */
+  nextBtn.addEventListener('click', () => goToSlide(1));
+  prevBtn.addEventListener('click', () => goToSlide(-1));
+
+  projectContainer.addEventListener('transitionend', handleTransitionEnd);
+  projectContainer.addEventListener('transitioncancel', handleTransitionEnd);
+
+  /* ----- SWIPE ----- */
+  let startX = 0;
+  projectContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+  projectContainer.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50) goToSlide(1);
+    if(endX - startX > 50) goToSlide(-1);
+  });
+
+  /* ----- KEYBOARD NAVIGATION ----- */
+  document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight'){
+      e.preventDefault();
+      goToSlide(1);
+    }
+    if(e.key === 'ArrowLeft'){
+      e.preventDefault();
+      goToSlide(-1);
+    }
+  });
 }
-
-/* ----- BUTTONS ----- */
-nextBtn.addEventListener('click', () => { 
-  current = (current + 1) % projects.length; 
-  updateSlider(); 
-});
-prevBtn.addEventListener('click', () => { 
-  current = (current - 1 + projects.length) % projects.length; 
-  updateSlider(); 
-});
-
-/* ----- SWIPE ----- */
-let startX = 0;
-projectContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
-projectContainer.addEventListener('touchend', e => {
-  let endX = e.changedTouches[0].clientX;
-  if(startX - endX > 50) { current = (current+1) % projects.length; updateSlider(); }
-  if(endX - startX > 50) { current = (current-1 + projects.length) % projects.length; updateSlider(); }
-});
 
 /* ----- MODAL for PROJECTS ----- */
 document.querySelectorAll('.project-images img').forEach(img => {
